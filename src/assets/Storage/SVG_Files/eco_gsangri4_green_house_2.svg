@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2" viewBox="0 0 610 610" version="1.1">
+  <g id="layer4" transform="translate(5 -397.36)">
+    <g id="g3051">
+      <rect id="rect5840" stroke-linejoin="round" ry="1.5381" height="600" width="600" stroke="#4a0" y="402.36" x="0" stroke-width="10" fill="none"/>
+      <path id="rect5004" fill="#4a0" d="m391.75 455.4-22.168 0.12248 2.1433 68.709-72.2-48.317 1.286 38.274 231.54 153.58c11.73 0.16794 23.695-2.4043 16.595-25.046l-154.55-103.35-2.64-83.96zm-99.02 20.09-248.44 167.73c-6.8887 20.736 6.6898 25.356 16.595 25.046l232.46-153.65-0.61-39.13zm-166.63 160.5-27.925 21.372v274.77h27.006l0.91857-296.15zm340.97 0 0.91856 296.15h27.006v-274.77l-27.924-21.372zm-384.26 301.29c-3.7781 4.6541-5.5741 9.3082 0 13.962h427.56c3.1488-3.6045 6.0734-7.2837 0-13.962h-427.56z"/>
+      <g id="g3023" transform="matrix(1.1313 -.039220 .040744 1.089 -81.046 -31.695)">
+        <g id="g5462" transform="matrix(2.7323 -1.2672 .82272 3.5256 -909.03 417.33)">
+          <path id="path5464" fill="#4a0" transform="matrix(.33901 .064567 -.0087780 .27464 274.2 112.44)" d="m410.34 221.66c0.0323 4.0784-1.2134 37.755-48.75 70.875-23.327 20.628-97.088 83.85-63.362 124.95-4.0362 6.7182-8.6433 13.551-12.696 39.741-3.4269-21.223-11.148-27.722-13.755-32.035 21.68-42.281-3.9958-63.154-25.75-90.438-27.017-24.669-20.5-53.031-20.5-53.031s-32.741 126.93 17.531 150.03 17.694 3.3656 26.844-3.375c14.218 23.567 13.502 45.271 13.502 45.271l5.124-0.092c-2.0564-14.689 12.562-51.179 12.562-51.179 12.674 7.5949 36.344-4.5312 36.344-4.5312 86.33-35.683 73.289-191.81 72.906-196.19z"/>
+        </g>
+      </g>
+    </g>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>eco green house icon</dc:title>
+        <dc:date>2012-06-01T15:48:03</dc:date>
+        <dc:description>clip art, clipart, ecology, green, green house, home, house, </dc:description>
+        <dc:source>http://openclipart.org/detail/170344/eco-green-house-icon-by-cybergedeon-170344</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>dominiquechappard</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>clipart</rdf:li>
+            <rdf:li>ecology</rdf:li>
+            <rdf:li>green</rdf:li>
+            <rdf:li>green house</rdf:li>
+            <rdf:li>home</rdf:li>
+            <rdf:li>house</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

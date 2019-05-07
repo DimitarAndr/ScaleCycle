@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:ns1="http://sozi.baierouge.fr"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    id="svg5859"
+    sodipodi:docname="usine.svg"
+    viewBox="0 0 145.21 177.26"
+    version="1.1"
+    inkscape:version="0.48.0 r9654"
+  >
+  <title
+      id="title3866"
+    >usine</title
+  >
+  <sodipodi:namedview
+      id="base"
+      fit-margin-left="0"
+      inkscape:showpageshadow="false"
+      inkscape:zoom="2.3743319"
+      borderopacity="1.0"
+      inkscape:current-layer="layer1"
+      inkscape:cx="30.97179"
+      inkscape:cy="35.311913"
+      inkscape:window-maximized="0"
+      showgrid="false"
+      fit-margin-right="0"
+      inkscape:document-units="px"
+      bordercolor="#666666"
+      inkscape:window-x="19"
+      inkscape:window-y="0"
+      fit-margin-bottom="0"
+      inkscape:window-width="1442"
+      inkscape:pageopacity="0.0"
+      inkscape:pageshadow="2"
+      pagecolor="#ffffff"
+      inkscape:window-height="812"
+      showborder="false"
+      fit-margin-top="0"
+  />
+  <g
+      id="layer1"
+      inkscape:label="Calque 1"
+      inkscape:groupmode="layer"
+      transform="translate(-323.29 -341.18)"
+    >
+    <path
+        id="path3013"
+        sodipodi:nodetypes="ccccc"
+        style="stroke-linejoin:round;stroke:#000000;stroke-linecap:round;stroke-width:2;fill:#ffffff"
+        inkscape:connector-curvature="0"
+        d="m341.8 399.49c0 2.7994-3.7259 65.429-3.7259 65.429l20.076-0.20967-5.9041-65.444z"
+    />
+    <path
+        id="path3015"
+        sodipodi:nodetypes="ccccc"
+        style="stroke-linejoin:round;stroke:#000000;stroke-linecap:round;stroke-width:2;fill:#ffffff"
+        inkscape:connector-curvature="0"
+        d="m365.85 413.8-2.7114 52.688 17.649-0.48738-3.7805-51.605z"
+    />
+    <path
+        id="path3841"
+        sodipodi:nodetypes="ccccccc"
+        style="stroke-linejoin:round;stroke:#000000;stroke-linecap:round;stroke-width:2;fill:#ffffff"
+        inkscape:connector-curvature="0"
+        d="m394.22 516.63 72.441-0.00001-0.00001-49.698-31.167 13.477-0.84235-15.162-40.432 16.847z"
+    />
+    <path
+        id="path3019"
+        sodipodi:nodetypes="ccccc"
+        style="stroke-linejoin:round;stroke:#000000;stroke-linecap:round;stroke-width:2;fill:#ffffff"
+        inkscape:connector-curvature="0"
+        d="m324.29 464.17 71.144-0.51725 0.69072 53.279-70.453 0.51727z"
+    />
+    <g
+        id="g6434"
+        style="stroke-width:.66097"
+        transform="matrix(1.924 0 0 1.3445 -41.093 -90.458)"
+      >
+      <path
+          id="path3507"
+          d="m203.26 450.91z"
+          style="fill-rule:evenodd;stroke:#000000;stroke-width:.62174;fill:#ffffff"
+          inkscape:connector-curvature="0"
+      />
+      <path
+          id="path3509"
+          d="m199.45 451.87-0.14199-20.375 18.92-0.12832 0.22399 20.246z"
+          sodipodi:nodetypes="ccccc"
+          style="fill-rule:evenodd;stroke:#000000;stroke-width:.62174;fill:#ffffff"
+          inkscape:connector-curvature="0"
+      />
+      <path
+          id="path3511"
+          sodipodi:nodetypes="cc"
+          d="m208.74 431.19-0.087 20.489"
+          style="fill-rule:evenodd;stroke:#000000;stroke-width:.62174;fill:#ffffff"
+          inkscape:connector-curvature="0"
+      />
+    </g
+    >
+    <path
+        id="path3017"
+        d="m404.23 487.71v18.011l25.241-0.35316-0.31161-18.364z"
+        style="stroke-linejoin:round;stroke-dashoffset:3.003;stroke:#000000;stroke-linecap:round;fill:#ffffff"
+        inkscape:connector-curvature="0"
+    />
+    <path
+        id="path3843"
+        style="stroke-linejoin:round;stroke-dashoffset:3.003;stroke:#000000;stroke-linecap:round;fill:#ffffff"
+        inkscape:connector-curvature="0"
+        d="m435.39 487.71v18.011l25.241-0.35316-0.31161-18.364z"
+    />
+    <path
+        id="path3862"
+        d="m408.57 342.08c-4.7079-0.62217-9.2294 0.39691-12.914 2.5972-2.1195-1.4835-4.61-2.4842-7.3369-2.8446-9.2031-1.2162-17.669 5.4006-19 14.79-6.9949 0.32267-12.892 5.3339-13.793 12.154-0.0319 0.2411-0.0336 0.47772-0.0524 0.7175-5.6729 0.52437-10.449 4.9022-11.227 10.789-0.90306 6.8334 3.8888 13.085 10.722 13.988 5.0594 0.66861 9.8313-1.7745 12.324-5.8711 1.4681 0.83275 3.0961 1.4319 4.8929 1.6693 2.9195 0.38583 5.7247-0.22784 8.0801-1.4889 2.7221 2.4776 6.245 4.1917 10.201 4.7144 10.14 1.34 19.407-5.6233 20.718-15.543 0.006-0.0422 0.0113-0.0834 0.0166-0.12557 7.3599-1.7446 13.18-7.5157 14.175-15.044 1.3109-9.9194-6.2264-19.104-16.807-20.502z"
+        style="stroke-linejoin:round;stroke:#000000;stroke-linecap:round;fill:#ffffff"
+        inkscape:connector-curvature="0"
+    />
+    <path
+        id="path3845"
+        style="stroke-linejoin:round;stroke:#000000;stroke-linecap:round;fill:#ffffff"
+        inkscape:connector-curvature="0"
+        d="m434.68 363.47c-4.3211-0.60884-8.4838 0.29189-11.887 2.2846-1.9358-1.3799-4.2164-2.319-6.7193-2.6717-8.447-1.1902-16.278 4.8231-17.575 13.44-6.43 0.24132-11.888 4.7995-12.77 11.059-0.0312 0.2213-0.0346 0.4387-0.0537 0.65889-5.2169 0.43707-9.6398 4.4221-10.401 9.825-0.88371 6.2719 3.4701 12.054 9.742 12.938 4.6436 0.65429 9.0478-1.553 11.37-5.2976 1.3424 0.77679 2.8336 1.3401 4.4828 1.5725 2.6796 0.37756 5.2621-0.1642 7.4363-1.3044 2.4818 2.2981 5.7053 3.9009 9.3358 4.4125 9.3067 1.3113 17.877-5.014 19.16-14.118 0.005-0.0387 0.0111-0.0766 0.0162-0.11526 6.7766-1.545 12.17-6.802 13.144-13.712 1.2828-9.1044-5.5706-17.603-15.282-18.971z"
+    />
+  </g
+  >
+  <metadata
+    >
+    <rdf:RDF
+      >
+      <cc:Work
+        >
+        <dc:format
+          >image/svg+xml</dc:format
+        >
+        <dc:type
+            rdf:resource="http://purl.org/dc/dcmitype/StillImage"
+        />
+        <cc:license
+            rdf:resource="http://creativecommons.org/licenses/publicdomain/"
+        />
+        <dc:publisher
+          >
+          <cc:Agent
+              rdf:about="http://openclipart.org/"
+            >
+            <dc:title
+              >Openclipart</dc:title
+            >
+          </cc:Agent
+          >
+        </dc:publisher
+        >
+        <dc:title
+          >Usine / Factory</dc:title
+        >
+        <dc:date
+          >2011-05-14T21:04:55</dc:date
+        >
+        <dc:description
+          >A line_art of a factory</dc:description
+        >
+        <dc:source
+          >https://openclipart.org/detail/138739/usine--factory-by-lmproulx</dc:source
+        >
+        <dc:creator
+          >
+          <cc:Agent
+            >
+            <dc:title
+              >lmproulx</dc:title
+            >
+          </cc:Agent
+          >
+        </dc:creator
+        >
+        <dc:subject
+          >
+          <rdf:Bag
+            >
+            <rdf:li
+              >factory</rdf:li
+            >
+            <rdf:li
+              >industry</rdf:li
+            >
+            <rdf:li
+              >line_art</rdf:li
+            >
+            <rdf:li
+              >manufacture</rdf:li
+            >
+            <rdf:li
+              >workshop</rdf:li
+            >
+          </rdf:Bag
+          >
+        </dc:subject
+        >
+      </cc:Work
+      >
+      <cc:License
+          rdf:about="http://creativecommons.org/licenses/publicdomain/"
+        >
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#Reproduction"
+        />
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#Distribution"
+        />
+        <cc:permits
+            rdf:resource="http://creativecommons.org/ns#DerivativeWorks"
+        />
+      </cc:License
+      >
+    </rdf:RDF
+    >
+  </metadata
+  >
+</svg
+>

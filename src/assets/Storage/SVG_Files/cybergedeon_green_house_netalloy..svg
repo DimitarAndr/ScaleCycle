@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2" viewBox="0 0 722.67 601.03" version="1.1">
+  <title id="title4046">Home</title>
+  <defs id="defs4">
+    <linearGradient id="linearGradient3657">
+      <stop id="stop3660" stop-color="#3a583a" offset="0"/>
+      <stop id="stop3662" stop-color="#3a583a" stop-opacity="0" offset="1"/>
+    </linearGradient>
+    <linearGradient id="linearGradient3661" y2="1089.1" gradientUnits="userSpaceOnUse" x2="507.2" y1="434.05" x1="389.13">
+      <stop id="stop3657" stop-color="#20f300" offset="0"/>
+      <stop id="stop3663" stop-color="#07d817" stop-opacity=".49804" offset=".66895"/>
+      <stop id="stop3659" stop-color="#f2e848" stop-opacity="0" offset="1"/>
+    </linearGradient>
+    <linearGradient id="linearGradient3751" y2="686.64" gradientUnits="userSpaceOnUse" x2="360.38" y1="478.33" x1="103.72">
+      <stop id="stop3745" stop-color="#21fd00" offset="0"/>
+      <stop id="stop3747" stop-color="#21fd00" stop-opacity="0" offset="1"/>
+    </linearGradient>
+    <filter id="filter3990-0" color-interpolation-filters="sRGB">
+      <feGaussianBlur id="feGaussianBlur3992-8" stdDeviation="0.41276091"/>
+    </filter>
+    <linearGradient id="linearGradient3907" y2="812.36" gradientUnits="userSpaceOnUse" x2="310" y1="773.05" x1="104.11">
+      <stop id="stop3903" stop-color="#45ad45" offset="0"/>
+      <stop id="stop3905" stop-color="#45ad45" stop-opacity="0" offset="1"/>
+    </linearGradient>
+    <filter id="filter4014" height="1.2468" width="1.0653" y="-.12341" x="-.032635" color-interpolation-filters="sRGB">
+      <feGaussianBlur id="feGaussianBlur4016" stdDeviation="1.9346284"/>
+    </filter>
+    <linearGradient id="linearGradient3664" y2="886.05" xlink:href="#linearGradient3657" gradientUnits="userSpaceOnUse" x2="268.88" y1="671.62" x1="268.88"/>
+    <linearGradient id="linearGradient3666" y2="997.43" xlink:href="#linearGradient3657" gradientUnits="userSpaceOnUse" x2="400.43" y1="671.62" x1="400.43"/>
+    <linearGradient id="linearGradient3668" y2="849.5" xlink:href="#linearGradient3657" gradientUnits="userSpaceOnUse" x2="532.04" y1="671.62" x1="532.04"/>
+  </defs>
+  <g id="g3711" transform="translate(2.1433 -390.61)">
+    <g id="g3723">
+      <path id="path4024-5" opacity=".87142" d="m142.85 455.97 23.086 31.491 119.19-10.476-26.296-28.812-115.98 7.7981z" transform="matrix(4.7681 .095083 0 5.2828 -661.13 -1623.8)" filter="url(#filter4014)" fill="#275825"/>
+      <path id="path3963" d="m176.57 898.54-12.99-252.67 237.39-211.82 213.71 181.78-1.69 260.81z" stroke-width="0" fill="#fff" transform="translate(0,2e-4)"/>
+      <path id="path3653" d="m176.57 898.54-12.99-252.67 237.39-211.82 213.71 181.78-1.69 260.81z" stroke-width="0" fill="url(#linearGradient3661)" transform="translate(0,2e-4)"/>
+      <path id="path3958" d="m358.35 886.05 84.146-2.6902v-202.57l-84.146 5.2244v200.03z" stroke-width="0" fill="url(#linearGradient3666)"/>
+      <path id="path3958-3" d="m491.09 781.38 81.91-4.89v-104.87l-81.914 6.2047v103.56z" stroke-width="0" fill="url(#linearGradient3668)"/>
+      <path id="path3958-3-4" d="m228.43 798.99 81.91-4.89-0.34-104.37l-82.573 5.7047 1 103.56z" stroke-width="0" fill="url(#linearGradient3664)"/>
+      <path id="path3961" d="m178.26 901.91-10.399-257.72-63.743 53.837 8.4252 121.32z" fill="#fff" transform="translate(0,2e-4)"/>
+      <path id="path3688" d="m682.08 676.12c-15.164 0-67.4-15.165-67.4-15.165l3.3701-32.016z" stroke-width="0" fill="none" transform="translate(0,2e-4)"/>
+      <path id="path3690" d="m178.26 901.91-10.399-257.72-63.743 53.837 8.4252 121.32z" stroke-width="0" fill="url(#linearGradient3907)" transform="translate(0,2e-4)"/>
+      <path id="path3692" d="m106.21 810.92v26.756l70.362 87.826 444.06-29.837 3.3701-27.743-445.75 30.62z" stroke-width="0" fill="#45ad45" transform="translate(0,2e-4)"/>
+      <path id="path3694" d="m113.94 813.54-8.3404-3.5743 73.873 86.979 439.66-30.979-5.9579-4.7661h-1.1918" transform="translate(0,2e-4)" stroke="#2cbc00" stroke-width="4.766px" fill="none"/>
+      <path id="path3715" d="m79.741 686.64-39.658-67.81 227.48-198.84 132.42-28.35z" stroke-width="0" fill="url(#linearGradient3751)" transform="translate(0 .00020472)"/>
+      <path id="path3713" style="block-progression:tb;color:#000000;text-transform:none;text-indent:0" d="m402.13 390.61-11.17 9.83-306.66 269.57c-6.745 5.9655-7.4551 17.531-1.4892 24.277 5.9659 6.745 13.956 12.22 20.702 6.2553l299.07-264.51 279.11 244.56c6.824 5.85 15.972-3.3766 21.821-10.201 5.85-6.8239 4.9618-18.356-1.8635-24.204l-288.2-246.04z" fill-opacity=".90588" transform="translate(0 .00020472)" fill="#14c301"/>
+      <path id="path3717" d="m200.25 525.69v-118.69l56.795 0.20845 1.1584 60.278s-42.583 42.716-57.953 58.911l26.873 13.23 50.271-64.356-19.395-8.3438-57.749 58.758z" stroke-width="0" fill="#65a500" transform="translate(0 .00020472)"/>
+      <path id="path2881" d="m181.63 514.35v-97.731l18.534-10.11 0.0901 119.51-18.624-11.665z" fill="#fff" transform="translate(0 .00020472)"/>
+      <path id="path3719" d="m181.63 514.35v-97.731l18.534-10.11 0.0901 119.51-18.624-11.665z" fill="#00d903" transform="translate(0 .00020472)" fill-opacity=".64368"/>
+      <path id="path3721" d="m169.71 425.16 61.165-53.74 57.629 49.497" transform="matrix(4.9007 0 0 4.9417 -729.01 -1402.4)" filter="url(#filter3990-0)" stroke="#0f891f" stroke-width="1.8" fill="none"/>
+    </g>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>Green house</dc:title>
+        <dc:date>2012-05-18T04:05:51</dc:date>
+        <dc:description>architecture, clip art, clipart, construction, ecology, environnemental, green, home, house, isolated, </dc:description>
+        <dc:source>http://openclipart.org/detail/170096/grenn-house-by-cybergedeon</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>dominiquechappard</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>architecture</rdf:li>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>clipart</rdf:li>
+            <rdf:li>construction</rdf:li>
+            <rdf:li>ecology</rdf:li>
+            <rdf:li>environnemental</rdf:li>
+            <rdf:li>green</rdf:li>
+            <rdf:li>home</rdf:li>
+            <rdf:li>house</rdf:li>
+            <rdf:li>isolated</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

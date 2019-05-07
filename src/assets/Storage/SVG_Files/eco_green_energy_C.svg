@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2" viewBox="0 0 610 610" version="1.1">
+  <g id="layer4" transform="translate(5 -397.36)">
+    <rect id="rect5840" stroke-linejoin="round" ry="1.5381" height="600" width="600" stroke="#4a0" y="402.36" x="0" stroke-width="10" fill="none"/>
+    <path id="path6183" d="m182.89 957.36 162.63-157.08s-50.523-27.274-50.523-32.325c0-5.0508 150.53-128.29 143.46-130.31-7.0711-2.0203-72.731-25.254-66.67-28.284 6.06-3.03 173.21-152 173.21-152h-269.18l-108.69 200.66s118.79 24.07 113.74 29.121c-5.0508 5.0508-103.84 116.34-103.84 116.34s72.528 24.07 69.497 28.111c-3.0305 4.0406-63.64 125.77-63.64 125.77z" fill="#4a0"/>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>eco green energy icon</dc:title>
+        <dc:date>2013-09-29T21:05:50</dc:date>
+        <dc:description/>
+        <dc:source>http://openclipart.org/detail/183967/eco-green-energy-icon-by-dominiquechappard-183967</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>dominiquechappard</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>ecology</rdf:li>
+            <rdf:li>energy</rdf:li>
+            <rdf:li>green</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
