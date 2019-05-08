@@ -3,6 +3,7 @@
   text-align: center;
 }
 
+
 #navbarSupportedContent > div.navbarRegister > ul > li > a{
   text-align: center;
 }
@@ -12,8 +13,8 @@
 }
 
 #navbarSupportedContent > div.navbarRegister > ul > li > a > img{
-  width: 7vh;
-  height: 7vh;
+  width: 6vh;
+  height: 6vh;
 }
 
 .navbar-nav .nav-item {
@@ -22,8 +23,8 @@
 }
 
 .logo{
-  height: 15vh;
-  width: 20vh;
+  height: 10vh;
+  width: 15vh;
 }
 
 .navbarOpciones a {

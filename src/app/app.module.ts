@@ -5,6 +5,9 @@ import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import { ClientProfileComponent } from './client-profile/client-profile.component';
+import { MatToolbarModule, MatSidenavModule, MatListModule, MatButtonModule, MatIconModule } from '@angular/material';
+import {MatMenuModule} from '@angular/material/menu';
+
 
 
 import { MatDialogModule} from '@angular/material/dialog';
@@ -26,7 +29,13 @@ import { LoginComponent } from './login/login.component';
     
   ],
   entryComponents: [
-    LoginComponent
+    LoginComponent,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatMenuModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
