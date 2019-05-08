@@ -1,7 +1,70 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&subset=latin-ext');
+
 .image-container {
   background: url("../../assets/Storage/PaperPhoto.png") no-repeat top center;
   background-size: cover;
   height: 80vh;
+  position: relative;
+}
+
+.btn {
+  /* matches 'btn-md' */
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+
+@media (max-width: 760px) {
+  /* matches 'btn-xs' */
+  .btn-responsive {
+    padding: 1px 5px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+  }
+}
+
+.img-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.img-overlay:before {
+  content: ' ';
+  display: block;
+  height: 70%;
+}
+
+.btn {
+  background-color: #E64B4B;
+  color:#fff;
+  width: 20vh;
+  border-radius: 50px;
+}
+.registerTitle{
+  margin-top: 15vh;
+  color: #ffffff;
+}
+.registerSubTitle{
+  color: #ffffff;
+}
+p{
+  margin-top: 30px;
+  font-family: Karla;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 26.7253px;
+  line-height: 31px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.2em;
+  color: #060606;
 }
 
 
