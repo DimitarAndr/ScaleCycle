@@ -4,15 +4,17 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {NavbarComponent} from './navbar/navbar.component';
-import { ClientProfileComponent } from './client-profile/client-profile.component';
-import { MatToolbarModule, MatSidenavModule, MatListModule, MatButtonModule, MatIconModule } from '@angular/material';
-import {MatMenuModule} from '@angular/material/menu';
 
 
-
+//Ouxiang Lin
 import { MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ClientProfileComponent } from './client-profile/client-profile.component';
 import { LoginComponent } from './login/login.component';
+
+//Dimitar
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,17 +27,10 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatDialogModule,
-    
+    MatDialogModule, //Ouxiang
   ],
   entryComponents: [
-    LoginComponent,
-    BrowserAnimationsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatMenuModule
-
+    LoginComponent //Ouxiang
   ],
   providers: [],
   bootstrap: [AppComponent]
