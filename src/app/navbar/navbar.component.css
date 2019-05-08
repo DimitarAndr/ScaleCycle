@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500,500i,700,700i,900');
-
 #navbarSupportedContent {
   text-align: center;
 }
@@ -56,6 +55,7 @@
 .register img:hover {
   background-color: grey;
   border-radius: 100%;
+  cursor: pointer;
 }
 
 

@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Inject } from '@angular/core';
+import {MatDialog} from '@angular/material';
+import {LoginComponent} from '../login/login.component';
+export interface DialogData {
+  animal: 'panda' | 'unicorn' | 'lion';
+}
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,7 +11,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) {}
+
+  openDialog():void {
+    let dialogRef = this.dialog.open(LoginComponent, {
+      
+    });
+    dialogRef.afterClosed().subscribe(result => {
+    	console.log("gg");
+    })
+  }
 
   ngOnInit() {
   }
