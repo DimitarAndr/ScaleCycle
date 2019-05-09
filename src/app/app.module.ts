@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ClientProfileComponent } from './client-profile/client-profile.component';
 import { LoginComponent } from './login/login.component';
+import { FooterComponent } from './footer/footer.component';
 
 //Dimitar
 
@@ -21,7 +22,8 @@ import { LoginComponent } from './login/login.component';
     HomeComponent,
     NavbarComponent,
     ClientProfileComponent,
-    LoginComponent
+    LoginComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
