@@ -1,18 +1,32 @@
 <form action="">
-	<b>Login</b>
-	<form>
-		<div class="form-row">
-	    <div class="form-group col-md-12">
-	      <label for="username">Username</label>
-	      <input type="text" class="form-control" name="username" id="username" placeholder="Introduce su Username">
-	    </div>
-	    <div class="form-group col-md-12">
-	      <label for="password">Password</label>
-	      <input type="text" class="form-control" name="password" id="password" placeholder="Introduce su Password">
-	    </div>
-	  </div>
-	  <div align="center">
-	  	<button id="done" type="submit" class="btn btn-primary">Crear</button>
-	  </div>
-	</form>
+	<div class="title" align="center">
+		<strong>LOGIN</strong>
+	</div>
+	<div class="container">
+		<form>
+			<div class="form-row">
+		    <div class="form-group col-md-12">
+		      <label for="username">Username</label>
+		      <div class="form-group input-group">
+			      <div class="input-group-prepend">
+	            <span class="input-group-text"><i class="fas fa-users"></i></span>
+	          </div>
+			      <input type="text" class="form-control" name="username" id="username" placeholder="Introduce su Username">
+			    </div>
+		    </div>
+		    <div class="form-group col-md-12">
+		      <label for="password">Password</label>
+		      <div class="form-group input-group">
+			      <div class="input-group-prepend">
+	            <span class="input-group-text"><i class="fa fa-lock"></i></span>
+	          </div>
+			     	<input type="text" class="form-control" name="password" id="password" placeholder="Introduce su Password">
+		      </div>
+		    </div>
+		  </div>
+		  <div align="center">
+		  	<button id="done" type="submit" class="btn btn-primary">Login</button>
+		  </div>
+		</form>
+	</div>
 </form>

@@ -12,7 +12,8 @@ export interface DialogData {
 export class NavbarComponent implements OnInit {
 
   constructor(public dialog: MatDialog) {}
-
+  isLogin: boolean = true;
+  Estado:String = 'Client';
   openDialog():void {
     let dialogRef = this.dialog.open(LoginComponent, {
       
@@ -23,6 +24,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
 }

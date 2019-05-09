@@ -1,0 +1,11 @@
+.form-row{
+	display: block;
+}
+strong{
+	font-size: 3em;
+	margin: 5px;
+	text-align: center;
+}
+.title{
+	margin: 10px;
+}

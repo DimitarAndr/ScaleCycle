@@ -66,5 +66,7 @@ p{
   letter-spacing: 0.2em;
   color: #060606;
 }
-
+.benefits{
+  min-height: 124px;
+}
 

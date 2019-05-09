@@ -27,14 +27,22 @@
     <div class="dropdown-divider"></div>
     <div class="navbarRegister">
       <ul class="navbar-nav text-left">
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!isLogin">
           <div class="btn-outline-info table-hover"></div>
           <a class="nav-link register" (click)="openDialog()"><img class="fa fa-fw" src="../../assets/Storage/SVG_Files/outline-person_outline-24px.svg"></a>
         </li>
-        <!--  <li class="nav-item">
-            <a class="nav-link" href="#"><img class="fa fa-fw"
-                                              src="../../assets/Storage/SVG_Files/outline-person_add-24px.svg">Registrar</a>
-            </li>-->
+        <li class="nav-item dropdown" *ngIf="isLogin">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <img class="fa fa-fw" src="../../assets/Storage/SVG_Files/outline-person_outline-24px.svg">
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="./{{Estado}}">Mi perfil</a>
+            <a class="dropdown-item" href="#">Premio</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Ajuste</a>
+            <a class="dropdown-item" href="#">Logout</a>
+          </div>
+        </li>
       </ul>
     </div>
   </div>
