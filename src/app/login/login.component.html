@@ -1,9 +1,8 @@
-<form action="">
-	<div class="title" align="center">
-		<strong>LOGIN</strong>
-	</div>
+<h2 mat-dialog-title>Login</h2>
+<mat-dialog-content>
+	<b id="error" *ngIf='!loginStatud'>{{msgError}}</b>
 	<div class="container">
-		<form>
+		<form class="form" #usuform="ngForm" (ngSubmit)="onSubmit()" id="login">
 			<div class="form-row">
 		    <div class="form-group col-md-12">
 		      <label for="username">Username</label>
@@ -11,7 +10,7 @@
 			      <div class="input-group-prepend">
 	            <span class="input-group-text"><i class="fas fa-users"></i></span>
 	          </div>
-			      <input type="text" class="form-control" name="username" id="username" placeholder="Introduce su Username">
+			      <input type="text" class="form-control" name="username" id="username" placeholder="Introduce su Username" [(ngModel)]="user.username">
 			    </div>
 		    </div>
 		    <div class="form-group col-md-12">
@@ -20,13 +19,33 @@
 			      <div class="input-group-prepend">
 	            <span class="input-group-text"><i class="fa fa-lock"></i></span>
 	          </div>
-			     	<input type="text" class="form-control" name="password" id="password" placeholder="Introduce su Password">
+			     	<input type="text" class="form-control" name="password" id="password" placeholder="Introduce su Password" [(ngModel)]="user.password"> 
 		      </div>
 		    </div>
 		  </div>
-		  <div align="center">
-		  	<button id="done" type="submit" class="btn btn-primary">Login</button>
+		  <div class="dropdown">
+		    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+		      Dropdown button
+		    </button>
+		    <div class="dropdown-menu">
+		      <a class="dropdown-item" href="#">Link 1</a>
+		      <a class="dropdown-item" href="#">Link 2</a>
+		      <a class="dropdown-item" href="#">Link 3</a>
+		      <div class="dropdown-divider"></div>
+		      <a class="dropdown-item" href="#">Another link</a>
+		    </div>
 		  </div>
+		  <div class="radio">
+	      <label><input type="radio" name="type" [(ngModel)]="user.type" [value]="1">Cliente</label>
+	      <label><input type="radio" name="type" [(ngModel)]="user.type" [value]="2">Empleado</label>
+	      {{user.type}}
+	    </div>
 		</form>
 	</div>
-</form>
+	<button mat-button mat-dialog-close routerLink="./Register">Registrar</button>
+	<button>Recuperar Contraseña</button>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button id="done" type="submit" class="btn btn-primary" form="login">Login</button>
+  <button mat-button mat-dialog-close>Cancelar</button> 
+</mat-dialog-actions>

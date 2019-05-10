@@ -1,0 +1,9 @@
+.radio{
+	border: 1px solid #ced4da;
+	border-radius: 5px;
+	padding: 6px 12px;
+	height: 38px;
+}
+.radio label:nth-last-child(1){
+	padding-left: 50px;
+}
