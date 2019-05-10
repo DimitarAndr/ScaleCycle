@@ -7,12 +7,15 @@
   position: relative;
 }
 
-.btn {
+.photo {
   /* matches 'btn-md' */
   padding: 10px 16px;
   font-size: 18px;
   line-height: 1.3333333;
-  border-radius: 6px;
+  background-color: #E64B4B;
+  color: #fff;
+  width: 20vh;
+  border-radius: 50px;
 }
 
 @media (max-width: 760px) {
@@ -40,22 +43,18 @@
   height: 70%;
 }
 
-.btn {
-  background-color: #E64B4B;
-  color:#fff;
-  width: 20vh;
-  border-radius: 50px;
-}
-.registerTitle{
+.registerTitle {
   margin-top: 15vh;
   color: #ffffff;
 }
-.registerSubTitle{
+
+.registerSubTitle {
   color: #ffffff;
 }
-p{
+
+p {
   margin-top: 30px;
-  font-family: Karla;
+  font-family: Karla sans-serif;
   font-style: italic;
   font-weight: bold;
   font-size: 26.7253px;
@@ -68,5 +67,50 @@ p{
 }
 .benefits{
   min-height: 124px;
+
+.events {
+  font-family: Karla;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 80px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: 0.2em;
+  color: #060606;
 }
 
+.events-button {
+  margin: 5vh;
+  border-radius: 50px;
+  background-color: #19381F;
+  font-family: Karla sans-serif;
+  font-size: 32px;
+  line-height: 59px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.puntos{
+  font-family: Karla;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 72px;
+  line-height: 84px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.svg-image {
+  display: inline-block;
+}
+
+.input-group-text{
+  background-color: #FFFFFF;
+  border: 0px;
+}
+
+.mapa {
+ height: 500px;
+}

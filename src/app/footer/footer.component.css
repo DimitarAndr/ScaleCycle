@@ -1,0 +1,56 @@
+.footer {
+  height: 400px;
+  background-color: #D5DAD6;
+}
+
+.text-footer {
+  margin-top: 30px;
+  font-family: Karla, sans-serif;
+  font-size: 18px;
+  letter-spacing: 3px;
+  line-height: 21px;
+  color: #152E1A;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.text-contacto {
+  margin-top: 30px;
+  font-family: Karla;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 49px;
+  color: #152E1A;
+}
+
+.contacto {
+  font-family: Karla;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 28px;
+  display: flex;
+  color: #152E1A;
+}
+
+.contactos {
+  width: fit-content;
+}
+
+.svg-image {
+  display: inline-block;
+}
+
+.text-siguenos {
+  margin-top: 30px;
+  font-family: Karla, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 42px;
+  line-height: 49px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #152E1A;
+}

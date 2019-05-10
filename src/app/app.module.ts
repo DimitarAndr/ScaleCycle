@@ -17,6 +17,8 @@ import { ClientProfileComponent } from './client-profile/client-profile.componen
 import { LoginComponent } from './login/login.component';
 import { FormsModule }   from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { FooterComponent } from './footer/footer.component';
+
 //Dimitar
 
 
@@ -33,7 +35,8 @@ const rutas = [
     NavbarComponent,
     ClientProfileComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    FooterComponent
   ],
   imports: [
     RouterModule.forRoot(rutas),
