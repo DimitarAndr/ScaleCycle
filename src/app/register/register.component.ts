@@ -4,6 +4,10 @@ import { HttpClient } from '@angular/common/http';
 
 import {MatDialog} from '@angular/material';
 import {LoginComponent} from '../login/login.component';
+
+import {Globals} from '../globals/globals';
+
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -27,12 +31,12 @@ export class RegisterComponent implements OnInit {
 	};
 	createStatud:boolean;
 	msgError:String;
-  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, public dialog: MatDialog) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, public dialog: MatDialog, private globals:Globals) { }
 
   ngOnInit() {
   }
   onSubmit(){
-  	this.http.post('http://localhost/M12/login', this.user).subscribe(data => {
+  	this.http.post(this.globals['SERVER']+'/register', this.user).subscribe(data => {
 			if (data['error']) {
 				this.createStatud = false;
 				this.msgError = data['error'].text;

@@ -1,8 +1,8 @@
-<h2 mat-dialog-title>Login</h2>
+<h2 mat-dialog-title>Login {{typeUser}}</h2>
 <mat-dialog-content>
 	<b id="error" *ngIf='!loginStatud'>{{msgError}}</b>
 	<div class="container">
-		<form class="form" #usuform="ngForm" (ngSubmit)="onSubmit()" id="login">
+		<form class="form" #loginForm="ngForm" (ngSubmit)="onSubmit()" id="login" novalidate>
 			<div class="form-row">
 		    <div class="form-group col-md-12">
 		      <label for="username">Username</label>
@@ -10,7 +10,10 @@
 			      <div class="input-group-prepend">
 	            <span class="input-group-text"><i class="fas fa-users"></i></span>
 	          </div>
-			      <input type="text" class="form-control" name="username" id="username" placeholder="Introduce su Username" [(ngModel)]="user.username">
+			      <input type="text" class="form-control" name="username" id="username" placeholder="Introduce su Username" [(ngModel)]="user.username" #username="ngModel" [ngClass]="{'is-invalid':loginForm.submitted && username.invalid}" required>
+			      <div class="invalid-feedback">
+			      	Invalid
+			      </div>
 			    </div>
 		    </div>
 		    <div class="form-group col-md-12">
@@ -19,33 +22,34 @@
 			      <div class="input-group-prepend">
 	            <span class="input-group-text"><i class="fa fa-lock"></i></span>
 	          </div>
-			     	<input type="text" class="form-control" name="password" id="password" placeholder="Introduce su Password" [(ngModel)]="user.password"> 
+			     	<input type="text" class="form-control" name="password" id="password" placeholder="Introduce su Password" [(ngModel)]="user.password" #password="ngModel" [ngClass]="{'is-invalid':loginForm.submitted && password.invalid}" required minlength="8"> 
+			     	<div *ngIf="loginForm.submitted && password.invalid" class="invalid-feedback">
+			      	<div *ngIf="password.errors.required">Required</div>
+			      	<div *ngIf="password.errors.minlength">min8</div>
+			      </div>
 		      </div>
 		    </div>
 		  </div>
 		  <div class="dropdown">
-		    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-		      Dropdown button
+		    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" style="width: 100%;">
+		      Avanzado
 		    </button>
-		    <div class="dropdown-menu">
-		      <a class="dropdown-item" href="#">Link 1</a>
-		      <a class="dropdown-item" href="#">Link 2</a>
-		      <a class="dropdown-item" href="#">Link 3</a>
-		      <div class="dropdown-divider"></div>
-		      <a class="dropdown-item" href="#">Another link</a>
+		    <div class="dropdown-menu" style="width: 100%;">
+		    	<div class="radio">
+			      <label><input type="radio" name="type" [(ngModel)]="user.type" value="1" (ngModelChange)="changeType()">Cliente</label>
+			      <div class="dropdown-divider"></div>
+		      	<label><input type="radio" name="type" [(ngModel)]="user.type" value="2" (ngModelChange)="changeType()">Empleado</label>
+		      </div>
 		    </div>
 		  </div>
-		  <div class="radio">
-	      <label><input type="radio" name="type" [(ngModel)]="user.type" [value]="1">Cliente</label>
-	      <label><input type="radio" name="type" [(ngModel)]="user.type" [value]="2">Empleado</label>
-	      {{user.type}}
-	    </div>
 		</form>
+		<button mat-button mat-dialog-close routerLink="./Register">Registrar</button>
+		<button>Recuperar Contraseña</button>
 	</div>
-	<button mat-button mat-dialog-close routerLink="./Register">Registrar</button>
-	<button>Recuperar Contraseña</button>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button id="done" type="submit" class="btn btn-primary" form="login">Login</button>
-  <button mat-button mat-dialog-close>Cancelar</button> 
+	<div class="container">
+	  <button id="done" type="submit" class="btn btn-primary" form="login">Login</button>
+	  <button mat-button mat-dialog-close>Cancelar</button> 
+	</div>
 </mat-dialog-actions>

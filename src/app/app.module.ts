@@ -17,14 +17,23 @@ import { ClientProfileComponent } from './client-profile/client-profile.componen
 import { LoginComponent } from './login/login.component';
 import { FormsModule }   from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
-import { FooterComponent } from './footer/footer.component';
+import { EmployeeProfileComponent } from './employee-profile/employee-profile.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { RegisterSubmitComponent } from './register-submit/register-submit.component';
+import { RegisterChangeComponent } from './register-change/register-change.component';
 
 //Dimitar
+import { FooterComponent } from './footer/footer.component';
+import { Globals } from './globals/globals';
 
 
 const rutas = [
   {path:'', component: HomeComponent},
   {path:'Client', component: ClientProfileComponent},
+  {path:'RegisterSubmit', component: RegisterSubmitComponent},
+  {path:'RegisterChange', component: RegisterChangeComponent},
+  {path:'Employee', component: EmployeeProfileComponent},
+  {path:'Admin', component: AdminProfileComponent},
   {path:'Register', component: RegisterComponent},
   //{path: '**', component: 404}
 ];
@@ -36,7 +45,11 @@ const rutas = [
     ClientProfileComponent,
     LoginComponent,
     RegisterComponent,
-    FooterComponent
+    FooterComponent,
+    EmployeeProfileComponent,
+    AdminProfileComponent,
+    RegisterSubmitComponent,
+    RegisterChangeComponent
   ],
   imports: [
     RouterModule.forRoot(rutas),
@@ -50,7 +63,7 @@ const rutas = [
   entryComponents: [
     LoginComponent //Ouxiang
   ],
-  providers: [],
+  providers: [Globals],
   bootstrap: [AppComponent]
 })
 export class AppModule {
