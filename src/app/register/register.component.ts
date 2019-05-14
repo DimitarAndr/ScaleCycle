@@ -24,7 +24,7 @@ export class RegisterComponent implements OnInit {
 		"Email": "",
 		"Phone": "",
 		"Identifier": "",
-		"TypeIdentifier": "",
+		"TypeIdentifier": "DNI",
 		"Birthdate": "",
 		"Gender": "No definido",
 		"Avatar": ""
@@ -34,9 +34,12 @@ export class RegisterComponent implements OnInit {
   constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, public dialog: MatDialog, private globals:Globals) { }
 
   ngOnInit() {
+
   }
   onSubmit(){
-  	this.http.post(this.globals['SERVER']+'/register', this.user).subscribe(data => {
+  	this.msgError = "";
+  	this.http.post(this.globals['SERVER']+'/createAccount', this.user).subscribe(data => {
+  		console.log("onsubmit");
 			if (data['error']) {
 				this.createStatud = false;
 				this.msgError = data['error'].text;

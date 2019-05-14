@@ -21,10 +21,11 @@ import { EmployeeProfileComponent } from './employee-profile/employee-profile.co
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { RegisterSubmitComponent } from './register-submit/register-submit.component';
 import { RegisterChangeComponent } from './register-change/register-change.component';
+import { Globals } from './globals/globals';
+import { ActivateAccountComponent } from './activate-account/activate-account.component';
 
 //Dimitar
 import { FooterComponent } from './footer/footer.component';
-import { Globals } from './globals/globals';
 
 
 const rutas = [
@@ -35,6 +36,7 @@ const rutas = [
   {path:'Employee', component: EmployeeProfileComponent},
   {path:'Admin', component: AdminProfileComponent},
   {path:'Register', component: RegisterComponent},
+  {path:'activateAccount/:id', component: ActivateAccountComponent},
   //{path: '**', component: 404}
 ];
 @NgModule({
@@ -49,7 +51,8 @@ const rutas = [
     EmployeeProfileComponent,
     AdminProfileComponent,
     RegisterSubmitComponent,
-    RegisterChangeComponent
+    RegisterChangeComponent,
+    ActivateAccountComponent
   ],
   imports: [
     RouterModule.forRoot(rutas),

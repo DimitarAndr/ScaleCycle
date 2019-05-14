@@ -10,12 +10,12 @@ import {Globals} from '../globals/globals';
 })
 export class LoginComponent implements OnInit {
   constructor(public dialogRef: MatDialogRef<LoginComponent>,private route: ActivatedRoute, private http: HttpClient, private router: Router, private globals:Globals) { }
-  /*user = {
+  user = {
 		"username": "",
 		"password": "",
 		"type": "1" //default login client
-	};*/
-	user:any = {};
+	};
+	//user:any = {};
 	loginStatud:boolean;
 	msgError:string;
 	typeUser:string = 'Cliente';
@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
 						case "1":
 							this.dialogRef.close();
 							sessionStorage.setItem('userState','1');
-							this.router.navigateByUrl("/Client");
+							window.location.replace("http://localhost:4200/Client");
 							break;
 						default:
 							console.log("Estado desconocido");
