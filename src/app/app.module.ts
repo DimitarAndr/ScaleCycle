@@ -23,6 +23,7 @@ import { RegisterSubmitComponent } from './register-submit/register-submit.compo
 import { RegisterChangeComponent } from './register-change/register-change.component';
 import { Globals } from './globals/globals';
 import { ActivateAccountComponent } from './activate-account/activate-account.component';
+import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 
 //Dimitar
 import { FooterComponent } from './footer/footer.component';
@@ -37,6 +38,8 @@ const rutas = [
   {path:'Admin', component: AdminProfileComponent},
   {path:'Register', component: RegisterComponent},
   {path:'activateAccount/:id', component: ActivateAccountComponent},
+  {path:'recoverPassword', component: RecoverPasswordComponent},
+  {path:'recoverPassword/:username', component: RecoverPasswordComponent},
   //{path: '**', component: 404}
 ];
 @NgModule({
@@ -52,7 +55,8 @@ const rutas = [
     AdminProfileComponent,
     RegisterSubmitComponent,
     RegisterChangeComponent,
-    ActivateAccountComponent
+    ActivateAccountComponent,
+    RecoverPasswordComponent
   ],
   imports: [
     RouterModule.forRoot(rutas),
