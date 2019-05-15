@@ -2,21 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import {Globals} from '../globals/globals';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
-  constructor(public dialogRef: MatDialogRef<LoginComponent>,private route: ActivatedRoute, private http: HttpClient, private router: Router) { }
+  constructor(public dialogRef: MatDialogRef<LoginComponent>,private route: ActivatedRoute, private http: HttpClient, private router: Router, private globals:Globals) { }
   user = {
 		"username": "",
 		"password": "",
-		"type": ""
+		"type": "1" //default login client
 	};
+	//user:any = {};
 	loginStatud:boolean;
 	msgError:string;
+	typeUser:string = 'Cliente';
 	session = {
 		"userId":"",
 		"userName":"",
@@ -25,10 +27,16 @@ export class LoginComponent implements OnInit {
 		"userState":""
 	};
   ngOnInit() {
-
+  }
+  changeType(){
+  	if (this.user['type'] == "1") {
+  		this.typeUser = "Cliente";
+  	}else if(this.user['type'] == "2"){
+  		this.typeUser = "Empleado";
+  	}
   }
   onSubmit(){
-  	this.http.post('http://localhost/M12/login', this.user).subscribe(data => {
+  	this.http.post(this.globals['SERVER']+'/login', this.user).subscribe(data => {
 			if (data['error']) {
 				this.loginStatud = false;
 				this.msgError = data['error'].text;
@@ -55,9 +63,9 @@ export class LoginComponent implements OnInit {
 							break;
 						//Client
 						case "1":
-						this.dialogRef.close();
+							this.dialogRef.close();
 							sessionStorage.setItem('userState','1');
-							this.router.navigateByUrl("/Client");
+							window.location.replace("http://localhost:4200/Client");
 							break;
 						default:
 							console.log("Estado desconocido");
@@ -75,13 +83,15 @@ export class LoginComponent implements OnInit {
 							break;
 						//Employee
 						case "1":
+							this.dialogRef.close();
 							sessionStorage.setItem('userState','1');
-							this.router.navigateByUrl("/employee");
+							this.router.navigateByUrl("/Employee");
 							break;
 						//Administrator
 						case "2":
+							this.dialogRef.close();
 							sessionStorage.setItem('userState','2');
-							this.router.navigateByUrl("/administrator");
+							this.router.navigateByUrl("/Admin");
 							break;
 						default:
 							console.log("Estado desconocido");

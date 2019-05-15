@@ -45,8 +45,8 @@
             </div>
             <!-- Cuando es un empleado -->
             <div *ngIf="session.userType==2">
-              <a class="dropdown-item" href="#">Registrar Entrega</a>
-              <a class="dropdown-item" href="#">Registrar Cambios</a>
+              <a class="dropdown-item" href="/RegisterSubmit">Registrar Entrega</a>
+              <a class="dropdown-item" href="/RegisterChange">Registrar Cambios</a>
               <a class="dropdown-item" href="#">Ajuste Cliente</a>
               <!-- Cuando es un admin-->
               <div *ngIf="session.userState==2">
@@ -61,7 +61,7 @@
             <a class="dropdown-item" href="#">Ranking</a>
             <a class="dropdown-item" href="#">Ajuste</a>
             <a class="dropdown-item" href="#">Generar QR Code</a>
-            <a class="dropdown-item" href="#">Logout</a>
+            <a class="dropdown-item" (click)="logout()">Logout</a>
           </div>
         </li>
       </ul>
