@@ -1,0 +1,92 @@
+[
+  {
+    "barrio": "Zona Montjuic",
+    "calle": "Carrer del Foc, 56, 08038 Barcelona",
+    "lat": "41.355533",
+    "long": "2.139291"
+  },
+  {
+    "barrio": "La Bordeta",
+    "calle": "Carrer del Corral, 3341U, 08014 Barcelona",
+    "lat": "41.376042",
+    "long": "2.141357"
+  },
+  {
+    "barrio": "Poble-sec",
+    "calle": "Carrer de Palaudàries, 12, 08004 Barcelona",
+    "lat": "41.377224",
+    "long": "2.172832"
+  },
+  {
+    "barrio": "La Barceloneta",
+    "calle": "Passeig de Salvat Papasseit, 3, 08003 Barcelona",
+    "lat": "41.385025",
+    "long": "2.192458"
+  },
+  {
+    "barrio": "El Poblenou",
+    "calle": "Carrer de Carmen Amaya, 10, 08005 Barcelona",
+    "lat": "41.397317",
+    "long": "2.204945"
+  },
+  {
+    "barrio": "Sant Marti de Provencals",
+    "calle": "Carrer d'Andrade, 150, 08020 Barcelona",
+    "lat": "41.418490",
+    "long": "2.200515"
+  },
+  {
+    "barrio": "El Clot",
+    "calle": "Carrer dels Escultors Claperós, 49, 08018 Barcelona",
+    "lat": "41.409905",
+    "long": "2.189664"
+  },
+  {
+    "barrio": "Fort Pienc",
+    "calle": "Carrer d'Alí Bei, 76, 08013 Barcelona",
+    "lat": "41.398836",
+    "long": "2.181822"
+  },
+  {
+    "barrio": "Mercat del Ninot",
+    "calle": "Carrer de Casanova, 127, 08036 Barcelona",
+    "lat": "41.394637",
+    "long": "2.153583"
+  },
+  {
+    "barrio": "Les Corts",
+    "calle": "Carrer de Nicaragua, 101, 08029 Barcelona",
+    "lat": "41.390778",
+    "long": "2.138817"
+  },
+  {
+    "barrio": "Diagonal Pedralbes",
+    "calle": "Av. Esplugues, cantonada Gran Capità, 13X, 08034 Barcelona",
+    "lat": "41.395720",
+    "long": "2.108419"
+  },
+  {
+    "barrio": "Sagrada Familia",
+    "calle": "Carrer de Lepant, 281-283, 08013 Barcelona",
+    "lat": "41.410356",
+    "long": "2.175607"
+  },
+  {
+    "barrio": "Horta-Guinardo",
+    "calle": "Carrer del Mas Casanovas, 82, 08041 Barcelona",
+    "lat": "41.420580",
+    "long": "2.172080"
+  },
+  {
+    "barrio": "Sant Andreu",
+    "calle": "Carrer de Rovira i Virgili, 14, 08030 Barcelona",
+    "lat": "41.433296",
+    "long": "2.188923"
+  },
+  {
+    "barrio": "Turo de la Peira",
+    "calle": "Passeig de la Peira, 1, 08031 Barcelona",
+    "lat": "41.434576",
+    "long": "2.169354"
+  }
+]

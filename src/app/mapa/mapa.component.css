@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i&subset=latin-ext');
+
+*{
+  font-family: Karla sans-serif;
+}
+.background{
+background-image: linear-gradient(lightgrey,white,lightgrey);
+  padding: 50px;
+
+
+}
+agm-map {
+  width: 100%;
+  height: 500px;
+}
+li{
+  margin: 5px;
+  font-size: 18px;
+  font-family: Karla sans-serif;
+  font-weight: bold;
+  list-style: none;
+}
+.fas{
+  margin-right: 5px;
+  color: #009245;
+}
+
+.infoHeader{
+  margin: 50px;
+}
+
+.infoText{
+  font-size: 20px;
+}
+
+.mapaImg {
+  margin-top:30px;
+  margin-bottom: 30px;
+
+}
