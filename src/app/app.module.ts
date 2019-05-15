@@ -11,11 +11,11 @@ import {NavbarComponent} from './navbar/navbar.component';
 //Ouxiang Lin
 import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
 import {ClientProfileComponent} from './client-profile/client-profile.component';
 import {LoginComponent} from './login/login.component';
 import {FormsModule} from '@angular/forms';
 import {RegisterComponent} from './register/register.component';
+
 //Dimitar
 import {FooterComponent} from './footer/footer.component';
 // Dimitar
@@ -36,6 +36,8 @@ import {RecoverPasswordComponent} from './recover-password/recover-password.comp
 
 const rutas = [
   {path: '', component: HomeComponent},
+  {path: 'Mapa', component: MapaComponent},
+  {path: 'Premios', component: PremiosComponent},
   {path: 'Client', component: ClientProfileComponent},
   {path: 'RegisterSubmit', component: RegisterSubmitComponent},
   {path: 'RegisterChange', component: RegisterChangeComponent},
