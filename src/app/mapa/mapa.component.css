@@ -38,3 +38,45 @@ li{
   margin-bottom: 30px;
 
 }
+
+#input:focus{
+  outline: none;
+}
+
+
+.ui-menu-item{
+  font-size: 2vh;
+  color: floralwhite;
+}
+.ui-widget-content{
+  border: 1px solid white;
+  border-top: none;
+  width: 40vh;
+  background-color: black;
+  border-radius: 0 0 10px 10px;
+  padding-left: 8px;
+  font-size: 18px;
+  padding-bottom: 8px;
+}
+.has-search .form-control {
+  padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+}
+
+.input-group-text{
+  background-color: #FFFFFF;
+  border: 0px;
+}
+
+

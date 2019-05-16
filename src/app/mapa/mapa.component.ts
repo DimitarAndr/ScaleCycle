@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import data from '../../assets/Storage/PuntsVerds.json';
 import {AgmInfoWindow} from '@agm/core';
 
+
 declare var $: any;
 
 @Component({
@@ -18,6 +19,24 @@ export class MapaComponent implements OnInit {
   icon: any;
   currentIW: AgmInfoWindow;
   previousIW: AgmInfoWindow;
+  barrios = [
+    'Zona Montjuic',
+    'La Bordeta',
+    'Poble-sec',
+    'La Barceloneta',
+    'El Poblenou',
+    'Sant Marti de Provencals',
+    'El Clot',
+    'Fort Pienc',
+    'Mercat del Ninot',
+    'Les Corts',
+    'Diagonal Pedralbes',
+    'Sagrada Familia',
+    'Horta-Guinardo',
+    'Sant Andreu',
+    'Turo de la Peira'
+  ];
+
 
   constructor() {
     this.currentIW = null;
@@ -28,15 +47,12 @@ export class MapaComponent implements OnInit {
   ngOnInit() {
 
     $('#input').autocomplete({
-      serviceUrl: '../../assets/Storage/PuntsVerds.json',
-      onSelect(suggestion) {
-        alert('You selected: ' + suggestion.barrio);
-      }
-  });
+        source: this.barrios
+    });
 
     this.imageCluster = {
-        url: './assets/Storage/SVG_Files/recycled-bagEventos1.svg'
-      };
+      url: './assets/Storage/SVG_Files/recycled-bagEventos1.svg'
+    };
 
     this.icon = {
       url: './assets/Storage/SVG_Files/recycled-bagEventos1.svg',
@@ -249,3 +265,9 @@ export class MapaComponent implements OnInit {
   }
 
 }
+
+
+
+
+
+

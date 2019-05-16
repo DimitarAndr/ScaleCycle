@@ -18,7 +18,6 @@ import {RegisterComponent} from './register/register.component';
 
 //Dimitar
 import {FooterComponent} from './footer/footer.component';
-// Dimitar
 import {AgmCoreModule} from '@agm/core';
 import {AgmSnazzyInfoWindowModule} from '@agm/snazzy-info-window';
 import {MapaComponent} from './mapa/mapa.component';
@@ -32,6 +31,7 @@ import {RegisterChangeComponent} from './register-change/register-change.compone
 import {Globals} from './globals/globals';
 import {ActivateAccountComponent} from './activate-account/activate-account.component';
 import {RecoverPasswordComponent} from './recover-password/recover-password.component';
+import * as $ from 'jquery';
 
 
 const rutas = [
