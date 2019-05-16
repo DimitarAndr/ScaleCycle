@@ -13,7 +13,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ClientProfileComponent} from './client-profile/client-profile.component';
 import {LoginComponent} from './login/login.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RegisterComponent} from './register/register.component';
 
 //Dimitar
@@ -31,13 +31,17 @@ import {RegisterChangeComponent} from './register-change/register-change.compone
 import {Globals} from './globals/globals';
 import {ActivateAccountComponent} from './activate-account/activate-account.component';
 import {RecoverPasswordComponent} from './recover-password/recover-password.component';
+import {MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatButtonModule} from '@angular/material';
 import * as $ from 'jquery';
+import {ContactosComponent} from './contactos/contactos.component';
+import {Estacion} from './model/Estacion';
 
 
 const rutas = [
   {path: '', component: HomeComponent},
   {path: 'Mapa', component: MapaComponent},
   {path: 'Premios', component: PremiosComponent},
+  {path: 'Contactos', component: ContactosComponent},
   {path: 'Client', component: ClientProfileComponent},
   {path: 'RegisterSubmit', component: RegisterSubmitComponent},
   {path: 'RegisterChange', component: RegisterChangeComponent},
@@ -67,14 +71,15 @@ const rutas = [
     RegisterSubmitComponent,
     RegisterChangeComponent,
     ActivateAccountComponent,
-    RecoverPasswordComponent
+    RecoverPasswordComponent,
+    ContactosComponent
   ],
   imports: [
     RouterModule.forRoot(rutas),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatDialogModule, //Ouxiang
+    MatDialogModule,             //Ouxiang
     FormsModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
@@ -83,13 +88,16 @@ const rutas = [
     AgmSnazzyInfoWindowModule,  // Dimitar
     AgmJsMarkerClustererModule, // Dimitar
     FilterPipeModule,           // Dimitar
-
-
+    ReactiveFormsModule,        // Dimitar
+    MatInputModule,             // Dimitar
+    MatAutocompleteModule,      // Dimitar
+    MatFormFieldModule,         // Dimitar
+    MatButtonModule             // Dimitar
   ],
   entryComponents: [
     LoginComponent // Ouxiang
   ],
-  providers: [Globals],
+  providers: [Globals, Estacion],
   bootstrap: [AppComponent]
 })
 export class AppModule {
