@@ -1,15 +1,14 @@
 import {Injectable} from '@angular/core';
-import {Estacion} from '../model/Estacion';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-
+import {Premio} from '../model/Premio';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EstacionService {
+export class PremiosService {
 
-  url = 'https://baas.kinvey.com/appdata/kid_BkbjwXQ5N/Estacion/';
+  url = 'https://baas.kinvey.com/appdata/kid_BkbjwXQ5N/Premios/';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -20,8 +19,7 @@ export class EstacionService {
   constructor(private http: HttpClient) {
   }
 
-  getAllEstaciones(): Observable<Estacion[]> {
-    return this.http.get<Estacion[]>(this.url, this.httpOptions);
+  getAllPremios(): Observable<Premio[]> {
+    return this.http.get<Premio[]>(this.url, this.httpOptions);
   }
-
 }

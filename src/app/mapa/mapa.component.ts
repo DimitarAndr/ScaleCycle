@@ -1,9 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import data from '../../assets/Storage/PuntsVerds.json';
 import {AgmInfoWindow} from '@agm/core';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {EstacionService} from '../service/estacion.service';
+import {map, startWith} from 'rxjs/operators';
+import {Estacion} from '../model/Estacion';
 
-
-declare var $: any;
 
 @Component({
   selector: 'app-mapa',
@@ -11,34 +13,29 @@ declare var $: any;
   styleUrls: ['./mapa.component.css']
 })
 export class MapaComponent implements OnInit {
+  options: string[] = [];
+  a = this.estacionService.getAllEstaciones().subscribe((data: any[]) => {
+    for (const estacion of data) {
+      this.options.push(estacion.barrio);
+      this.punts.push(estacion);
+    }
+  });
+  filteredOptions: Observable<string[]>;
+  myControl = new FormControl();
 
-  punts: any = data;
+  defaultLat: number = 41.395168;
+  defaultLong: number = 2.175246;
+  defaultZoom: number = 12;
+
+  punts: Estacion[] = [];
   mapStyle: any;
   imageCluster: any;
   labelOptions: any;
   icon: any;
   currentIW: AgmInfoWindow;
   previousIW: AgmInfoWindow;
-  barrios = [
-    'Zona Montjuic',
-    'La Bordeta',
-    'Poble-sec',
-    'La Barceloneta',
-    'El Poblenou',
-    'Sant Marti de Provencals',
-    'El Clot',
-    'Fort Pienc',
-    'Mercat del Ninot',
-    'Les Corts',
-    'Diagonal Pedralbes',
-    'Sagrada Familia',
-    'Horta-Guinardo',
-    'Sant Andreu',
-    'Turo de la Peira'
-  ];
 
-
-  constructor() {
+  constructor(private estacionService: EstacionService) {
     this.currentIW = null;
     this.previousIW = null;
   }
@@ -46,9 +43,6 @@ export class MapaComponent implements OnInit {
 
   ngOnInit() {
 
-    $('#input').autocomplete({
-        source: this.barrios
-    });
 
     this.imageCluster = {
       url: './assets/Storage/SVG_Files/recycled-bagEventos1.svg'
@@ -248,6 +242,18 @@ export class MapaComponent implements OnInit {
         ]
       }
     ];
+
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   mapClick() {
@@ -264,7 +270,21 @@ export class MapaComponent implements OnInit {
     this.previousIW = infoWindow;
   }
 
+  buscarPunto(option) {
+    for (let punt of this.punts) {
+      if (punt.barrio == option) {
+        this.defaultLat = punt.lat;
+        this.defaultLong = punt.long;
+        this.defaultZoom = 16;
+      }
+    }
+
+    /*defaultLat: number = 41.395168;
+    defaultLong: number = 2.175246;
+    defaultZoom: number = 13;*/
+  }
 }
+
 
 
 

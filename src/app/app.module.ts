@@ -15,7 +15,6 @@ import {ClientProfileComponent} from './client-profile/client-profile.component'
 import {LoginComponent} from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RegisterComponent} from './register/register.component';
-
 //Dimitar
 import {FooterComponent} from './footer/footer.component';
 import {AgmCoreModule} from '@agm/core';
@@ -31,10 +30,11 @@ import {RegisterChangeComponent} from './register-change/register-change.compone
 import {Globals} from './globals/globals';
 import {ActivateAccountComponent} from './activate-account/activate-account.component';
 import {RecoverPasswordComponent} from './recover-password/recover-password.component';
-import {MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatButtonModule} from '@angular/material';
-import * as $ from 'jquery';
+import {MatAutocompleteModule, MatButtonModule, MatFormFieldModule, MatInputModule} from '@angular/material';
 import {ContactosComponent} from './contactos/contactos.component';
+import {MatIconModule} from '@angular/material/icon';
 import {Estacion} from './model/Estacion';
+import {Premio} from './model/Premio';
 
 
 const rutas = [
@@ -92,12 +92,13 @@ const rutas = [
     MatInputModule,             // Dimitar
     MatAutocompleteModule,      // Dimitar
     MatFormFieldModule,         // Dimitar
-    MatButtonModule             // Dimitar
+    MatButtonModule,             // Dimitar
+    MatIconModule
   ],
   entryComponents: [
     LoginComponent // Ouxiang
   ],
-  providers: [Globals, Estacion],
+  providers: [Globals, Estacion, Premio],
   bootstrap: [AppComponent]
 })
 export class AppModule {

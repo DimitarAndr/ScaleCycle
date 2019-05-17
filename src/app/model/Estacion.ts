@@ -5,7 +5,4 @@ export class Estacion {
   calle: string;
   lat: number;
   long: number;
-
-  constructor( barrio: string, calle: string) {
-  }
 }

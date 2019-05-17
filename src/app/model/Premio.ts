@@ -1,6 +1,8 @@
 export class Premio {
-  id: string;
-  name: string;
-  points: number;
-  category: number;
+  _id: string;
+  nombre: string;
+  descripcion: string;
+  categoria: number;
+  cantidad: number;
+  puntos: number;
 }

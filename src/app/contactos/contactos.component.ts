@@ -1,12 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Estacion} from '../model/Estacion';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {debounceTime, switchMap, tap} from 'rxjs/operators';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {map, startWith} from 'rxjs/operators';
 import {EstacionService} from '../service/estacion.service';
-
 
 @Component({
   selector: 'app-contactos',
@@ -14,43 +10,29 @@ import {EstacionService} from '../service/estacion.service';
   styleUrls: ['./contactos.component.css']
 })
 export class ContactosComponent implements OnInit {
-  private estaciones = [];
-  filteredUsers: Observable<Estacion>;
-  usersForm: FormGroup;
+  options: string[] = [];
+  a = this.estacionService.getAllEstaciones().subscribe((data: any[]) => {
+    for (const estacion of data) {
+      this.options.push(estacion.barrio);
+    }
+  });
+  filteredOptions: Observable<string[]>;
+  myControl = new FormControl();
 
-
-  constructor(private estacion: Estacion, private http: HttpClient,
-              private buscarEstacion: FormBuilder, private estacionService: EstacionService) {
+  constructor(private estacionService: EstacionService) {
   }
 
-
   ngOnInit() {
-    /* this.http.get('https://baas.kinvey.com/appdata/kid_BkbjwXQ5N/Estacion/', {
-       headers: {
-         'Content-Type': 'application/json',
-         Authorization: 'Basic a2lkX0JrYmp3WFE1TjpkZjc2OTZjOTQyN2I0Njk0YmQzMzcyY2E2ZjVhZjFkZA=='
-       }
-     }).subscribe((data: any[]) => {
-       for (const estacion of data) {
-         this.estaciones.push(estacion);
-       }
-     });*/
-
-
-    this.usersForm = this.buscarEstacion.group({
-      userInput: null
-    });
-
-    this.filteredUsers = this.usersForm.get('userInput').valueChanges
+    this.filteredOptions = this.myControl.valueChanges
       .pipe(
-        debounceTime(300),
-        switchMap(value => this.estacionService.search({name: value}))
+        startWith(''),
+        map(value => this._filter(value))
       );
   }
 
-  displayFn(estacion: Estacion) {
-    if (estacion) {
-      return this.estacion.barrio;
-    }
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 }
