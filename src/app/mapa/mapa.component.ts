@@ -23,9 +23,9 @@ export class MapaComponent implements OnInit {
   filteredOptions: Observable<string[]>;
   myControl = new FormControl();
 
-  defaultLat: number = 41.395168;
-  defaultLong: number = 2.175246;
-  defaultZoom: number = 12;
+  defaultLat = 41.395168;
+  defaultLong = 2.175246;
+  defaultZoom = 12;
 
   punts: Estacion[] = [];
   mapStyle: any;
@@ -271,17 +271,13 @@ export class MapaComponent implements OnInit {
   }
 
   buscarPunto(option) {
-    for (let punt of this.punts) {
-      if (punt.barrio == option) {
+    for (const punt of this.punts) {
+      if (punt.barrio === option) {
         this.defaultLat = punt.lat;
         this.defaultLong = punt.long;
         this.defaultZoom = 16;
       }
     }
-
-    /*defaultLat: number = 41.395168;
-    defaultLong: number = 2.175246;
-    defaultZoom: number = 13;*/
   }
 }
 

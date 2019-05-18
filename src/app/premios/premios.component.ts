@@ -32,6 +32,13 @@ export class PremiosComponent implements OnInit {
   ngOnInit(): void {
     AOS.init();
   }
+
+  filterLibros() {
+    this.premios = this.premios.filter(element => {
+      return element.categoria === 3;
+    });
+    console.log(this.premios);
+  }
 }
 
 
@@ -53,4 +60,6 @@ $(document).ready(function () {
       $(this).addClass('is-checked');
     });
   });
+
+
 });
