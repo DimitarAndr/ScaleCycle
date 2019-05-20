@@ -3,11 +3,11 @@
 		<div class="col-md-6" align="center">
 			<img src="https://pbs.twimg.com/profile_images/534017689694371840/A-p12OyT.png" alt="img"><br/>
 			<label for="avatar" class="btn btn-primary">Seleccionar Avatar</label>
-			<input type="file" accept="image/*" style="display: none" multiple form="register" name="avatar" id="avatar" [(ngModel)]="user.Avatar">
+			<input type="file" accept="image/*" style="display: none" form="register" name="avatar" id="avatar" [(ngModel)]="Avatar" (change)="onFileChange($event)">
 		</div>
 		<div class="col-md-6">
 			<b id="error" *ngIf='!createStatud'>{{msgError}}</b>
-			<form class="form" #usuform="ngForm" (ngSubmit)="onSubmit()" id="register">
+			<form class="form" #register="ngForm" (ngSubmit)="onSubmit()" id="register">
 				<b>Crea una cuenta</b>
 				<p>Es gratis y lo será siempre.</p>
 			  <div class="form-row">
@@ -79,7 +79,7 @@
 			    </div>
 			  </div>
 			  <div align="center">
-			  	<button id="done" type="submit" class="btn btn-primary">Crear</button>
+			  	<button id="done" type="submit" class="btn btn-primary" [disabled]="register.invalid || loading">Crear</button>
 			  </div>
 			</form>
 		</div>

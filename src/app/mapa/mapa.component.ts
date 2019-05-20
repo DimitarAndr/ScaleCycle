@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import data from '../../assets/Storage/PuntsVerds.json';
+//import data from '../../assets/Storage/PuntsVerds.json';
 import {AgmInfoWindow} from '@agm/core';
 
 declare var $: any;
@@ -11,7 +11,7 @@ declare var $: any;
 })
 export class MapaComponent implements OnInit {
 
-  punts: any = data;
+  //punts: any = data;
   mapStyle: any;
   imageCluster: any;
   labelOptions: any;

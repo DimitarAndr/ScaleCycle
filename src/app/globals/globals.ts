@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class Globals {
   SERVER: string = 'http://localhost/M12';
+  ScaleCycle : string = "http://localhost:4200"
   
 }
 /*import { Component, OnInit } from '@angular/core';

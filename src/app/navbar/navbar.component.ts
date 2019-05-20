@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import {MatDialog} from '@angular/material';
 import {LoginComponent} from '../login/login.component';
+import {Globals} from '../globals/globals';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -9,7 +10,7 @@ import {LoginComponent} from '../login/login.component';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public dialog: MatDialog,private router: Router) {}
+  constructor(public dialog: MatDialog,private router: Router, private globals:Globals) {}
   isLogin: boolean = false;
   Estado:String = 'Client';
   session = {};
@@ -33,7 +34,7 @@ export class NavbarComponent implements OnInit {
   logout(){
     sessionStorage.removeItem('user');
     sessionStorage.clear();
-    this.router.navigateByUrl("/");
+    window.location.replace(this.globals['ScaleCycle']);
   }
 
 }

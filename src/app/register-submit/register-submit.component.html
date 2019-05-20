@@ -1,8 +1,15 @@
 <div class="container">
+	<div class="row" align="center">
+		<input type="text" *ngIf="type==2" [(ngModel)]="identification">
+		<input type="number" *ngIf="type==1" [(ngModel)]="id" min="1" pattern="^[0-9]+"><br/>
+		<label><input type="radio" name="type" value="1" [(ngModel)]="type">Id</label>
+		<label><input type="radio" name="type" value="2" [(ngModel)]="type">Identificador</label><br/>
+		<button (click)="search()">Buscar</button>
+	</div>
 	<div class="row">
 		<div class="col-lg-4" align="center">
 			<img src="https://pbs.twimg.com/profile_images/534017689694371840/A-p12OyT.png" alt="avatar">
-			<p><b>MY NAME IS Dimitar</b></p>
+			<p><b>{{client.Nombre}} {{client.Apellido}}</b></p>
 		</div>
 		<div class="col-lg-8">
 			<form>

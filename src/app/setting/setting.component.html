@@ -1,0 +1,63 @@
+<div class="container">
+	<!-- CLIENTE -->
+	<h2>Ajuste de cuenta</h2>
+	<form class="form" #loginForm="ngForm" (ngSubmit)="changeCliente()" id="client" novalidate *ngIf="isClient">
+		<div class="form-row">
+	    <div class="form-group col-md-12">
+	      <label for="username">Username</label>
+	      <div class="form-group input-group">
+		      <div class="input-group-prepend">
+	          <span class="input-group-text"><i class="fas fa-users"></i></span>
+	        </div>
+		      <input type="text" class="form-control" name="username" id="username" placeholder="Introduce su Username" [(ngModel)]="user.username" #username="ngModel" [ngClass]="{'is-invalid':loginForm.submitted && username.invalid}" required>
+		      <div class="invalid-feedback">
+		      	Invalid
+		      </div>
+		    </div>
+	    </div>
+	  </div>
+	  <button id="done" type="submit" class="btn btn-primary" form="client">Enviar</button>
+	</form>
+	<!-- EMPLEADO -->
+	<form class="form" #loginForm="ngForm" (ngSubmit)="changeEmployee()" id="employee" novalidate *ngIf="!isClient">
+		<div class="form-row">
+	    <div class="form-group col-md-12">
+	      <label for="password">Contraseña</label>
+	      <div class="form-group input-group">
+		      <div class="input-group-prepend">
+	          <span class="input-group-text"><i class="fas fa-users"></i></span>
+	        </div>
+		      <input type="text" class="form-control" name="password" id="password" placeholder="Introduce su Contraseña" [(ngModel)]="employee.Password" #password="ngModel" [ngClass]="{'is-invalid':loginForm.submitted && password.invalid}" required>
+		      <div class="invalid-feedback">
+		      	Invalid
+		      </div>
+		    </div>
+	    </div>
+	    <div class="form-group col-md-12">
+	      <label for="name">Nombre</label>
+	      <div class="form-group input-group">
+		      <div class="input-group-prepend">
+	          <span class="input-group-text"><i class="fas fa-users"></i></span>
+	        </div>
+		      <input type="text" class="form-control" name="name" id="name" placeholder="Introduce su Nombre" [(ngModel)]="employee.Name" #name="ngModel" [ngClass]="{'is-invalid':loginForm.submitted && name.invalid}" required>
+		      <div class="invalid-feedback">
+		      	Invalid
+		      </div>
+		    </div>
+	    </div>
+	    <div class="form-group col-md-12">
+	      <label for="name">Apellido</label>
+	      <div class="form-group input-group">
+		      <div class="input-group-prepend">
+	          <span class="input-group-text"><i class="fas fa-users"></i></span>
+	        </div>
+		      <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Introduce su Apellido" [(ngModel)]="employee.LastName" #lastName="ngModel" [ngClass]="{'is-invalid':loginForm.submitted && lastName.invalid}" required>
+		      <div class="invalid-feedback">
+		      	Invalid
+		      </div>
+		    </div>
+	    </div>
+	  </div>
+	  <button id="done" type="submit" class="btn btn-primary" form="employee">Cambiar Contraseña</button>
+	</form>
+</div>

@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
 						case "1":
 							this.dialogRef.close();
 							sessionStorage.setItem('userState','1');
-							window.location.replace("http://localhost:4200/Client");
+							window.location.replace(this.globals['ScaleCycle']+"/Client");
 							break;
 						default:
 							console.log("Estado desconocido");
@@ -85,13 +85,13 @@ export class LoginComponent implements OnInit {
 						case "1":
 							this.dialogRef.close();
 							sessionStorage.setItem('userState','1');
-							this.router.navigateByUrl("/Employee");
+							window.location.replace(this.globals['ScaleCycle']+"/Employee");
 							break;
 						//Administrator
 						case "2":
 							this.dialogRef.close();
 							sessionStorage.setItem('userState','2');
-							this.router.navigateByUrl("/Admin");
+							window.location.replace(this.globals['ScaleCycle']+"/Admin");
 							break;
 						default:
 							console.log("Estado desconocido");

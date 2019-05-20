@@ -1,0 +1,11 @@
+<div class="container" align="center">
+	<input type="text" *ngIf="type==2" [(ngModel)]="identification">
+	<input type="number" *ngIf="type==1" [(ngModel)]="id" min="1" pattern="^[0-9]+"><br/>
+	<label><input type="radio" name="type" value="1" [(ngModel)]="type">Id</label>
+	<label><input type="radio" name="type" value="2" [(ngModel)]="type">Identificador</label><br/>
+	<button (click)="search()">Buscar</button>
+	<!-- Formulario -->
+	<form>
+		
+	</form>
+</div>

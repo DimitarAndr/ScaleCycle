@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
-
+import { DataTablesModule } from 'angular-datatables';
 
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
@@ -16,15 +16,6 @@ import {ClientProfileComponent} from './client-profile/client-profile.component'
 import {LoginComponent} from './login/login.component';
 import {FormsModule} from '@angular/forms';
 import {RegisterComponent} from './register/register.component';
-//Dimitar
-import {FooterComponent} from './footer/footer.component';
-// Dimitar
-import {AgmCoreModule} from '@agm/core';
-import {AgmSnazzyInfoWindowModule} from '@agm/snazzy-info-window';
-import {MapaComponent} from './mapa/mapa.component';
-import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
-import {FilterPipeModule} from 'ngx-filter-pipe';
-import {PremiosComponent} from './premios/premios.component';
 import {EmployeeProfileComponent} from './employee-profile/employee-profile.component';
 import {AdminProfileComponent} from './admin-profile/admin-profile.component';
 import {RegisterSubmitComponent} from './register-submit/register-submit.component';
@@ -32,6 +23,19 @@ import {RegisterChangeComponent} from './register-change/register-change.compone
 import {Globals} from './globals/globals';
 import {ActivateAccountComponent} from './activate-account/activate-account.component';
 import {RecoverPasswordComponent} from './recover-password/recover-password.component';
+import { SettingComponent } from './setting/setting.component';
+import { SettingClientComponent } from './setting-client/setting-client.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EventAdminComponent } from './event-admin/event-admin.component';
+//Dimitar
+import {FooterComponent} from './footer/footer.component';
+// Dimitar
+import {AgmCoreModule} from '@agm/core';
+import {AgmSnazzyInfoWindowModule} from '@agm/snazzy-info-window';
+import {MapaComponent} from './mapa/mapa.component';
+import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
+//import {FilterPipeModule} from 'ngx-filter-pipe';
+import {PremiosComponent} from './premios/premios.component';
 
 
 const rutas = [
@@ -44,7 +48,12 @@ const rutas = [
   {path: 'Register', component: RegisterComponent},
   {path: 'activateAccount/:id', component: ActivateAccountComponent},
   {path: 'recoverPassword', component: RecoverPasswordComponent},
-  {path: 'recoverPassword/:username', component: RecoverPasswordComponent}
+  {path: 'recoverPassword/:username', component: RecoverPasswordComponent},
+  {path: 'setting', component: SettingComponent},
+  {path: 'settingClient', component: SettingClientComponent},
+  {path: 'EmployeeList', component: EmployeeListComponent},
+  {path: 'EventAdmin', component: EventAdminComponent},
+  //{path: 'mapa', component: MapaComponent}
   //{path: '**', component: 404}
 ];
 
@@ -65,7 +74,11 @@ const rutas = [
     RegisterSubmitComponent,
     RegisterChangeComponent,
     ActivateAccountComponent,
-    RecoverPasswordComponent
+    RecoverPasswordComponent,
+    SettingComponent,
+    SettingClientComponent,
+    EmployeeListComponent,
+    EventAdminComponent
   ],
   imports: [
     RouterModule.forRoot(rutas),
@@ -80,8 +93,8 @@ const rutas = [
     }),                         // Dimitar
     AgmSnazzyInfoWindowModule,  // Dimitar
     AgmJsMarkerClustererModule, // Dimitar
-    FilterPipeModule,           // Dimitar
-
+    //FilterPipeModule,           // Dimitar
+    DataTablesModule,
 
   ],
   entryComponents: [

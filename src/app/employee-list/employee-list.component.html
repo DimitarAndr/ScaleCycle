@@ -1,0 +1,27 @@
+<div class="container">
+	<button (click)="locked()">Bloqueado</button>
+	<button (click)="empleado()">Empleado</button>
+	<button (click)="administrador()">Administrador</button>
+	<button (click)="valid()">Valido</button>
+	<button (click)="all()">All</button>
+	<table datatable class="row-border hover" [dtTrigger]="dtTrigger">
+	  <thead>
+	    <tr>
+	      <th>ID</th>
+	      <th>Username</th>
+	      <th>Nombre</th>
+	      <th>Apellido</th>
+	      <th>Estado</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+			<tr *ngFor = "let employee of employeeList">
+				<td>{{employee.Id}}</td>
+				<td>{{employee.Username}}</td>
+				<td>{{employee.Nombre}}</td>
+				<td>{{employee.Apellido}}</td>
+				<td id="estado">{{employee.Estado}}</td>
+			</tr>
+	  </tbody>
+	</table>
+</div>

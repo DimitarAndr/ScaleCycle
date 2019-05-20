@@ -1,14 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Globals} from '../globals/globals';
-
-
 @Component({
-  selector: 'app-register-submit',
-  templateUrl: './register-submit.component.html',
-  styleUrls: ['./register-submit.component.css']
+  selector: 'app-setting-client',
+  templateUrl: './setting-client.component.html',
+  styleUrls: ['./setting-client.component.css']
 })
-export class RegisterSubmitComponent implements OnInit {
+export class SettingClientComponent implements OnInit {
 	client:any = {
 		"Apellido":"",
 		"Avatar":"",
@@ -27,16 +25,15 @@ export class RegisterSubmitComponent implements OnInit {
 		"TipoIdentificador":"",
 		"Username":""
 	};
-  identification:string;
+	identification:string;
 	id:number;
 	isId :boolean = true;
 	type: string = "1";
-
   constructor(private http:HttpClient, private globals:Globals) { }
 
   ngOnInit() {
   }
-	search(){
+  search(){
   	if(this.type == "1"){
   		this.http.get(this.globals['SERVER']+'/getClientForId/'+this.id).subscribe(data => {
 				if (data['error']) {
