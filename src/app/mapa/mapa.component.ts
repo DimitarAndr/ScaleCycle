@@ -1,8 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 //import data from '../../assets/Storage/PuntsVerds.json';
 import {AgmInfoWindow} from '@agm/core';
+import {FormControl} from '@angular/forms';
+import {Observable} from 'rxjs';
+import {EstacionService} from '../service/estacion.service';
+import {map, startWith} from 'rxjs/operators';
+import {Estacion} from '../model/Estacion';
 
-declare var $: any;
 
 @Component({
   selector: 'app-mapa',
@@ -10,8 +14,22 @@ declare var $: any;
   styleUrls: ['./mapa.component.css']
 })
 export class MapaComponent implements OnInit {
+  options: string[] = [];
+  a = this.estacionService.getAllEstaciones().subscribe((data: any[]) => {
+    for (const estacion of data) {
+      this.options.push(estacion.barrio);
+      this.punts.push(estacion);
+    }
+  });
+  filteredOptions: Observable<string[]>;
+  myControl = new FormControl();
+
+  defaultLat = 41.395168;
+  defaultLong = 2.175246;
+  defaultZoom = 12;
 
   //punts: any = data;
+  punts: Estacion[] = [];
   mapStyle: any;
   imageCluster: any;
   labelOptions: any;
@@ -19,7 +37,7 @@ export class MapaComponent implements OnInit {
   currentIW: AgmInfoWindow;
   previousIW: AgmInfoWindow;
 
-  constructor() {
+  constructor(private estacionService: EstacionService) {
     this.currentIW = null;
     this.previousIW = null;
   }
@@ -27,16 +45,10 @@ export class MapaComponent implements OnInit {
 
   ngOnInit() {
 
-    $('#input').autocomplete({
-      serviceUrl: '../../assets/Storage/PuntsVerds.json',
-      onSelect(suggestion) {
-        alert('You selected: ' + suggestion.barrio);
-      }
-  });
 
     this.imageCluster = {
-        url: './assets/Storage/SVG_Files/recycled-bagEventos1.svg'
-      };
+      url: './assets/Storage/SVG_Files/recycled-bagEventos1.svg'
+    };
 
     this.icon = {
       url: './assets/Storage/SVG_Files/recycled-bagEventos1.svg',
@@ -232,6 +244,18 @@ export class MapaComponent implements OnInit {
         ]
       }
     ];
+
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   mapClick() {
@@ -248,4 +272,20 @@ export class MapaComponent implements OnInit {
     this.previousIW = infoWindow;
   }
 
+  buscarPunto(option) {
+    for (const punt of this.punts) {
+      if (punt.barrio === option) {
+        this.defaultLat = punt.lat;
+        this.defaultLong = punt.long;
+        this.defaultZoom = 16;
+      }
+    }
+  }
 }
+
+
+
+
+
+
+

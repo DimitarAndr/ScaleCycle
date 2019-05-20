@@ -1,8 +1,7 @@
-
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 /*Dimitar*/
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Karla, sans-serif; }
 /*Ouxiang*/
 #done{
 	transition: all 1s linear;
@@ -24,5 +23,3 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 	width:auto;
 }
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Karla, sans-serif; }

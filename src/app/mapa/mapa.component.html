@@ -1,18 +1,36 @@
 <div class="container-fluid ">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div id="searchBar" class="input-group col-sm-4">
+      <form class="example-form">
+        <mat-form-field>
+          <mat-label>Buscar...</mat-label>
+          <input type="text" aria-label="Default" matInput [formControl]="myControl" [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (onSelectionChange)="buscarPunto(option)">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+          <mat-hint align="end">Buscar el punt verd por barrio</mat-hint>
+        </mat-form-field>
+      </form>
+    </div>
+    <div class="col-sm-4"></div>
+  </div>
   <div class="row ">
     <div class="col-xl-12 background">
-      <agm-map [styles]="mapStyle" [latitude]="41.395168" [longitude]="2.175246" [zoom]="13"
+      <agm-map [styles]="mapStyle" [latitude]="defaultLat" [longitude]="defaultLong" [zoom]="defaultZoom"
                (mapClick)="mapClick($event)" [scrollwheel]="false">
         <agm-marker-cluster [imagePath]="'https://googlemaps.github.io/js-marker-clusterer/images/m'">
           <agm-marker (markerClick)=markerClick(iw)
-                      *ngFor="let punt of punts" [latitude]="punt['lat']"
-                      [longitude]="punt['long']" [label]="labelOptions"
+                      *ngFor="let punt of punts" [latitude]=punt.lat
+                      [longitude]=punt.long [label]="labelOptions"
                       [iconUrl]="icon"
                       (markerClick)="onClickMarker(lugar)">
             <agm-info-window [maxWidth]="500" #iw>
               <ul>
-                <li><i class="fas fa-recycle"></i>{{punt['barrio']}}</li>
-                <li><i class="fas fa-map-marker-alt"></i>{{punt['calle']}}</li>
+                <li><i class="fas fa-recycle"></i>{{punt.barrio}}</li>
+                <li><i class="fas fa-map-marker-alt"></i>{{punt.calle}}</li>
               </ul>
             </agm-info-window>
           </agm-marker>

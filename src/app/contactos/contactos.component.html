@@ -1,0 +1,13 @@
+<form class="example-form">
+  <mat-form-field appearance="outline">
+    <mat-label>Buscar Barrio</mat-label>
+    <input type="text" aria-label="Default" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
+    <mat-hint align="end">Buscar el punt verd por barrio</mat-hint>
+  </mat-form-field>
+</form>
+

@@ -11,10 +11,9 @@ import {NavbarComponent} from './navbar/navbar.component';
 //Ouxiang Lin
 import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
 import {ClientProfileComponent} from './client-profile/client-profile.component';
 import {LoginComponent} from './login/login.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RegisterComponent} from './register/register.component';
 import {EmployeeProfileComponent} from './employee-profile/employee-profile.component';
 import {AdminProfileComponent} from './admin-profile/admin-profile.component';
@@ -29,17 +28,30 @@ import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EventAdminComponent } from './event-admin/event-admin.component';
 //Dimitar
 import {FooterComponent} from './footer/footer.component';
-// Dimitar
 import {AgmCoreModule} from '@agm/core';
 import {AgmSnazzyInfoWindowModule} from '@agm/snazzy-info-window';
 import {MapaComponent} from './mapa/mapa.component';
 import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
 //import {FilterPipeModule} from 'ngx-filter-pipe';
 import {PremiosComponent} from './premios/premios.component';
+import {MatAutocompleteModule, MatButtonModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import {ContactosComponent} from './contactos/contactos.component';
+import {MatIconModule} from '@angular/material/icon';
+import {Estacion} from './model/Estacion';
+import {Premio} from './model/Premio';
+import {PremiosChildComponent} from './premios/premios-child/premios-child.component';
 
 
 const rutas = [
   {path: '', component: HomeComponent},
+  {path: 'Mapa', component: MapaComponent},
+  {
+    path: 'Premios', component: PremiosComponent,
+    children: [
+      {path: 'detail/:id', component: PremiosChildComponent}
+      ]
+  },
+  {path: 'Contactos', component: ContactosComponent},
   {path: 'Client', component: ClientProfileComponent},
   {path: 'RegisterSubmit', component: RegisterSubmitComponent},
   {path: 'RegisterChange', component: RegisterChangeComponent},
@@ -53,7 +65,7 @@ const rutas = [
   {path: 'settingClient', component: SettingClientComponent},
   {path: 'EmployeeList', component: EmployeeListComponent},
   {path: 'EventAdmin', component: EventAdminComponent},
-  //{path: 'mapa', component: MapaComponent}
+  {path: 'recoverPassword/:username', component: RecoverPasswordComponent}
   //{path: '**', component: 404}
 ];
 
@@ -78,14 +90,16 @@ const rutas = [
     SettingComponent,
     SettingClientComponent,
     EmployeeListComponent,
-    EventAdminComponent
+    EventAdminComponent,
+    ContactosComponent,
+    PremiosChildComponent
   ],
   imports: [
     RouterModule.forRoot(rutas),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatDialogModule, //Ouxiang
+    MatDialogModule,             //Ouxiang
     FormsModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
@@ -95,12 +109,18 @@ const rutas = [
     AgmJsMarkerClustererModule, // Dimitar
     //FilterPipeModule,           // Dimitar
     DataTablesModule,
-
+    //FilterPipeModule,           // Dimitar
+    ReactiveFormsModule,        // Dimitar
+    MatInputModule,             // Dimitar
+    MatAutocompleteModule,      // Dimitar
+    MatFormFieldModule,         // Dimitar
+    MatButtonModule,             // Dimitar
+    MatIconModule
   ],
   entryComponents: [
     LoginComponent // Ouxiang
   ],
-  providers: [Globals],
+  providers: [Globals, Estacion, Premio],
   bootstrap: [AppComponent]
 })
 export class AppModule {
