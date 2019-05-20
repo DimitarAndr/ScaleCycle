@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-//import data from '../../assets/Storage/PuntsVerds.json';
 import {AgmInfoWindow} from '@agm/core';
 import {FormControl} from '@angular/forms';
 import {Observable} from 'rxjs';
