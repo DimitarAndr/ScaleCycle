@@ -14,6 +14,7 @@ export class PremiosChildComponent implements OnInit {
 
   ngOnInit() {
 
+
   }
 
 }

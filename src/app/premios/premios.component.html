@@ -1,104 +1,41 @@
+<!--
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
       xmlns:javascript="http://www.w3.org/1999/xhtml">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<!--
+
 <script>
-  $(function() {
-    var selectedClass = "";
-    $(".filter").click(function(){
-      selectedClass = $(this).attr("data-rel");
-      $("#gallery").fadeTo(100, 0.1);
-      $("#gallery div").not("."+selectedClass).fadeOut().removeClass('animation');
-      setTimeout(function() {
-        $("."+selectedClass).fadeIn().addClass('animation');
-        $("#gallery").fadeTo(300, 1);
-      }, 300);
+  jQuery( document ).ready(function() {
+    var $grid = $('.grid').isotope({
+      itemSelector: '.grid-item'
     });
+
+    $('.filters-button-group').on( 'click', 'button', function() {
+      var filterValue = $( this ).attr('data-filter');
+      $grid.isotope({ filter: filterValue });
+    });
+// change is-checked class on buttons
+    $('.button-group').each( function( i, buttonGroup ) {
+      var $buttonGroup = $( buttonGroup );
+      $buttonGroup.on( 'click', 'button', function() {
+        $buttonGroup.find('.is-checked').removeClass('is-checked');
+        $( this ).addClass('is-checked');
+      });
+    });
+
   });
 </script>
-
-&lt;!&ndash; Grid row &ndash;&gt;
-<div class="row">
-
-  &lt;!&ndash; Grid column &ndash;&gt;
-  <div class="col-md-12 d-flex justify-content-center mb-5">
-
-    <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="all">All</button>
-    <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="1">Mountains</button>
-    <button type="button" class="btn btn-outline-black waves-effect filter" data-rel="2">Sea</button>
-
-  </div>
-  &lt;!&ndash; Grid column &ndash;&gt;
-
-</div>
-&lt;!&ndash; Grid row &ndash;&gt;
-
-&lt;!&ndash; Grid row &ndash;&gt;
-<div class="gallery" id="gallery">
-
-  &lt;!&ndash; Grid column &ndash;&gt;
-  <div class="mb-3 pics animation all 2">
-    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(73).jpg" alt="Card image cap">
-  </div>
-  &lt;!&ndash; Grid column &ndash;&gt;
-
-  &lt;!&ndash; Grid column &ndash;&gt;
-  <div class="mb-3 pics animation all 1">
-    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain1.jpg" alt="Card image cap">
-  </div>
-  &lt;!&ndash; Grid column &ndash;&gt;
-
-  &lt;!&ndash; Grid column &ndash;&gt;
-  <div class="mb-3 pics animation all 1">
-    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain2.jpg" alt="Card image cap">
-  </div>
-  &lt;!&ndash; Grid column &ndash;&gt;
-
-  &lt;!&ndash; Grid column &ndash;&gt;
-  <div class="mb-3 pics animation all 2">
-    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg" alt="Card image cap">
-  </div>
-  &lt;!&ndash; Grid column &ndash;&gt;
-
-  &lt;!&ndash; Grid column &ndash;&gt;
-  <div class="mb-3 pics animation all 2">
-    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg" alt="Card image cap">
-  </div>
-  &lt;!&ndash; Grid column &ndash;&gt;
-
-  &lt;!&ndash; Grid column &ndash;&gt;
-  <div class="mb-3 pics animation all 1">
-    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Vertical/mountain3.jpg" alt="Card image cap">
-  </div>
-  &lt;!&ndash; Grid column &ndash;&gt;
-</div>
-&lt;!&ndash; Grid row &ndash;&gt;
-
-
 -->
-<!--<head>
-  <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
-  <link rel="stylesheet" href="fonts/icomoon/style.css">
-
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/magnific-popup.css">
-  <link rel="stylesheet" href="css/jquery-ui.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-
-  <link rel="stylesheet" href="css/aos.css">
-
-  <link rel="stylesheet" href="css/style.css">
-
-</head>
-<body>-->
+  <div class="button-group filters-button-group">
+    <button class="button is-checked" data-filter="*">TOTS</button>
+    <button class="button" data-filter=".1">GRAFIC</button>
+    <button class="button" data-filter=".2">IDENTITAT</button>
+    <button class="button" data-filter=".web">WEB</button>
+    <button class="button" data-filter=".editorial">EDITORIAL</button>
+    <button class="button" data-filter=".video">VIDEO</button>
+    <button class="button" data-filter=".appama">APPAMA</button>
+  </div>
 
 
 <div class="site-wrap">
