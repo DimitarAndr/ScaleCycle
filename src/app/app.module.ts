@@ -35,12 +35,18 @@ import {ContactosComponent} from './contactos/contactos.component';
 import {MatIconModule} from '@angular/material/icon';
 import {Estacion} from './model/Estacion';
 import {Premio} from './model/Premio';
+import {PremiosChildComponent} from './premios/premios-child/premios-child.component';
 
 
 const rutas = [
   {path: '', component: HomeComponent},
   {path: 'Mapa', component: MapaComponent},
-  {path: 'Premios', component: PremiosComponent},
+  {
+    path: 'Premios', component: PremiosComponent,
+    children: [
+      {path: 'detail/:id', component: PremiosChildComponent}
+      ]
+  },
   {path: 'Contactos', component: ContactosComponent},
   {path: 'Client', component: ClientProfileComponent},
   {path: 'RegisterSubmit', component: RegisterSubmitComponent},
@@ -51,6 +57,7 @@ const rutas = [
   {path: 'activateAccount/:id', component: ActivateAccountComponent},
   {path: 'recoverPassword', component: RecoverPasswordComponent},
   {path: 'recoverPassword/:username', component: RecoverPasswordComponent}
+
   //{path: '**', component: 404}
 ];
 
@@ -72,7 +79,8 @@ const rutas = [
     RegisterChangeComponent,
     ActivateAccountComponent,
     RecoverPasswordComponent,
-    ContactosComponent
+    ContactosComponent,
+    PremiosChildComponent
   ],
   imports: [
     RouterModule.forRoot(rutas),

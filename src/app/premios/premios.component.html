@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+      xmlns:javascript="http://www.w3.org/1999/xhtml">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -112,7 +113,7 @@
             <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up" *ngFor="let premio of premios">
               <div class="block-4 text-center border">
                 <figure class="block-4-image">
-                  <a href="shop-single.html"><img src="./assets/Storage/Premios/{{premio.id}}.jpg"
+                  <a routerLink='/detail'><img src="./assets/Storage/Premios/{{premio.id}}.jpg"
                                                   alt="Image placeholder"
                                                   class="img-fluid"></a>
                 </figure>
@@ -130,32 +131,40 @@
           <div class="border p-4 rounded mb-4">
             <h3 class="mb-3 h6 text-uppercase text-black d-block">Categorias</h3>
             <ul class="list-unstyled mb-0">
-              <li class="mb-1" (click)="filterLibros()"><span>Libros</span> <span
-                class="text-black ml-auto">(2,220)</span></li>
-              <li class="mb-1"><a href="#" class="d-flex"><span>Botellas</span> <span
-                class="text-black ml-auto">(2,550)</span></a></li>
-              <li class="mb-1"><a href="#" class="d-flex"><span>Tassas</span> <span
-                class="text-black ml-auto">(2,124)</span></a></li>
-              <li class="mb-1"><a href="#" class="d-flex"><span>Juegetes</span> <span
-                class="text-black ml-auto">(2,220)</span></a></li>
+
+              <li class="mb-1" (click)="todas()"><a href="javascript:void(0);" class="d-flex"><span>Todas</span> <span
+                class="text-black ml-auto">({{all}})</span></a></li>
+
+              <li class="mb-1" (click)="filterTazas()"><a href="javascript:void(0);" class="d-flex"><span>Tazas</span> <span
+                class="text-black ml-auto">({{numTazas}})</span></a></li>
+
+              <li class="mb-1" (click)="filterBolsas()"><a href="javascript:void(0);" class="d-flex"><span>Bolsas</span> <span
+                class="text-black ml-auto">({{numBolsas}})</span></a></li>
+
+              <li class="mb-1" (click)="filterLibros()"><a href="javascript:void(0);" class="d-flex"><span>Libros</span>
+                <span
+                  class="text-black ml-auto">({{numLibros}})</span></a></li>
+
+              <li class="mb-1" (click)="filterBotellas()"><a href="javascript:void(0);" class="d-flex"><span>Botellas</span> <span
+                class="text-black ml-auto">({{numBotellas}})</span></a></li>
+
+              <li class="mb-1" (click)="filterCamisetas()"><a href="javascript:void(0);" class="d-flex"><span>Camisetas</span> <span
+                class="text-black ml-auto">({{numCamisetas}})</span></a></li>
+
+              <li class="mb-1" (click)="filterJuguetes()"><a href="javascript:void(0);" class="d-flex"><span>Juguetes</span> <span
+                class="text-black ml-auto">({{numJugetes}})</span></a></li>
+
+              <li class="mb-1" (click)="filterPendrives()"><a href="javascript:void(0);" class="d-flex"><span>Pendrives</span> <span
+                class="text-black ml-auto">({{numPendrives}})</span></a></li>
+
             </ul>
-            <p>
-              <label for="amount">Price range:</label>
-              <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-            </p>
-            <div id="slider-range"></div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-<!--
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/jquery.magnific-popup.min.js"></script>
 <script src="js/main.js"></script>
 
-</body>
-</html>-->
