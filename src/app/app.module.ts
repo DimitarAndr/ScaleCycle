@@ -26,6 +26,7 @@ import { SettingComponent } from './setting/setting.component';
 import { SettingClientComponent } from './setting-client/setting-client.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EventAdminComponent } from './event-admin/event-admin.component';
+import { EventDetailComponent } from './event-detail/event-detail.component';
 //Dimitar
 import {FooterComponent} from './footer/footer.component';
 import {AgmCoreModule} from '@agm/core';
@@ -92,7 +93,8 @@ const rutas = [
     EmployeeListComponent,
     EventAdminComponent,
     ContactosComponent,
-    PremiosChildComponent
+    PremiosChildComponent,
+    EventDetailComponent
   ],
   imports: [
     RouterModule.forRoot(rutas),
@@ -118,7 +120,8 @@ const rutas = [
     MatIconModule
   ],
   entryComponents: [
-    LoginComponent // Ouxiang
+    LoginComponent, // Ouxiang
+    EventDetailComponent
   ],
   providers: [Globals, Estacion, Premio],
   bootstrap: [AppComponent]

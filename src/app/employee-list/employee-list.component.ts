@@ -21,7 +21,6 @@ export class EmployeeListComponent implements OnInit {
   constructor(private globals:Globals, private http:HttpClient) { }
 
   ngOnInit() {
-  	console.log(this.dtTrigger);
 		this.filter();
   	/*this.http.get(this.globals['SERVER']+'/getAllEmployee').subscribe(data => {
 			if (data['error']) {
