@@ -27,6 +27,8 @@ import { SettingClientComponent } from './setting-client/setting-client.componen
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { EventAdminComponent } from './event-admin/event-admin.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
+import { ParticipateDetailComponent } from './participate-detail/participate-detail.component';
+import { NewEventComponent } from './new-event/new-event.component';
 //Dimitar
 import {FooterComponent} from './footer/footer.component';
 import {AgmCoreModule} from '@agm/core';
@@ -94,7 +96,9 @@ const rutas = [
     EventAdminComponent,
     ContactosComponent,
     PremiosChildComponent,
-    EventDetailComponent
+    EventDetailComponent,
+    ParticipateDetailComponent,
+    NewEventComponent
   ],
   imports: [
     RouterModule.forRoot(rutas),
@@ -121,7 +125,9 @@ const rutas = [
   ],
   entryComponents: [
     LoginComponent, // Ouxiang
-    EventDetailComponent
+    EventDetailComponent,
+    ParticipateDetailComponent,
+    NewEventComponent
   ],
   providers: [Globals, Estacion, Premio],
   bootstrap: [AppComponent]

@@ -4,12 +4,6 @@ input{
 tbody,tfoot,thead{
 	text-align: center;
 }
-.line-limit-length {
-	max-width: 50px;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
 ::-webkit-input-placeholder {
    text-align: center;
 }
@@ -24,4 +18,8 @@ tbody,tfoot,thead{
 
 :-ms-input-placeholder {  
    text-align: center; 
+}
+.menu{
+	margin: 5px 0;
+	text-align: right;
 }

@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
 import {MatDialog} from '@angular/material';
 import { EventDetailComponent } from '../event-detail/event-detail.component';
+import { NewEventComponent } from '../new-event/new-event.component';
 
 @Component({
   selector: 'app-event-admin',
@@ -28,7 +29,6 @@ export class EventAdminComponent implements OnInit {
 				//this.createStatud = false;
 				//this.msgError = data['error'].text;
 			}else{
-				console.log(data);
 				this.events = data;
 				this.dtTrigger.next();
 				this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
@@ -57,5 +57,9 @@ export class EventAdminComponent implements OnInit {
   }
   filter(): void {
     
+  }
+  newEvent(){
+  	let dialogRef = this.dialog.open(NewEventComponent, {
+    });
   }
 }
