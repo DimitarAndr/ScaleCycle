@@ -83,19 +83,19 @@ export class EmployeeListComponent implements OnInit {
   	}
   }*/
   filter(){
-  		this.http.get(this.globals['SERVER']+"/getAllEmployee").subscribe(data => {
-  			
-				if (data['error']) {
-					//this.createStatud = false;
-					//this.msgError = data['error'].text;
-				}else{
-					//this.createStatud = true;
-					//this.msgError = null;
-					this.employeeList = data;
-					this.dtTrigger.next();
-					this.valid();
-				}
-			});
+		this.http.get(this.globals['SERVER']+"/getAllEmployee").subscribe(data => {
+			
+			if (data['error']) {
+				//this.createStatud = false;
+				//this.msgError = data['error'].text;
+			}else{
+				//this.createStatud = true;
+				//this.msgError = null;
+				this.employeeList = data;
+				this.dtTrigger.next();
+				this.valid();
+			}
+		});
   }
 	locked():void{
 		this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {

@@ -59,6 +59,7 @@
   cursor: pointer;
 }
 .dropdown-item{
+  margin: 0 !important;
 }
 .linea{
   margin: 5px 20px;

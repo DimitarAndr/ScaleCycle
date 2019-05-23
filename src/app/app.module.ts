@@ -29,6 +29,7 @@ import { EventAdminComponent } from './event-admin/event-admin.component';
 import { EventDetailComponent } from './event-detail/event-detail.component';
 import { ParticipateDetailComponent } from './participate-detail/participate-detail.component';
 import { NewEventComponent } from './new-event/new-event.component';
+import { ClaimListComponent } from './claim-list/claim-list.component';
 //Dimitar
 import {FooterComponent} from './footer/footer.component';
 import {AgmCoreModule} from '@agm/core';
@@ -68,7 +69,9 @@ const rutas = [
   {path: 'settingClient', component: SettingClientComponent},
   {path: 'EmployeeList', component: EmployeeListComponent},
   {path: 'EventAdmin', component: EventAdminComponent},
-  {path: 'recoverPassword/:username', component: RecoverPasswordComponent}
+  {path: 'recoverPassword/:username', component: RecoverPasswordComponent},
+  {path: 'ClaimList', component: ClaimListComponent},
+
   //{path: '**', component: 404}
 ];
 
@@ -98,7 +101,8 @@ const rutas = [
     PremiosChildComponent,
     EventDetailComponent,
     ParticipateDetailComponent,
-    NewEventComponent
+    NewEventComponent,
+    ClaimListComponent
   ],
   imports: [
     RouterModule.forRoot(rutas),
