@@ -17,3 +17,6 @@ tbody,tfoot,thead{
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }*/
+textarea{
+	resize:none;
+}

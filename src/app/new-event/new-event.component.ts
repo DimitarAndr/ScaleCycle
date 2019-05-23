@@ -6,7 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./new-event.component.css']
 })
 export class NewEventComponent implements OnInit {
-
+	event = {
+		"Id":"",
+		"Titulo":"",
+		"Lugar":"",
+		"Descripcion":"",
+		"Puntos":"",
+		"Fecha":"",
+		"HoraInicio":"",
+		"HoraFinal":"",
+		"Id_empleado":""
+	}
   constructor() { }
 
   ngOnInit() {

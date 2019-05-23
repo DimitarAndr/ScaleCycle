@@ -5,3 +5,6 @@ p{
   word-break:break-all;
   overflow: hidden;
 }
+textarea{
+	resize:none;
+}

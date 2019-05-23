@@ -14,7 +14,7 @@ import { ParticipateDetailComponent } from '../participate-detail/participate-de
   styleUrls: ['./event-detail.component.css']
 })
 export class EventDetailComponent implements OnInit {
-	aux:boolean = true;
+	aux = 1;
   event={
   	"Id":"",
   	"Titulo":"",
@@ -106,10 +106,17 @@ export class EventDetailComponent implements OnInit {
     });
   }
   getPaericipante(){
-  	this.aux = false;
+  	this.aux = 2;
   }
   getevento(){
-  	this.aux=true;
+  	this.aux=1;
   }
-
+  volver(){
+  	this.aux = 1;
+  }
+  changeEstado(estado){
+  	if(estado>=1 && estado<=3){
+  		this.aux=estado;
+  	}
+  }
 }

@@ -1,5 +1,13 @@
-<h2 mat-dialog-title>Evento:{{event.Id}} ({{event.Titulo}})</h2>
-<mat-dialog-content *ngIf="aux">
+<div class="row">
+	<div class="col-lg-9" align="left">
+		<h2 mat-dialog-title>Evento:{{event.Id}} ({{event.Titulo}})</h2>
+	</div>
+	<div class="col-lg-3" align="right">
+		<button>Eliminar</button>
+		<button *ngIf="aux=='1'" (click)="changeEstado(3)">Modificar</button>
+	</div>
+</div>
+<mat-dialog-content *ngIf="aux=='1'">
 	<div class="row">
 		<div class="col-lg-5">
 			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -44,7 +52,7 @@
 		</div>
 	</div>
 </mat-dialog-content>
-<mat-dialog-content *ngIf="!aux">
+<mat-dialog-content *ngIf="aux=='2'">
 	<table datatable class="row-border hover" [dtTrigger]="dtTrigger1" align="center">
 	  <thead>
 	    <tr>
@@ -84,10 +92,66 @@
 	  </tfoot>-->
 	</table>
 </mat-dialog-content>
+<mat-dialog-content *ngIf="aux=='3'">
+	<div class="row">
+		<div class="col-md-6" align="center">
+			<img src="https://pbs.twimg.com/profile_images/534017689694371840/A-p12OyT.png" alt="img"><br/>
+			<label for="avatar" class="btn btn-primary">Seleccionar Imagen</label>
+			<input type="file" accept="image/*" style="display: none" form="modifyEvent" name="avatar" id="avatar" [(ngModel)]="Avatar" (change)="onFileChange($event)">
+		</div>
+		<div class="col-md-6">
+			<b id="error" *ngIf='!createStatud'>{{msgError}}</b>
+			<form class="form" #modifyEvent="ngForm" (ngSubmit)="onSubmit()" id="modifyEvent">
+				<b>Crea nueva evento</b>
+			  <div class="form-row">
+			    <div class="form-group col-md-6">
+			      <label for="title">Titulo</label>
+			      <input type="text" class="form-control" name="title" [(ngModel)]="event.Titulo" id="title" placeholder="Introduce Titulo">
+			    </div>
+			    <div class="form-group col-md-6">
+			      <label for="location">Lugar</label>
+			      <input type="text" class="form-control" name="location" [(ngModel)]="event.Lugar" id="location" placeholder="Introduce Lugar">
+			    </div>
+			  </div>
+			  <div class="form-row">
+				  <div class="form-group col-md-12">
+				    <label for="Description">Descripcion</label>
+				    <textarea class="md-textarea form-control" rows="5" name="Description" [(ngModel)]="event.Descripcion" id="Description" placeholder="Introduce Descripcion"></textarea>
+				  </div>
+				</div>
+			  <div class="form-row">
+			    <div class="form-group col-md-4">
+			      <label for="points">Puntos</label>
+			      <input type="number" minlength="0" class="form-control" name="points" [(ngModel)]="event.Puntos" id="points" placeholder="Introduce Puntos">
+			    </div>
+			    <div class="form-group col-md-8">
+			      <label for="date">Fecha</label>
+			      <input type="date" class="form-control" name="date" [(ngModel)]="event.Fecha" id="date" placeholder="Introduce su Fecha">
+			    </div>
+			  </div>
+			  <div class="form-row">
+			    <div class="form-group col-md-6">
+			      <label for="startTime">Hora Inicial</label>
+			      <input type="time" class="form-control" name="startTime" [(ngModel)]="event.HoraInicio" id="startTime" placeholder="Introduce Hora Inicial">
+			    </div>
+			  	<div class="form-group col-md-6">
+			      <label for="endTime">Hora Final</label>
+			      <input type="time" class="form-control" name="endTime" [(ngModel)]="event.HoraFinal" id="endTime" placeholder="Introduce Hora Final">
+			    </div>
+			  </div>
+			  <div align="center">
+			  	
+			  </div>
+			</form>
+		</div>
+	</div>
+</mat-dialog-content>
 <mat-dialog-actions align="end">
 	<div class="container">
-	  <button class="btn btn-primary" (click)="getPaericipante()" *ngIf="aux">Participante</button>
-	  <button class="btn btn-primary" (click)="getevento()" *ngIf="!aux">Evento</button>
+		<button type="submit" class="btn btn-primary" [disabled]="modifyEvent.invalid || loading" *ngIf="aux=='3'">Modificar</button>
+	  <button class="btn btn-primary" (click)="changeEstado(2)" *ngIf="aux=='1'">Participante</button>
+	  <button class="btn btn-primary" (click)="changeEstado(1)" *ngIf="aux=='2'">Evento</button>
+	  <button class="btn btn-primary" (click)="changeEstado(1)" *ngIf="aux=='3'">Volver</button>
 	  <button mat-button mat-dialog-close>Cerrar</button> 
 	</div>
 </mat-dialog-actions>

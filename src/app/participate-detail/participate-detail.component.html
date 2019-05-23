@@ -12,7 +12,7 @@
 			<p><b>Apellido: </b>{{participant.Apellido}}</p>
 			<p><b>Telefono: </b>{{participant.Telefono}}</p>
 			<p><b>Descripcion: </b></p>
-			<textarea class="md-textarea form-control" rows="5" (change)="onchange()" style="resize:none;" [(ngModel)]="description">{{participant.Descripcion}}</textarea>
+			<textarea class="md-textarea form-control" rows="5" (change)="onchange()" [(ngModel)]="description">{{participant.Descripcion}}</textarea>
 			<button *ngIf="changeDescription" (click)="updateDescrioption()">Actualizar Descripcion</button>
 			<p><b>Estado: </b>{{participant.Estado==0?'No Presentado':participant.Estado==1?'Presentado':'Completo'}}</p>
 		</div>
