@@ -4,46 +4,48 @@
 			<button class="btn btn-outline-dark" (click)="newEvent()">Nuevo Evento</button>
 		</div>
 	</div>
-	<table datatable class="row-border hover" [dtTrigger]="dtTrigger" [dtOptions]="dtOptions"  align="center">
-	  <thead>
-	    <tr>
-	      <th>ID</th>
-	      <th>Titul</th>
-	      <th>Descripcion</th>
-	      <th>Lugar</th>
-	      <th>Fecha</th>
-	      <th>Hora Inicio</th>
-	      <th>Hora Final</th>
-	      <th>Puntos</th>
-	      <th>Creador</th>
-	    </tr>
-	  </thead>
-	  <tbody>
-			<tr *ngFor = "let event of events" (click)="openDialog(event.Id)">
-				<td>{{event.Id}}</td>
-				<td class="line-limit-length">{{event.Titulo}}</td>
-				<td class="line-limit-length">{{event.Descripcion}}</td>
-				<td class="line-limit-length">{{event.Lugar}}</td>
-				<td>{{event.Fecha}}</td>
-				<td>{{event.HoraInicio}}</td>
-				<td>{{event.HoraFinal}}</td>
-				<td>{{event.Puntos}}</td>
-				<td>{{event.Id_empleado}}</td>
-			</tr>
-	  </tbody>
-	  <tfoot>
-	    <tr>
-	      <th><input type="text" placeholder="Id"/></th>
-	      <th><input type="text" placeholder="Titulo"/></th>
-	      <th><input type="text" placeholder="Descripcion"/></th>
-	      <th><input type="text" placeholder="Lugar"/></th>
-	      <th><input type="text" placeholder="Fecha"/></th>
-	      <th><input type="text" placeholder="Hora Inicio"/></th>
-	      <th><input type="text" placeholder="Hora Final"/></th>
-	      <th><input type="text" placeholder="Puntos"/></th>
-	      <th><input type="text" placeholder="Creador"/></th>
-	    </tr>
-	  </tfoot>
-	</table>
+	<div class="table-responsive">
+		<table datatable class=" table row-border hover" [dtTrigger]="dtTrigger" [dtOptions]="dtOptions"  align="center">
+		  <thead>
+		    <tr>
+		      <th>ID</th>
+		      <th>Titul</th>
+		      <th>Descripcion</th>
+		      <th>Lugar</th>
+		      <th>Fecha</th>
+		      <th>Hora Inicio</th>
+		      <th>Hora Final</th>
+		      <th>Puntos</th>
+		      <th>Creador</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+				<tr *ngFor = "let event of events" (click)="openDialog(event.Id)">
+					<td>{{event.Id}}</td>
+					<td class="line-limit-length">{{event.Titulo}}</td>
+					<td class="line-limit-length">{{event.Descripcion}}</td>
+					<td class="line-limit-length">{{event.Lugar}}</td>
+					<td>{{event.Fecha}}</td>
+					<td>{{event.HoraInicio}}</td>
+					<td>{{event.HoraFinal}}</td>
+					<td>{{event.Puntos}}</td>
+					<td>{{event.Id_empleado}}</td>
+				</tr>
+		  </tbody>
+		  <tfoot>
+		    <tr>
+		      <th><input type="text" placeholder="Id"/></th>
+		      <th><input type="text" placeholder="Titulo"/></th>
+		      <th><input type="text" placeholder="Descripcion"/></th>
+		      <th><input type="text" placeholder="Lugar"/></th>
+		      <th><input type="text" placeholder="Fecha"/></th>
+		      <th><input type="text" placeholder="Hora Inicio"/></th>
+		      <th><input type="text" placeholder="Hora Final"/></th>
+		      <th><input type="text" placeholder="Puntos"/></th>
+		      <th><input type="text" placeholder="Creador"/></th>
+		    </tr>
+		  </tfoot>
+		</table>
+	</div>
 
 </div>

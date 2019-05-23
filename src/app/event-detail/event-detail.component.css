@@ -20,3 +20,13 @@ tbody,tfoot,thead{
 textarea{
 	resize:none;
 }
+.parent {
+	position: relative;
+	height: 100%;
+}
+
+.child {
+	position: absolute;
+	top: 50%; 
+	transform: translateY(-50%);
+}

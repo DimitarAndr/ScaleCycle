@@ -105,18 +105,27 @@ export class EventDetailComponent implements OnInit {
 		  }
     });
   }
-  getPaericipante(){
-  	this.aux = 2;
-  }
-  getevento(){
-  	this.aux=1;
-  }
-  volver(){
-  	this.aux = 1;
-  }
   changeEstado(estado){
   	if(estado>=1 && estado<=3){
   		this.aux=estado;
   	}
+  }
+  delete(){
+  	this.http.delete(this.globals['SERVER']+'/deleteEvent/'+this.event['Id']).subscribe(data => {
+  		if (data['error']) {
+
+  		}else{
+  			window.location.replace(this.globals['ScaleCycle']+'/EventAdmin');
+  		}
+  	});
+  }
+  onSubmit(){
+  	this.http.put(this.globals['SERVER']+'/modifyEvent',this.event).subscribe(data => {
+  		if (data['error']) {
+
+  		}else{
+  			window.location.replace(this.globals['ScaleCycle']+'/EventAdmin');
+  		}
+  	});
   }
 }
