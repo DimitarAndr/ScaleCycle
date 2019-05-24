@@ -1,0 +1,25 @@
+input{
+	width: 100%;
+}
+tbody,tfoot,thead{
+	text-align: center;
+}
+::-webkit-input-placeholder {
+   text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   text-align: center;  
+}
+
+:-ms-input-placeholder {  
+   text-align: center; 
+}
+.menu{
+	margin: 5px 0;
+	text-align: right;
+}

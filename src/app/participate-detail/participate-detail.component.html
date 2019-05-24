@@ -1,0 +1,36 @@
+<div class="row">
+	<div class="col-lg-6"><h2 mat-dialog-title>Evento:{{event.Id}} ({{event.Titulo}})</h2></div>
+	<div class="col-lg-6"><h2 mat-dialog-title>Participante:{{participant.IdCliente}} ({{participant.Nombre}} {{participant.Apellido}})</h2></div>
+</div>
+<mat-dialog-content>
+	<div class="row">
+		<div class="col-lg-12">
+			<p><b>Id: </b>{{participant.IdCliente}}</p>
+			<p><b>Identificador: </b>{{participant.Identificador}}</p>
+			<p><b>Username: </b>{{participant.Username}}</p>
+			<p><b>Nombre: </b>{{participant.Nombre}}</p>
+			<p><b>Apellido: </b>{{participant.Apellido}}</p>
+			<p><b>Telefono: </b>{{participant.Telefono}}</p>
+			<p><b>Descripcion: </b></p>
+			<textarea class="md-textarea form-control" rows="5" (change)="onchange()" [(ngModel)]="description">{{participant.Descripcion}}</textarea>
+			<button *ngIf="changeDescription" (click)="updateDescrioption()">Actualizar Descripcion</button>
+			<p><b>Estado: </b>{{participant.Estado==0?'No Presentado':participant.Estado==1?'Presentado':'Completo'}}</p>
+		</div>
+	</div>
+</mat-dialog-content>
+<div class="row">
+	<div class="col-lg-6" align="center">
+		<button mat-button class="bg-danger" [disabled]="(participant.Estado==0)" (click)="updateEstado(0)">No presentado</button>
+		<button mat-button class="bg-warning" [disabled]="(participant.Estado==1)" (click)="updateEstado(1)">Presentado</button>
+		<button mat-button class="bg-success" [disabled]="(participant.Estado==2)" (click)="updateEstado(2)">Completa</button>
+	</div>
+	<div class="col-lg-6">
+		<mat-dialog-actions align="end">
+			<div class="container">
+			  <button class="btn btn-primary" (click)="getPaericipante()" *ngIf="aux">Participante</button>
+			  <button class="btn btn-primary" (click)="getevento()" *ngIf="!aux">Evento</button>
+			  <button mat-button mat-dialog-close>Cerrar</button> 
+			</div>
+		</mat-dialog-actions>
+	</div>
+</div>

@@ -40,8 +40,10 @@
             <!-- Cuando es un cliente -->
             <div *ngIf="session.userType==1">
               <a class="dropdown-item" href="#">Lista de Premio</a>
+              <a class="dropdown-item" href="#">Listas de Eventos</a>
               <a class="dropdown-item" href="#">Historial de Entrega</a>
               <a class="dropdown-item" href="#">Historial de Cambio</a>
+              <a class="dropdown-item" href="#">Historial de Evento</a>
             </div>
             <!-- Cuando es un empleado -->
             <div *ngIf="session.userType==2">
@@ -52,8 +54,8 @@
               <div *ngIf="session.userState==2">
                 <div class="dropdown-divider linea"></div>
                 <a class="dropdown-item" routerLink="/EmployeeList">Lista Empleado</a>
-                <a class="dropdown-item" routerLink="/EventAdminz">Administrar Evento</a>
-                <a class="dropdown-item" href="#">Lista Reclamacion</a>
+                <a class="dropdown-item" routerLink="/EventAdmin">Administrar Evento</a>
+                <a class="dropdown-item" routerLink="/ClaimList">Lista Reclamacion</a>
               </div>
             </div>
 

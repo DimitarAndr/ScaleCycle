@@ -1,0 +1,33 @@
+<div class="container">
+	<!--<button (click)="empleado()">Empleado</button>
+	<button (click)="administrador()">Administrador</button>
+	<button (click)="valid()">Valido</button>
+	<button (click)="all()">All</button>-->
+	<table datatable class="row-border hover" [dtTrigger]="dtTrigger" *ngIf="claims">
+	  <thead>
+	    <tr>
+	      <th>Id</th>
+	      <th>Titulo</th>
+	      <th>Tipo</th>
+	      <th>IdTipo</th>
+	      <th>Descripcion</th>
+	      <th>IdCliente</th>
+	      <th>Estado</th>
+	    </tr>
+	  </thead>
+	  <tbody>
+			<tr *ngFor = "let claim of claims">
+				<td>{{claim.Id}}</td>
+				<td>{{claim.Titulo}}</td>
+				<td>{{claim.Tipo}}</td>
+				<td>{{claim.IdTipo}}</td>
+				<td>{{claim.Descripcion}}</td>
+				<td>{{claim.IdCliente}}</td>
+				<td>{{claim.Estado}}</td>
+			</tr>
+	  </tbody>
+	</table>
+	<div align="center">
+		<p *ngIf="!claims" class="text-primary">No hay ninguna reclamacion</p>
+	</div>
+</div>

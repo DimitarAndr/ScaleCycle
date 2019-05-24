@@ -22,6 +22,14 @@ import {RegisterChangeComponent} from './register-change/register-change.compone
 import {Globals} from './globals/globals';
 import {ActivateAccountComponent} from './activate-account/activate-account.component';
 import {RecoverPasswordComponent} from './recover-password/recover-password.component';
+import { SettingComponent } from './setting/setting.component';
+import { SettingClientComponent } from './setting-client/setting-client.component';
+import { EmployeeListComponent } from './employee-list/employee-list.component';
+import { EventAdminComponent } from './event-admin/event-admin.component';
+import { EventDetailComponent } from './event-detail/event-detail.component';
+import { ParticipateDetailComponent } from './participate-detail/participate-detail.component';
+import { NewEventComponent } from './new-event/new-event.component';
+import { ClaimListComponent } from './claim-list/claim-list.component';
 import {SettingComponent} from './setting/setting.component';
 import {SettingClientComponent} from './setting-client/setting-client.component';
 import {EmployeeListComponent} from './employee-list/employee-list.component';
