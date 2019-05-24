@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
-import { DataTablesModule } from 'angular-datatables';
+import {DataTablesModule} from 'angular-datatables';
 
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
@@ -22,10 +22,10 @@ import {RegisterChangeComponent} from './register-change/register-change.compone
 import {Globals} from './globals/globals';
 import {ActivateAccountComponent} from './activate-account/activate-account.component';
 import {RecoverPasswordComponent} from './recover-password/recover-password.component';
-import { SettingComponent } from './setting/setting.component';
-import { SettingClientComponent } from './setting-client/setting-client.component';
-import { EmployeeListComponent } from './employee-list/employee-list.component';
-import { EventAdminComponent } from './event-admin/event-admin.component';
+import {SettingComponent} from './setting/setting.component';
+import {SettingClientComponent} from './setting-client/setting-client.component';
+import {EmployeeListComponent} from './employee-list/employee-list.component';
+import {EventAdminComponent} from './event-admin/event-admin.component';
 //Dimitar
 import {FooterComponent} from './footer/footer.component';
 import {AgmCoreModule} from '@agm/core';
@@ -34,40 +34,99 @@ import {MapaComponent} from './mapa/mapa.component';
 import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
 //import {FilterPipeModule} from 'ngx-filter-pipe';
 import {PremiosComponent} from './premios/premios.component';
-import {MatAutocompleteModule, MatButtonModule, MatFormFieldModule, MatInputModule} from '@angular/material';
+import {MatAutocompleteModule, MatInputModule} from '@angular/material';
 import {ContactosComponent} from './contactos/contactos.component';
-import {MatIconModule} from '@angular/material/icon';
 import {Estacion} from './model/Estacion';
 import {Premio} from './model/Premio';
-import {PremiosChildComponent} from './premios/premios-child/premios-child.component';
+import {PremiosSingleComponent} from './premios-single/premios-single.component';
+import {CartComponent} from './cart/cart.component';
 
 
 const rutas = [
-  {path: '', component: HomeComponent},
-  {path: 'Mapa', component: MapaComponent},
-  {
-    path: 'Premios', component: PremiosComponent,
-    children: [
-      {path: 'detail/:id', component: PremiosChildComponent}
-      ]
-  },
-  {path: 'Contactos', component: ContactosComponent},
-  {path: 'Client', component: ClientProfileComponent},
-  {path: 'RegisterSubmit', component: RegisterSubmitComponent},
-  {path: 'RegisterChange', component: RegisterChangeComponent},
-  {path: 'Employee', component: EmployeeProfileComponent},
-  {path: 'Admin', component: AdminProfileComponent},
-  {path: 'Register', component: RegisterComponent},
-  {path: 'activateAccount/:id', component: ActivateAccountComponent},
-  {path: 'recoverPassword', component: RecoverPasswordComponent},
-  {path: 'recoverPassword/:username', component: RecoverPasswordComponent},
-  {path: 'setting', component: SettingComponent},
-  {path: 'settingClient', component: SettingClientComponent},
-  {path: 'EmployeeList', component: EmployeeListComponent},
-  {path: 'EventAdmin', component: EventAdminComponent},
-  {path: 'recoverPassword/:username', component: RecoverPasswordComponent}
-  //{path: '**', component: 404}
-];
+    {path: '', component: HomeComponent},
+    {path: 'Mapa', component: MapaComponent},
+    {
+      path: 'Premios', component: PremiosComponent
+    },
+    {
+      path: 'premiosSingle/:id', component: PremiosSingleComponent
+    },
+    {
+      path: 'cart', component: CartComponent
+    },
+    {
+      path: 'Contactos', component:
+      ContactosComponent
+    },
+    {
+      path: 'Client', component:
+      ClientProfileComponent
+    },
+    {
+      path: 'RegisterSubmit', component:
+      RegisterSubmitComponent
+    },
+    {
+      path: 'RegisterChange', component:
+      RegisterChangeComponent
+    },
+    {
+      path: 'Employee', component:
+      EmployeeProfileComponent
+    }
+    ,
+    {
+      path: 'Admin', component:
+      AdminProfileComponent
+    }
+    ,
+    {
+      path: 'Register', component:
+      RegisterComponent
+    }
+    ,
+    {
+      path: 'activateAccount/:id', component:
+      ActivateAccountComponent
+    }
+    ,
+    {
+      path: 'recoverPassword', component:
+      RecoverPasswordComponent
+    }
+    ,
+    {
+      path: 'recoverPassword/:username', component:
+      RecoverPasswordComponent
+    }
+    ,
+    {
+      path: 'setting', component:
+      SettingComponent
+    }
+    ,
+    {
+      path: 'settingClient', component:
+      SettingClientComponent
+    }
+    ,
+    {
+      path: 'EmployeeList', component:
+      EmployeeListComponent
+    }
+    ,
+    {
+      path: 'EventAdmin', component:
+      EventAdminComponent
+    }
+    ,
+    {
+      path: 'recoverPassword/:username', component:
+      RecoverPasswordComponent
+    }
+//{path: '**', component: 404}
+  ]
+;
 
 @NgModule({
   declarations: [
@@ -92,7 +151,8 @@ const rutas = [
     EmployeeListComponent,
     EventAdminComponent,
     ContactosComponent,
-    PremiosChildComponent
+    PremiosSingleComponent,
+    CartComponent
   ],
   imports: [
     RouterModule.forRoot(rutas),
@@ -112,10 +172,7 @@ const rutas = [
     //FilterPipeModule,           // Dimitar
     ReactiveFormsModule,        // Dimitar
     MatInputModule,             // Dimitar
-    MatAutocompleteModule,      // Dimitar
-    MatFormFieldModule,         // Dimitar
-    MatButtonModule,             // Dimitar
-    MatIconModule
+    MatAutocompleteModule,     // Dimitar
   ],
   entryComponents: [
     LoginComponent // Ouxiang

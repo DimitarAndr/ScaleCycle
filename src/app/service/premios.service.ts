@@ -22,4 +22,5 @@ export class PremiosService {
   getAllPremios(): Observable<Premio[]> {
     return this.http.get<Premio[]>(this.url, this.httpOptions);
   }
+
 }

@@ -27,16 +27,6 @@
   });
 </script>
 -->
-  <div class="button-group filters-button-group">
-    <button class="button is-checked" data-filter="*">TOTS</button>
-    <button class="button" data-filter=".1">GRAFIC</button>
-    <button class="button" data-filter=".2">IDENTITAT</button>
-    <button class="button" data-filter=".web">WEB</button>
-    <button class="button" data-filter=".editorial">EDITORIAL</button>
-    <button class="button" data-filter=".video">VIDEO</button>
-    <button class="button" data-filter=".appama">APPAMA</button>
-  </div>
-
 
 <div class="site-wrap">
   <div class="site-section">
@@ -50,12 +40,13 @@
             <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up" *ngFor="let premio of premios">
               <div class="block-4 text-center border">
                 <figure class="block-4-image">
-                  <a routerLink='/detail'><img src="./assets/Storage/Premios/{{premio.id}}.jpg"
-                                                  alt="Image placeholder"
-                                                  class="img-fluid"></a>
+                  <a routerLink='/premiosSingle/{{premio.id}}'><img
+                  src="./assets/Storage/Premios/{{premio.id}}.jpg"
+                  alt="Image placeholder"
+                  class="img-fluid"></a>
                 </figure>
                 <div class="block-4-text p-4">
-                  <h3><a href="shop-single.html">{{premio.nombre}}</a></h3>
+                  <h3><a routerLink='/premiosSingle/{{premio.id}}'>{{premio.nombre}}</a></h3>
                   <p class="mb-0">{{premio.descripcion}}</p>
                   <p class="text-primary font-weight-bold">{{premio.puntos}}</p>
                 </div>
@@ -72,26 +63,32 @@
               <li class="mb-1" (click)="todas()"><a href="javascript:void(0);" class="d-flex"><span>Todas</span> <span
                 class="text-black ml-auto">({{all}})</span></a></li>
 
-              <li class="mb-1" (click)="filterTazas()"><a href="javascript:void(0);" class="d-flex"><span>Tazas</span> <span
-                class="text-black ml-auto">({{numTazas}})</span></a></li>
+              <li class="mb-1" (click)="filterTazas()"><a href="javascript:void(0);" class="d-flex"><span>Tazas</span>
+                <span
+                  class="text-black ml-auto">({{numTazas}})</span></a></li>
 
-              <li class="mb-1" (click)="filterBolsas()"><a href="javascript:void(0);" class="d-flex"><span>Bolsas</span> <span
-                class="text-black ml-auto">({{numBolsas}})</span></a></li>
+              <li class="mb-1" (click)="filterBolsas()"><a href="javascript:void(0);" class="d-flex"><span>Bolsas</span>
+                <span
+                  class="text-black ml-auto">({{numBolsas}})</span></a></li>
 
               <li class="mb-1" (click)="filterLibros()"><a href="javascript:void(0);" class="d-flex"><span>Libros</span>
                 <span
                   class="text-black ml-auto">({{numLibros}})</span></a></li>
 
-              <li class="mb-1" (click)="filterBotellas()"><a href="javascript:void(0);" class="d-flex"><span>Botellas</span> <span
+              <li class="mb-1" (click)="filterBotellas()"><a href="javascript:void(0);"
+                                                             class="d-flex"><span>Botellas</span> <span
                 class="text-black ml-auto">({{numBotellas}})</span></a></li>
 
-              <li class="mb-1" (click)="filterCamisetas()"><a href="javascript:void(0);" class="d-flex"><span>Camisetas</span> <span
+              <li class="mb-1" (click)="filterCamisetas()"><a href="javascript:void(0);"
+                                                              class="d-flex"><span>Camisetas</span> <span
                 class="text-black ml-auto">({{numCamisetas}})</span></a></li>
 
-              <li class="mb-1" (click)="filterJuguetes()"><a href="javascript:void(0);" class="d-flex"><span>Juguetes</span> <span
+              <li class="mb-1" (click)="filterJuguetes()"><a href="javascript:void(0);"
+                                                             class="d-flex"><span>Juguetes</span> <span
                 class="text-black ml-auto">({{numJugetes}})</span></a></li>
 
-              <li class="mb-1" (click)="filterPendrives()"><a href="javascript:void(0);" class="d-flex"><span>Pendrives</span> <span
+              <li class="mb-1" (click)="filterPendrives()"><a href="javascript:void(0);"
+                                                              class="d-flex"><span>Pendrives</span> <span
                 class="text-black ml-auto">({{numPendrives}})</span></a></li>
 
             </ul>
@@ -101,7 +98,5 @@
     </div>
   </div>
 </div>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/main.js"></script>
+
 

@@ -1,4 +1,5 @@
 export class Premio {
+
   _id: string;
   nombre: string;
   descripcion: string;
