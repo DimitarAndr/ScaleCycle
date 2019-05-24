@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {PremiosService} from '../service/premios.service';
 import {MatDialog} from '@angular/material';
+import {LoginComponent} from '../login/login.component';
 
 
 @Component({
@@ -21,8 +22,16 @@ export class PremiosSingleComponent implements OnInit {
   id;
   categoria;
   quantitatPremio = 1;
-  session: any;
   premiosForSession: any = [];
+  array: any = ['1', '2'];
+  session = {
+    'userId': '',
+    'userName': '',
+    'userLastName': '',
+    'userType': '',
+    'userState': '',
+    'premios': [[]]
+  };
 
   ngOnInit() {
 
@@ -71,23 +80,22 @@ export class PremiosSingleComponent implements OnInit {
   addPremio(premio) {
 
     const premioSession = [premio.id, premio.nombre, premio.descripcion, premio.puntos, premio.cantidad, this.quantitatPremio];
-    this.premiosForSession.push(premioSession);
-    localStorage.setItem('premio' + premio.id, this.premiosForSession);
-    console.log(localStorage);
 
-    /*if (sessionStorage.getItem('user') != null) {
+
+    if (sessionStorage.getItem('user') != null) {
       this.session = JSON.parse(sessionStorage.getItem('user'));
-      this.session.premio += premioSession;
+      console.log(this.session);
+      //var l = this.session.premios.lenght;
+      this.session.premios.push(premioSession);
+      console.log(this.session);
 
 
       sessionStorage.premio += sessionStorage.setItem('user', JSON.stringify(this.session));
 
-
-      this.router.navigate(['/cart']);
+      //this.router.navigate(['/cart']);
     } else {
-      const dialogRef = this.dialog.open(LoginComponent, {});
-    }*/
+      const
+        dialogRef = this.dialog.open(LoginComponent, {});
+    }
   }
-
-
 }
