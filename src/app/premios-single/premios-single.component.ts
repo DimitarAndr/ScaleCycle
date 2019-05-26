@@ -30,7 +30,7 @@ export class PremiosSingleComponent implements OnInit {
     'userLastName': '',
     'userType': '',
     'userState': '',
-    'premios': [[]]
+    'premios': []
   };
 
   ngOnInit() {
@@ -66,7 +66,11 @@ export class PremiosSingleComponent implements OnInit {
   }
 
   addOnePremio() {
-    this.quantitatPremio += 1;
+    if (this.quantitatPremio < this.premio.cantidad) {
+      this.quantitatPremio += 1;
+    } else {
+      alert('No hay cantidad');
+    }
   }
 
   remOnePremio() {
@@ -82,17 +86,19 @@ export class PremiosSingleComponent implements OnInit {
     const premioSession = [premio.id, premio.nombre, premio.descripcion, premio.puntos, premio.cantidad, this.quantitatPremio];
 
 
+    this.session.premios = [[]];
     if (sessionStorage.getItem('user') != null) {
+
       this.session = JSON.parse(sessionStorage.getItem('user'));
-      console.log(this.session);
-      //var l = this.session.premios.lenght;
+      if (!this.session.premios || this.session.premios == null) {
+        this.session.premios = [[]];
+      }
+
       this.session.premios.push(premioSession);
-      console.log(this.session);
+      sessionStorage.setItem('user', JSON.stringify(this.session));
 
 
-      sessionStorage.premio += sessionStorage.setItem('user', JSON.stringify(this.session));
-
-      //this.router.navigate(['/cart']);
+      this.router.navigate(['/cart']);
     } else {
       const
         dialogRef = this.dialog.open(LoginComponent, {});
