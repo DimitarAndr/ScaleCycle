@@ -35,6 +35,7 @@ import {PremiosComponent} from './premios/premios.component';
 import {MatAutocompleteModule, MatInputModule} from '@angular/material';
 import {ContactosComponent} from './contactos/contactos.component';
 import {Estacion} from './model/Estacion';
+import {Evento} from './model/Evento';
 import {Premio} from './model/Premio';
 import {PremiosSingleComponent} from './premios-single/premios-single.component';
 import {CartComponent} from './cart/cart.component';
@@ -43,7 +44,7 @@ import {ClaimListComponent} from './claim-list/claim-list.component';
 import {NewEventComponent} from './new-event/new-event.component';
 import {ParticipateDetailComponent} from './participate-detail/participate-detail.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import { EventsComponent } from './events/events.component';
+import {EventsComponent} from './events/events.component';
 
 
 const rutas = [
@@ -191,7 +192,7 @@ const rutas = [
   entryComponents: [
     LoginComponent // Ouxiang
   ],
-  providers: [Globals, Estacion, Premio],
+  providers: [Globals, Estacion, Premio, Evento],
   bootstrap: [AppComponent]
 })
 export class AppModule {

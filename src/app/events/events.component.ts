@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import {Evento} from '../model/Evento';
+import {EventosService} from '../service/eventos.service';
+
+declare var $;
 
 @Component({
   selector: 'app-events',
@@ -7,9 +13,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventsComponent implements OnInit {
 
-  constructor() { }
+  eventos = [];
 
-  ngOnInit() {
+  constructor(private Event: Evento, private eventosService: EventosService) {
   }
 
+
+  ngOnInit() {
+    AOS.init();
+
+
+    this.eventosService.getAllEventos().subscribe((data: any[]) => {
+      for (const event of data) {
+        this.eventos.push(event);
+      }
+    });
+
+  }
 }

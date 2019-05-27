@@ -1,10 +1,45 @@
-<div class="container-fluid mb-4">
-  <div class="row">
-    <div class="col-lg-12 text-center mb-3">
-      <video  class="mx-auto" src="./assets/Storage/VideoEvents.mp4" id="video" autoplay loop style="min-width: 80%; border-radius: 100px"></video>
+<div class="bg-light py-3">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 mb-0"><a href="/">Home</a> <span class="mx-2 mb-0">/</span><a
+        routerLink="/Events">Eventos</a> <span class="mx-2 mb-0"></span> <strong
+        class="text-black"></strong></div>
     </div>
   </div>
-  <div class="row text-center">
-    <h1 class="mx-auto">Eventos</h1>
+</div>
+
+<div class="container-fluid mb-4 mt-4">
+  <div class="container">
+    <div id="eventos" class="row view-group" *ngFor="let event of eventos">
+      <div class="item list-group-item col-xs-4 col-lg-4">
+        <div class="thumbnail card mt-3" style="border-radius: 10px">
+          <div class="img-event" style="min-height: 100%">
+            <img class="group list-group-image img-fluid"
+                 src="./assets/Storage/Eventos/{{event.id}}.jpg" alt=""
+                 style="border-top-left-radius:10px;border-bottom-left-radius:10px"/>
+          </div>
+          <div class=" caption card-body">
+            <h4 class="group card-title inner list-group-item-heading ml-2 text-center titulo-evento">{{event.titulo}}</h4>
+            <p class="group inner list-group-item-text ml-2 descripcion-evento">{{event.Descripcion}}</p>
+            <p class="text-capitalize ml-2 mb-0 mt-0 fecha-hora">Fecha: {{event.Fecha}}</p>
+            <p class="text-capitalize ml-2 mb-0 mt-0 fecha-hora">hora: {{event.HoraInicio}} - {{event.HoraFinal}}</p>
+            <div class="row">
+              <div class="col-xs-12 col-md-6 mt-4">
+                <p class="lead font-weight-bold ml-2">
+                  Bonus: {{event.Puntos}} Puntos</p>
+              </div>
+              <div class="col-xs-12 col-md-6 mt-3">
+                <a class="btn btn-outline-success btn-lg float-right" href="http://www.jquery2dotnet.com"><img
+                  class="mx-auto d-block"
+                  src="../../assets/Storage/SVG_Files/recycled-bagEventos1.svg"
+                  style="height: 5vh;"
+                  alt="Image Events">
+                  <span style="font-size:smaller;">Participar</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

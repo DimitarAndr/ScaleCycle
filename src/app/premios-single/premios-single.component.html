@@ -1,5 +1,5 @@
 <div class="bg-light py-3">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-12 mb-0"><a href="/">Home</a> <span class="mx-2 mb-0">/</span><a
         routerLink="/Premios">Premios</a> <span class="mx-2 mb-0">/</span> <strong
@@ -8,7 +8,7 @@
   </div>
 </div>
 
-<div class="site-section">
+<div class="site-section m-5">
   <div class="container">
     <div class="row">
       <div class="col-md-6">
@@ -53,21 +53,20 @@
   <div class="container" *ngIf="similarPremios!=''">
     <div class="row justify-content-center">
       <div class="col-md-7 site-section-heading text-center pt-4">
-        <h2>Featured Products</h2>
+        <h2>Productos relacionados con este artículo</h2>
       </div>
     </div>
 
     <div class="row">
-      <div class="card m-1 mb-4 mx-auto" *ngFor="let similiarPrem of similarPremios" style="width: 20rem; height: auto">
-        <div class="card-body" (click)="changePremio(similiarPrem)">
+      <div class="card mb-5 mx-auto" *ngFor="let similiarPrem of similarPremios" style="width: 20rem; height: auto">
+        <div class="card-body " (click)="changePremio(similiarPrem)">
           <img class="card-img-top img-thumbnail"
                src="./assets/Storage/Premios/{{similiarPrem.id}}.jpg"
                alt="{{similiarPrem.nombre}}" style="height: 15rem;">
-          <div class="card-body">
+          <div class="card-body ">
             <h5 class="card-title">{{similiarPrem.nombre}}</h5>
             <p class="card-text">{{similiarPrem.descripcion}}</p>
           </div>
-
         </div>
       </div>
     </div>
