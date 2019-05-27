@@ -13,11 +13,11 @@
     <div class="row">
       <div class="col-md-6">
         <img *ngIf="premio"
-          src="./assets/Storage/Premios/{{premio?.id}}.jpg"
-          alt="Image placeholder"
-          class="img-fluid">
+             src="./assets/Storage/Premios/{{premio?.id}}.jpg"
+             alt="Image placeholder"
+             class="img-fluid">
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 mb-2">
         <h2 class="text-black">{{premio?.nombre}}</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt
           facere, natus soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint
@@ -41,7 +41,8 @@
           </div>
 
         </div>
-        <a href="javascript:void(0);" class="buy-now btn btn-sm btn-primary" (click)="addPremio(premio)">Add To Cart</a>
+        <a href="javascript:void(0);" class="buy-now btn btn-sm btn-primary" (click)="addPremio(premio)">Add To
+          Cart</a>
       </div>
     </div>
   </div>
@@ -49,7 +50,7 @@
 
 
 <div class="site-section block-3 site-blocks-2 bg-light">
-  <div class="container">
+  <div class="container" *ngIf="similarPremios!=''">
     <div class="row justify-content-center">
       <div class="col-md-7 site-section-heading text-center pt-4">
         <h2>Featured Products</h2>

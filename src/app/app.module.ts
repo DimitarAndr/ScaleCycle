@@ -4,7 +4,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {DataTablesModule} from 'angular-datatables';
-
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {NavbarComponent} from './navbar/navbar.component';
@@ -32,7 +31,6 @@ import {AgmCoreModule} from '@agm/core';
 import {AgmSnazzyInfoWindowModule} from '@agm/snazzy-info-window';
 import {MapaComponent} from './mapa/mapa.component';
 import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
-//import {FilterPipeModule} from 'ngx-filter-pipe';
 import {PremiosComponent} from './premios/premios.component';
 import {MatAutocompleteModule, MatInputModule} from '@angular/material';
 import {ContactosComponent} from './contactos/contactos.component';
@@ -40,6 +38,12 @@ import {Estacion} from './model/Estacion';
 import {Premio} from './model/Premio';
 import {PremiosSingleComponent} from './premios-single/premios-single.component';
 import {CartComponent} from './cart/cart.component';
+import {EventDetailComponent} from './event-detail/event-detail.component';
+import {ClaimListComponent} from './claim-list/claim-list.component';
+import {NewEventComponent} from './new-event/new-event.component';
+import {ParticipateDetailComponent} from './participate-detail/participate-detail.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { EventsComponent } from './events/events.component';
 
 
 const rutas = [
@@ -47,6 +51,9 @@ const rutas = [
     {path: 'Mapa', component: MapaComponent},
     {
       path: 'Premios', component: PremiosComponent
+    },
+    {
+      path: 'Events', component: EventsComponent
     },
     {
       path: 'premiosSingle/:id', component: PremiosSingleComponent
@@ -152,7 +159,13 @@ const rutas = [
     EventAdminComponent,
     ContactosComponent,
     PremiosSingleComponent,
-    CartComponent
+    CartComponent,
+    EventDetailComponent,
+    ParticipateDetailComponent,
+    NewEventComponent,
+    ClaimListComponent,
+    EventsComponent
+
   ],
   imports: [
     RouterModule.forRoot(rutas),
@@ -172,7 +185,8 @@ const rutas = [
     //FilterPipeModule,           // Dimitar
     ReactiveFormsModule,        // Dimitar
     MatInputModule,             // Dimitar
-    MatAutocompleteModule,     // Dimitar
+    MatAutocompleteModule,      // Dimitar
+    MatProgressSpinnerModule
   ],
   entryComponents: [
     LoginComponent // Ouxiang

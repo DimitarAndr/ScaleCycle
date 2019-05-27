@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-
-
-declare var $: any;
+import {Premio} from '../model/Premio';
 
 
 @Component({
@@ -13,7 +11,7 @@ declare var $: any;
 
 
 export class CartComponent implements OnInit {
-  session = {};
+  session: any = [['premios']];
   premiosCart = [];
   premioCart;
   sum = 0;
@@ -24,11 +22,14 @@ export class CartComponent implements OnInit {
 
 
   ngOnInit() {
-    this.session = JSON.parse(sessionStorage.getItem('user'));
 
-    console.log(this.session);
+    if (!this.session.premios || this.session.premios == null) {
+      this.session.premios = [[]];
+    }
+
+    this.session = JSON.parse(sessionStorage.getItem('user'));
     for (let i = 0; i < this.session.premios.length; i++) {
-      if (this.premiosCart[0] == '') {
+      if (this.session.premios[0].length == 0) {
         i = 1;
       }
       this.premiosCart.push(this.session.premios[i]);
