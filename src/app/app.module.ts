@@ -54,6 +54,8 @@ import {CartComponent} from './cart/cart.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {EventsComponent} from './events/events.component';
 import {ToastrModule} from 'ngx-toastr';
+import {ChartComponent} from './chart/chart.component';
+import {ChartsModule} from 'ng2-charts';
 
 
 const rutas = [
@@ -83,6 +85,91 @@ const rutas = [
     {path: 'EventHistory', component: EventHistoryComponent},
     {path: 'EventList', component: EventListComponent},
 
+    {
+      path: 'Premios', component: PremiosComponent
+    },
+    {
+      path: 'Events', component: EventsComponent
+    },
+    {
+      path: 'premiosSingle/:id', component: PremiosSingleComponent
+    },
+    {
+      path: 'cart', component: CartComponent
+    },
+    {
+      path: 'Contactos', component:
+      ContactosComponent
+    },
+    {
+      path: 'Client', component:
+      ClientProfileComponent
+    },
+    {
+      path: 'RegisterSubmit', component:
+      RegisterSubmitComponent
+    },
+    {
+      path: 'RegisterChange', component:
+      RegisterChangeComponent
+    },
+    {
+      path: 'Employee', component:
+      EmployeeProfileComponent
+    }
+    ,
+    {
+      path: 'Admin', component:
+      AdminProfileComponent
+    }
+    ,
+    {
+      path: 'Register', component:
+      RegisterComponent
+    }
+    ,
+    {
+      path: 'activateAccount/:id', component:
+      ActivateAccountComponent
+    }
+    ,
+    {
+      path: 'recoverPassword', component:
+      RecoverPasswordComponent
+    }
+    ,
+    {
+      path: 'recoverPassword/:username', component:
+      RecoverPasswordComponent
+    }
+    ,
+    {
+      path: 'setting', component:
+      SettingComponent
+    }
+    ,
+    {
+      path: 'settingClient', component:
+      SettingClientComponent
+    }
+    ,
+    {
+      path: 'EmployeeList', component:
+      EmployeeListComponent
+    }
+    ,
+    {
+      path: 'EventAdmin', component:
+      EventAdminComponent
+    }
+    ,
+    {
+      path: 'recoverPassword/:username', component:
+      RecoverPasswordComponent
+    },
+    {
+      path: 'chart', component: ChartComponent
+    }
 //{path: '**', component: 404}
   ]
 ;
@@ -123,7 +210,11 @@ const rutas = [
     EventHistoryComponent,
     SubmitDetailComponent,
     EventListComponent,
-    EventsComponent
+    EventsComponent,
+    ClaimListComponent,
+    EventsComponent,
+    ChartComponent
+
   ],
   imports: [
     RouterModule.forRoot(rutas),
@@ -145,7 +236,10 @@ const rutas = [
     MatInputModule,             // Dimitar
     MatAutocompleteModule,      // Dimitar
     MatProgressSpinnerModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    MatProgressSpinnerModule,
+    ChartsModule
+
   ],
   entryComponents: [
     LoginComponent, // Ouxiang

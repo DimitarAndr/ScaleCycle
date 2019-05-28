@@ -1,8 +1,6 @@
 .footer {
   height: 400px;
   background-color: #D5DAD6;
-  position: absolute;
-  bottom: 0;
 }
 
 .text-footer {
@@ -57,8 +55,8 @@
   color: #152E1A;
 }
 
-.footer-text{
-  font-family: Karla,sans-serif;
+.footer-text {
+  font-family: Karla, sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
