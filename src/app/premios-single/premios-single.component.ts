@@ -13,7 +13,8 @@ import {LoginComponent} from '../login/login.component';
 export class PremiosSingleComponent implements OnInit {
 
 
-  constructor(private route: ActivatedRoute, private premioService: PremiosService, private dialog: MatDialog, private router: Router) {
+  constructor(private route: ActivatedRoute, private premioService: PremiosService,
+              private dialog: MatDialog, private router: Router) {
 
   }
 
@@ -22,18 +23,20 @@ export class PremiosSingleComponent implements OnInit {
   id;
   categoria;
   quantitatPremio = 1;
-  premiosForSession: any = [];
   array: any = ['1', '2'];
   session = {
-    'userId': '',
-    'userName': '',
-    'userLastName': '',
-    'userType': '',
-    'userState': '',
-    'premios': [[]]
+    userId: '1',
+    userName: 'a',
+    userLastName: 'a',
+    userType: '1',
+    userState: '1',
+    puntos: '500',
+    premios: []
   };
 
   ngOnInit() {
+    this.session = JSON.parse(sessionStorage.getItem('user'));
+    sessionStorage.setItem('user', JSON.stringify(this.session));
 
     this.route.params.subscribe(params => {
       this.id = params.id;
@@ -66,7 +69,11 @@ export class PremiosSingleComponent implements OnInit {
   }
 
   addOnePremio() {
-    this.quantitatPremio += 1;
+    if (this.quantitatPremio < this.premio.cantidad) {
+      this.quantitatPremio += 1;
+    } else {
+      alert('No hay cantidad');
+    }
   }
 
   remOnePremio() {
@@ -79,23 +86,48 @@ export class PremiosSingleComponent implements OnInit {
 
   addPremio(premio) {
 
-    const premioSession = [premio.id, premio.nombre, premio.descripcion, premio.puntos, premio.cantidad, this.quantitatPremio];
-    
+    //Iniciar session: si no hay BBDD
+    if (!sessionStorage.getItem('user') || sessionStorage.getItem('user') === 'null') {
+      this.session = {
+        userId: '1',
+        userName: 'a',
+        userLastName: 'a',
+        userType: '1',
+        userState: '1',
+        puntos: '500',
+        premios: []
+      };
+      sessionStorage.setItem('user', JSON.stringify(this.session));
+    }
+
+    const premioSession = [premio._id, premio.id, premio.nombre, premio.descripcion, premio.categoria, premio.puntos, premio.cantidad, this.quantitatPremio];
+
 
     if (sessionStorage.getItem('user') != null) {
+
       this.session = JSON.parse(sessionStorage.getItem('user'));
-      console.log(this.session);
-      //var l = this.session.premios.lenght;
+
+      if (!this.session.premios || this.session.premios == null) {
+        this.session.premios = [[]];
+      }
+
+      for (let i = 0; i < this.session.premios.length; i++) {
+        if (premioSession[0] === this.session.premios[i][0]) {
+          const cantidad = this.session.premios[i][5];
+          this.session.premios.splice(i, 1);
+          premioSession[5] += cantidad * 1;
+        }
+      }
+
       this.session.premios.push(premioSession);
-      console.log(this.session);
+      sessionStorage.setItem('user', JSON.stringify(this.session));
 
 
-      sessionStorage.premio += sessionStorage.setItem('user', JSON.stringify(this.session));
-
-      //this.router.navigate(['/cart']);
-    } else {
-      const
-        dialogRef = this.dialog.open(LoginComponent, {});
+      this.router.navigate(['/cart']);
     }
+    /* else {
+       const
+         dialogRef = this.dialog.open(LoginComponent, {});
+     }*/
   }
 }

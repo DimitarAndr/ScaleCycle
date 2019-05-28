@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {FormControl, NgForm} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
-import {EstacionService} from '../service/estacion.service';
+import {ContactosService} from '../service/contactos.service';
+import {ToastrService} from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-contactos',
@@ -10,29 +12,28 @@ import {EstacionService} from '../service/estacion.service';
   styleUrls: ['./contactos.component.css']
 })
 export class ContactosComponent implements OnInit {
-  options: string[] = [];
-  a = this.estacionService.getAllEstaciones().subscribe((data: any[]) => {
-    for (const estacion of data) {
-      this.options.push(estacion.barrio);
-    }
-  });
-  filteredOptions: Observable<string[]>;
-  myControl = new FormControl();
 
-  constructor(private estacionService: EstacionService) {
+
+  @ViewChild('form')
+  htmlForm: NgForm;
+
+  constructor(private contactosService: ContactosService, private toastr: ToastrService) {
+
   }
 
-  ngOnInit() {
-    this.filteredOptions = this.myControl.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
+  ngOnInit(): void {
+
+
   }
 
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
+  addConsulta(form: HTMLFormElement) {
+    this.contactosService.addConsulta(form.value).subscribe(data => {
+    }, () => {
+      this.toastr.warning('Error al recibir la pregunta, por favor intente más tarde', 'Warning');
+    }, () => {
+      this.htmlForm.resetForm(), this.toastr.success('Su pregunta ha sido recibida', 'Success');
+    });
 
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
+
 }

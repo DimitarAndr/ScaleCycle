@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
     'userName': '',
     'userLastName': '',
     'userType': '',
-    'userState': ''
+    'userState': '',
+    'puntos': ''
   };
 
   ngOnInit() {
@@ -55,6 +56,7 @@ export class LoginComponent implements OnInit {
         this.session.userLastName = data[0]['Apellido'];
         this.session.userType = this.user['type'];
         this.session.userState = data[0]['Estado'];
+        this.session.puntos = data[0]['Puntos'];
         sessionStorage.setItem('user', JSON.stringify(this.session));
         //console.log(JSON.parse(sessionStorage.getItem('user')));
         if (this.user.type == '1') {

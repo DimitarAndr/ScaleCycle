@@ -63,11 +63,11 @@
     <!--COMO FUNCIONA-->
     <div class="col-lg-6">
       <div class="row">
-        <div class="col-lg-5 offset-lg-2">
-          <img class="mx-auto d-block" src="../../assets/Storage/SVG_Files/ComoFunciona.svg" style="height: 40vh;"
+        <div class="col-xl-5 m-2 mx-auto">
+          <img class="mx-auto d-block" src="../../assets/Storage/SVG_Files/ComoFunciona.svg" style="height: 30vh;"
                alt="Image how it works">
         </div>
-        <div class="col-lg-2">
+        <div class="col-lg-10 offset-1">
           <p class="events">Qué es y cómo funciona</p>
         </div>
       </div>
@@ -77,16 +77,16 @@
     </div>
     <div class="col-lg-6">
       <div class="row">
-        <div class="col-lg-5 offset-lg-2">
+        <div class="col-xl-5 m-2 mx-auto">
           <img class="mx-auto d-block" src="../../assets/Storage/SVG_Files/recycled-bagEventos1.svg"
-               style="height: 40vh;" alt="Image Events">
+               style="height: 30vh;" alt="Image Events">
         </div>
-        <div class="col-lg-2">
-          <p class="events">Nuestro próximo evento</p>
+        <div class="col-lg-10 offset-1">
+          <p class="events">Nuestros próximos eventos</p>
         </div>
       </div>
       <div class="row">
-        <button class="btn mx-auto events-button">Ver Mas</button>
+        <button class="btn mx-auto events-button" routerLink="Events">Ver Mas</button>
       </div>
     </div>
   </div>
@@ -108,20 +108,9 @@
     </div>
   </div>
 
-
   <div class="row" style="margin-top: 50px;">
-    <div class="input-group mb-3 col-lg-4 offset-4 mx-auto">
-      <input type="text" class="form-control" placeholder="Buscar..." aria-label="Default"
-             aria-describedby="basic-addon2" style="border: 1px solid black;border-radius: 50px">
-      <div class="input-group-append">
-        <span class="input-group-text" id="basic-addon2"><img src="../../assets/Storage/SVG_Files/SearchRecycle.svg"
-                                                              width="25px"></span>
-      </div>
-    </div>
-  </div>
-
-  <div class="row" style="margin-top: 50px;">
-    <div class="col-lg-12 mapa">
+    <div class="col-lg-12 mapa m-4">
+      <app-mapa></app-mapa>
     </div>
   </div>
 </div>

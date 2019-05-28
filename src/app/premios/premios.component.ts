@@ -4,8 +4,6 @@ import 'aos/dist/aos.css';
 import {PremiosService} from '../service/premios.service';
 import {Premio} from '../model/Premio';
 
-declare var $: any;
-
 
 @Component({
   selector: 'app-premios',
@@ -28,7 +26,7 @@ export class PremiosComponent implements OnInit {
   all = 0;
 
 
-  constructor(private premioService: PremiosService) {
+  constructor(private premioService: PremiosService, private premio: Premio) {
 
   }
 
@@ -75,71 +73,101 @@ export class PremiosComponent implements OnInit {
     });
   }
 
-  private getPremios(): any {
+  private getPremios() {
+    this.premios = [];
     this.premioService.getAllPremios().subscribe((data: any[]) => {
-      this.a = [];
       for (const premio of data) {
-        this.a.push(premio);
+        this.premios.push(premio);
       }
     });
-    return this.a;
+    return this.premios;
   }
 
   todas() {
-    this.a = this.getPremios();
-    this.premios = this.a.filter(element => {
-      return element;
+    this.premios = [];
+    this.premioService.getAllPremios().subscribe((data: any[]) => {
+      for (const premio of data) {
+        this.premios.push(premio);
+      }
     });
   }
 
 
   filterTazas() {
-    this.a = this.getPremios();
-    this.premios = this.a.filter(element => {
-      return element.categoria === 1;
+    this.premios = [];
+    this.premioService.getAllPremios().subscribe((data: any[]) => {
+      for (const premio of data) {
+        if (premio.categoria == 1) {
+          this.premios.push(premio);
+        }
+      }
     });
   }
 
   filterBolsas() {
-    this.premios = this.getPremios();
-    this.premios = this.premios.filter(element => {
-      return element.categoria === 2;
+    this.premios = [];
+    this.premioService.getAllPremios().subscribe((data: any[]) => {
+      for (const premio of data) {
+        if (premio.categoria == 2) {
+          this.premios.push(premio);
+        }
+      }
     });
   }
 
 
   filterLibros() {
-    this.premios = this.getPremios();
-    this.premios = this.premios.filter(element => {
-      return element.categoria === 3;
+    this.premios = [];
+    this.premioService.getAllPremios().subscribe((data: any[]) => {
+      for (const premio of data) {
+        if (premio.categoria == 3) {
+          this.premios.push(premio);
+        }
+      }
     });
   }
 
   filterBotellas() {
-    this.premios = this.getPremios();
-    this.premios = this.premios.filter(element => {
-      return element.categoria === 4;
+    this.premios = [];
+    this.premioService.getAllPremios().subscribe((data: any[]) => {
+      for (const premio of data) {
+        if (premio.categoria == 4) {
+          this.premios.push(premio);
+        }
+      }
     });
   }
 
   filterCamisetas() {
-    this.premios = this.getPremios();
-    this.premios = this.premios.filter(element => {
-      return element.categoria === 5;
+    this.premios = [];
+    this.premioService.getAllPremios().subscribe((data: any[]) => {
+      for (const premio of data) {
+        if (premio.categoria == 5) {
+          this.premios.push(premio);
+        }
+      }
     });
   }
 
   filterJuguetes() {
-    this.premios = this.getPremios();
-    this.premios = this.premios.filter(element => {
-      return element.categoria === 6;
+    this.premios = [];
+    this.premioService.getAllPremios().subscribe((data: any[]) => {
+      for (const premio of data) {
+        if (premio.categoria == 6) {
+          this.premios.push(premio);
+        }
+      }
     });
   }
 
   filterPendrives() {
-    this.premios = this.getPremios();
-    this.premios = this.premios.filter(element => {
-      return element.categoria === 7;
+    this.premios = [];
+    this.premioService.getAllPremios().subscribe((data: any[]) => {
+      for (const premio of data) {
+        if (premio.categoria == 7) {
+          this.premios.push(premio);
+        }
+      }
     });
   }
 }

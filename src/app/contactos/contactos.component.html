@@ -1,13 +1,108 @@
-<form class="example-form">
-  <mat-form-field appearance="outline">
-    <mat-label>Buscar Barrio</mat-label>
-    <input type="text" aria-label="Default" matInput [formControl]="myControl" [matAutocomplete]="auto">
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-        {{option}}
-      </mat-option>
-    </mat-autocomplete>
-    <mat-hint align="end">Buscar el punt verd por barrio</mat-hint>
-  </mat-form-field>
-</form>
+<div class="bg-light py-3">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 mb-0"><a href="/">Inicio</a> <span class="mx-2 mb-0">/</span><a
+        routerLink="/Contactos">Contactos</a> <span class="mx-2 mb-0"></span> <strong
+        class="text-black"></strong></div>
+    </div>
+  </div>
+</div>
 
+<div class="site-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="h3 mb-3 mt-3 text-black">Envíanos tu consulta</h2>
+      </div>
+      <div class="col-md-7 mb-4">
+
+        <form #form="ngForm" (submit)="addConsulta(form)">
+
+          <div class="p-3 p-lg-5 border">
+            <div class="form-group row">
+              <div class="col-md-6">
+                <label for="c_name" class="text-black">Nombre: <span class="text-danger">*</span></label>
+                <input type="text" pattern="^[a-zA-Z0-9]*[a-zA-Z0-9\-' ]*[a-zA-Z0-9 ]*$" class="form-control"
+                       id="c_name" name="nombre" ngModel required>
+
+                <!--Check form control-->
+                <div class="alert alert-danger"
+                     *ngIf="form?.controls.nombre?.touched && form?.controls.nombre?.errors?.required">
+                  Necesita nombre
+                </div>
+                <div class="alert alert-danger" *ngIf="form?.controls.nombre?.errors?.pattern">
+                  Eror en el nombre.
+                </div>
+              </div>
+
+
+              <div class="col-md-6">
+                <label for="c_lname" class="text-black">Apellido: <span class="text-danger">*</span></label>
+                <input type="text" pattern="^[a-zA-Z0-9]*[a-zA-Z0-9\-' ]*[a-zA-Z0-9 ]*$" class="form-control"
+                       id="c_lname" name="apellido" ngModel required>
+                <!--Check form control-->
+                <div class="alert alert-danger"
+                     *ngIf="form?.controls.apellido?.touched && form?.controls.apellido?.errors?.required">
+                  Necesita Apellido
+                </div>
+                <div class="alert alert-danger" *ngIf="form?.controls.apellido?.errors?.pattern">
+                  Eror en el Apellido.
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-12">
+                <label for="c_email" class="text-black">Email: <span class="text-danger">*</span></label>
+                <input type="email" class="form-control" id="c_email" name="email" placeholder=""
+                       pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" ngModel required>
+                <div class="alert alert-danger"
+                     *ngIf="form?.controls.email?.touched && form?.controls.email?.errors?.required">
+                  Necesita Email
+                </div>
+                <div class="alert alert-danger" *ngIf="form?.controls.email?.errors?.pattern">
+                  El Email tiene que ser en formato example@example.com
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-12">
+                <label for="c_subject" class="text-black">Tema: </label>
+                <input type="text" class="form-control" id="c_subject" name="tema" ngModel required>
+                <div class="alert alert-danger"
+                     *ngIf="form?.controls.tema?.touched && form?.controls.tema?.errors?.required">
+                 Falta el tema
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-md-12">
+                <label for="c_message" class="text-black">Consulta: </label>
+                <textarea name="consulta" id="c_message" cols="30" rows="7" class="form-control" ngModel
+                          required></textarea>
+                <div class="alert alert-danger"
+                     *ngIf="form?.controls.consulta?.touched && form?.controls.consulta?.errors?.required">
+                  Escribe tu consulta
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-lg-12">
+                <input type="submit" [disabled]="form?.invalid" class="btn btn-primary btn-lg btn-block"
+                      value="Enviar">
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-5 ml-auto">
+        <div class="p-4 border mb-3">
+          <span class="d-block text-primary h6 text-uppercase">Barcelona</span>
+          <p class="mb-0">Carrer de la Selva de Mar, 211, 08020 Barcelona</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

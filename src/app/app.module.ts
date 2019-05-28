@@ -4,7 +4,6 @@ import {AppRoutingModule} from './app-routing.module';
 import {RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {DataTablesModule} from 'angular-datatables';
-
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {NavbarComponent} from './navbar/navbar.component';
@@ -44,14 +43,17 @@ import {AgmCoreModule} from '@agm/core';
 import {AgmSnazzyInfoWindowModule} from '@agm/snazzy-info-window';
 import {MapaComponent} from './mapa/mapa.component';
 import {AgmJsMarkerClustererModule} from '@agm/js-marker-clusterer';
-//import {FilterPipeModule} from 'ngx-filter-pipe';
 import {PremiosComponent} from './premios/premios.component';
 import {MatAutocompleteModule, MatInputModule} from '@angular/material';
 import {ContactosComponent} from './contactos/contactos.component';
 import {Estacion} from './model/Estacion';
+import {Evento} from './model/Evento';
 import {Premio} from './model/Premio';
 import {PremiosSingleComponent} from './premios-single/premios-single.component';
 import {CartComponent} from './cart/cart.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {EventsComponent} from './events/events.component';
+import {ToastrModule} from 'ngx-toastr';
 
 
 const rutas = [
@@ -80,7 +82,7 @@ const rutas = [
     {path: 'ChangeHistory', component: ChangeHistoryComponent},
     {path: 'EventHistory', component: EventHistoryComponent},
     {path: 'EventList', component: EventListComponent},
-     
+
 //{path: '**', component: 404}
   ]
 ;
@@ -120,7 +122,8 @@ const rutas = [
     ChangeHistoryComponent,
     EventHistoryComponent,
     SubmitDetailComponent,
-    EventListComponent
+    EventListComponent,
+    EventsComponent
   ],
   imports: [
     RouterModule.forRoot(rutas),
@@ -140,7 +143,9 @@ const rutas = [
     //FilterPipeModule,           // Dimitar
     ReactiveFormsModule,        // Dimitar
     MatInputModule,             // Dimitar
-    MatAutocompleteModule,     // Dimitar
+    MatAutocompleteModule,      // Dimitar
+    MatProgressSpinnerModule,
+    ToastrModule.forRoot()
   ],
   entryComponents: [
     LoginComponent, // Ouxiang
@@ -151,7 +156,9 @@ const rutas = [
     EmployeeDetailComponent,
     SubmitDetailComponent
   ],
-  providers: [Globals, Estacion/*, PremioSweetAlertService,*/],
+  //providers: [Globals, Estacion/*, PremioSweetAlertService,*/],
+
+  providers: [Globals, Estacion, Premio, Evento],
   bootstrap: [AppComponent]
 })
 export class AppModule {
