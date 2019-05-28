@@ -3,7 +3,7 @@
 	<button (click)="administrador()">Administrador</button>
 	<button (click)="valid()">Valido</button>
 	<button (click)="all()">All</button>-->
-	<table datatable class="row-border hover" [dtTrigger]="dtTrigger" *ngIf="claims">
+	<table datatable class="row-border hover" *ngIf="claims">
 	  <thead>
 	    <tr>
 	      <th>Id</th>
@@ -16,18 +16,18 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-			<tr *ngFor = "let claim of claims">
+			<tr *ngFor = "let claim of claims" (click)="openDialog(claim)">
 				<td>{{claim.Id}}</td>
-				<td>{{claim.Titulo}}</td>
-				<td>{{claim.Tipo}}</td>
+				<td class="line-limit-length">{{claim.Titulo}}</td>
+				<td>{{claim.Tipo==0?'Entrega':claim.Tipo==1?'Premio':claim.Tipo==2?'Evento':claim.Tipo==3?'Empleado':'Otros'}}</td>
 				<td>{{claim.IdTipo}}</td>
-				<td>{{claim.Descripcion}}</td>
+				<td class="line-limit-length">{{claim.Descripcion}}</td>
 				<td>{{claim.IdCliente}}</td>
-				<td>{{claim.Estado}}</td>
+				<td>{{(claim.Estado==0)?'Inicio':(claim.Estado==1)?'En Proceso':'Solucionado'}}</td>
 			</tr>
 	  </tbody>
 	</table>
-	<div align="center">
-		<p *ngIf="!claims" class="text-primary">No hay ninguna reclamacion</p>
+	<div align="center" *ngIf="!claims">
+		<p class="text-primary">No hay ninguna reclamacion</p>
 	</div>
 </div>

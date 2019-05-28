@@ -6,6 +6,8 @@ import { DataTableDirective } from 'angular-datatables';
 import {MatDialog} from '@angular/material';
 import { EventDetailComponent } from '../event-detail/event-detail.component';
 import { NewEventComponent } from '../new-event/new-event.component';
+import Swal from'sweetalert2';
+//import { SweetAlertService } from 'angular-sweetalert';
 
 @Component({
   selector: 'app-event-admin',
@@ -18,7 +20,7 @@ export class EventAdminComponent implements OnInit {
 	@ViewChild(DataTableDirective)
 	dtElement: DataTableDirective;
 	dtOptions: DataTables.Settings = {};
-  constructor(public dialog: MatDialog, private http: HttpClient, private globals:Globals) { }
+  constructor(public dialog: MatDialog, private http: HttpClient, private globals:Globals/*,private alertService: SweetAlertService*/) { }
 
   ngOnInit() {
   	this.dtOptions = {
@@ -61,5 +63,27 @@ export class EventAdminComponent implements OnInit {
   newEvent(){
   	let dialogRef = this.dialog.open(NewEventComponent, {
     });
+  }
+  x(){
+  	/*this.alertService.confirm({
+      title: 'Delete account?'
+    })
+    .then(() => {
+      this.alertService.success({
+        title: 'Account deleted'
+      });
+    })
+    .catch(() => console.log('canceled'));*/
+  	Swal.fire({
+  		title: 'Are you sure?',
+		  text: "You won't be able to revert this!",
+		  type: 'warning',
+		  showCancelButton: true,
+		  confirmButtonColor: '#3085d6',
+		  cancelButtonColor: '#d33',
+		  confirmButtonText: 'Yes, delete it!',
+      timer: 2000
+  	});
+  	//console.log(Swal);
   }
 }

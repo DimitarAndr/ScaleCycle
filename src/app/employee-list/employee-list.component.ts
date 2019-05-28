@@ -4,6 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import {Globals} from '../globals/globals';
 import { Subject } from 'rxjs';
 import { DataTableDirective } from 'angular-datatables';
+import {MatDialog} from '@angular/material';
+import { EmployeeDetailComponent } from '../employee-detail/employee-detail.component';
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
@@ -18,7 +20,7 @@ export class EmployeeListComponent implements OnInit {
 
 	@ViewChild(DataTableDirective)
 	dtElement: DataTableDirective;
-  constructor(private globals:Globals, private http:HttpClient) { }
+  constructor(private globals:Globals, private http:HttpClient, private dialog:MatDialog) { }
 
   ngOnInit() {
 		this.filter();
@@ -33,6 +35,15 @@ export class EmployeeListComponent implements OnInit {
 				console.log(this.employeeList);
 			}
 		});*/
+  }
+  openDialog(employee):void {
+    let dialogRef = this.dialog.open(EmployeeDetailComponent, {
+      /*'width': '330px',
+		  'height': '400px',*/
+		  'data': {
+		    'employee': employee
+		  }
+    });
   }
   /*filter(){
   	
@@ -99,27 +110,27 @@ export class EmployeeListComponent implements OnInit {
   }
 	locked():void{
 		this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      dtInstance.column(4).search("\^0\$",true,false).draw();
+      dtInstance.column(4).search("\^Bloqueado\$",true,false).draw();
     });
 	}
 	empleado():void{
 		this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      dtInstance.column(4).search("\^1\$",true,false).draw();
+      dtInstance.column(4).search("\^Empleado\$",true,false).draw();
     });
 	}
 	administrador():void{
 		this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      dtInstance.column(4).search("\^2\$",true,false).draw();
+      dtInstance.column(4).search("\^Administrador\$",true,false).draw();
     });
 	}
 	valid():void{
 		this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      dtInstance.column(4).search("\^1|2\$",true,false).draw();
+      dtInstance.column(4).search("\^Empleado|Administrador\$",true,false).draw();
     });
 	}
-	all(){
+	all():void{
 		this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-			dtInstance.column(4).search("\^0|1|2\$",true,false).draw();
+			dtInstance.column(4).search("\^Bloqueado|Empleado|Administrador\$",true,false).draw();
 		});
 	}
 }

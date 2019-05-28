@@ -12,35 +12,35 @@
 			<p><b>{{client.Nombre}} {{client.Apellido}}</b></p>
 		</div>
 		<div class="col-lg-8">
-			<form>
+			<form (ngSubmit)="onSubmit()">
 				<b>Entrega</b>
 			  <div class="form-row">
 			    <div class="form-group col-md-4">
 			      <label for="plastic">Plastico</label>
-			      <input type="number" step=".01" min="0" class="form-control" name="plastic" id="plastic" placeholder="Cantidades de Plastico">
+			      <input type="number" step=".01" min="0" class="form-control" (change)="change()" [(ngModel)]="submit.plastic" name="plastic" id="plastic" placeholder="Cantidades de Plastico">
 			    </div>
 			    <div class="form-group col-md-4">
 			      <label for="paperboard">Carton</label>
-			      <input type="number" step=".01" min="0" class="form-control" name="paperboard" id="paperboard" placeholder="Cantidades de Carton">
+			      <input type="number" step=".01" min="0" class="form-control" (change)="change()" [(ngModel)]="submit.paperboard" name="paperboard" id="paperboard" placeholder="Cantidades de Carton">
 			    </div>
 			    <div class="form-group col-md-4">
 			      <label for="">Cristal</label>
-			      <input type="number" step=".01" min="0" class="form-control" name="crystal" id="crystal" placeholder="Cantidades de Cristal">
+			      <input type="number" step=".01" min="0" class="form-control" (change)="change()" [(ngModel)]="submit.crystal" name="crystal" id="crystal" placeholder="Cantidades de Cristal">
 			    </div>
 			    <div class="form-group col-md-4">
 			      <label for="paperboard">Metal</label>
-			      <input type="number" step=".01" min="0" class="form-control" name="metal" id="metal" placeholder="Cantidades de Metal">
+			      <input type="number" step=".01" min="0" class="form-control" (change)="change()" [(ngModel)]="submit.metal" name="metal" id="metal" placeholder="Cantidades de Metal">
 			    </div>
 			    <div class="form-group col-md-4">
 			      <label for="">Aceite</label>
-			      <input type="number" step=".01" min="0" class="form-control" name="oil" id="oil" placeholder="Cantidades de Aceite">
+			      <input type="number" step=".01" min="0" class="form-control" (change)="change()" [(ngModel)]="submit.oil" name="oil" id="oil" placeholder="Cantidades de Aceite">
 			    </div>
 			    <div class="form-group col-md-4">
 			      <label for="paperboard">Pila</label>
-			      <input type="number" step=".01" min="0" class="form-control" name="battery" id="battery" placeholder="Cantidades de Pila">
+			      <input type="number" step=".01" min="0" class="form-control" (change)="change()" [(ngModel)]="submit.battery" name="battery" id="battery" placeholder="Cantidades de Pila">
 			    </div>
 			  </div>
-			  <b>100 Puntos</b>
+			  <b>{{submit.points}} Puntos</b>
 			  <div align="center">
 			  	<button id="done" type="submit" class="btn btn-primary">Crear</button>
 			  </div>

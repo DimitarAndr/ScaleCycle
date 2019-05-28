@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="table-responsive">
+		<table datatable class=" table row-border hover" [dtTrigger]="dtTrigger" [dtOptions]="dtOptions"  align="center">
+		  <thead>
+		    <tr>
+		      <th>Id</th>
+		      <th>Plastico</th>
+		      <th>Carton</th>
+		      <th>Metal</th>
+		      <th>Aceite</th>
+		      <th>Cristal</th>
+		      <th>Pila</th>
+		      <th>Puntos</th>
+		      <th>FechaHora</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+				<tr *ngFor = "let submit of submits" (click)="openDialog(submit)">
+					<td>{{submit.Id}}</td>
+					<td>{{submit.Plastico}}</td>
+					<td>{{submit.Carton}}</td>
+					<td>{{submit.Metal}}</td>
+					<td>{{submit.Aceite}}</td>
+					<td>{{submit.Cristal}}</td>
+					<td>{{submit.Pila}}</td>
+					<td>{{submit.Puntos}}</td>
+					<td>{{submit.FechaHora}}</td>
+				</tr>
+		  </tbody>
+		</table>
+	</div>
+</div>

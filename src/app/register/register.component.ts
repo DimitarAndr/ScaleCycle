@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
 		"Email": "",
 		"Phone": "",
 		"Identifier": "",
-		"TypeIdentifier": "DNI",
+		"TypeIdentifier": "1",
 		"Birthdate": "",
 		"Gender": "No definido",
 		"Avatar": ""

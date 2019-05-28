@@ -30,6 +30,8 @@
     "@google/markerclusterer": "^1.0.3",
     "@ng-bootstrap/ng-bootstrap": "^4.1.1",
     "angular-datatables": "^7.0.0",
+    "angular-sweetalert": "^1.1.2",
+    "angular-sweetalert-service": "^2.0.2",
     "aos": "^3.0.0-beta.6",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
@@ -42,6 +44,8 @@
     "popper.js": "^1.15.0",
     "rxjs": "~6.3.3",
     "snazzy-info-window": "^1.1.1",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^8.11.5",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },

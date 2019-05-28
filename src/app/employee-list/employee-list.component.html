@@ -15,12 +15,12 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-			<tr *ngFor = "let employee of employeeList">
+			<tr *ngFor = "let employee of employeeList"  (click)="openDialog(employee)">
 				<td>{{employee.Id}}</td>
 				<td>{{employee.Username}}</td>
 				<td>{{employee.Nombre}}</td>
 				<td>{{employee.Apellido}}</td>
-				<td id="estado">{{employee.Estado}}</td>
+				<td id="estado">{{employee.Estado==0?'Bloqueado':employee.Estado==1?'Empleado':employee.Estado==2?'Administrador':'Estado Desconocido'}}</td>
 			</tr>
 	  </tbody>
 	</table>

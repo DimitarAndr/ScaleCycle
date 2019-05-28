@@ -17,19 +17,42 @@ export class SettingComponent implements OnInit {
 		"Name":"",
 		"LastName":""
 	};
+	user:any={
+		"Apellido": "",
+		"Avatar": "",
+		"Direccion": "",
+		"Email": "",
+		"Estado": "",
+		"FechaNacimiento": "",
+		"Genero": "",
+		"Id": "",
+		"Identificador": "",
+		"Localidad": "",
+		"Nombre": "",
+		"Oculto": "",
+		"Password": "",
+		"Puntos": "",
+		"Telefono": "",
+		"TipoIdentificador": "",
+		"Username": ""
+	}
 	isClient:boolean;
   constructor(private http:HttpClient, private globals:Globals) { }
 
   ngOnInit() {
+  	console.log(this.user);
   	this.session = JSON.parse(sessionStorage.getItem('user'));
   	//Cliente
   	if (this.session.userType == "1") {
   		this.isClient = true;
-  		this.http.get(this.globals['SERVER']+'/getClient/'+this.session['Id']).subscribe(data => {
+  		this.http.get(this.globals['SERVER']+'/getClient/'+this.session['userId']).subscribe(data => {
 				if (data['error']) {
 					//this.createStatud = false;
 					//this.msgError = data['error'].text;
 				}else{
+					this.user=data[0];
+					this.user['Genero'] = data[0]['Genero'];
+					this.user['TipoIdentificador'] = data[0]['TipoIdentificador'];
 					//this.createStatud = true;
 					//this.msgError = null;
 				}
@@ -55,8 +78,17 @@ export class SettingComponent implements OnInit {
   }
 
   changeCliente(){
-
-  }
+  	this.http.put(this.globals['SERVER']+'/changeClient', this.user).subscribe(data => {
+			if (data['error']) {
+				//this.createStatud = false;
+				//this.msgError = data['error'].text;
+			}else{
+				//this.createStatud = true;
+				//this.msgError = null;
+				console.log("Correct");
+			}
+		});
+	}
 	changeEmployee(){
 		this.http.post(this.globals['SERVER']+'/changeEmployee', this.employee).subscribe(data => {
 			if (data['error']) {

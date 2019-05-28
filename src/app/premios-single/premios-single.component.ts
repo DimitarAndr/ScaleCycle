@@ -80,7 +80,7 @@ export class PremiosSingleComponent implements OnInit {
   addPremio(premio) {
 
     const premioSession = [premio.id, premio.nombre, premio.descripcion, premio.puntos, premio.cantidad, this.quantitatPremio];
-
+    
 
     if (sessionStorage.getItem('user') != null) {
       this.session = JSON.parse(sessionStorage.getItem('user'));

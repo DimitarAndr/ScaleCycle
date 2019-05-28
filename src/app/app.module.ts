@@ -30,10 +30,14 @@ import { EventDetailComponent } from './event-detail/event-detail.component';
 import { ParticipateDetailComponent } from './participate-detail/participate-detail.component';
 import { NewEventComponent } from './new-event/new-event.component';
 import { ClaimListComponent } from './claim-list/claim-list.component';
-import {SettingComponent} from './setting/setting.component';
-import {SettingClientComponent} from './setting-client/setting-client.component';
-import {EmployeeListComponent} from './employee-list/employee-list.component';
-import {EventAdminComponent} from './event-admin/event-admin.component';
+import { ClaimDetailComponent } from './claim-detail/claim-detail.component';
+import { EmployeeDetailComponent } from './employee-detail/employee-detail.component';
+import { SubmitHistoryComponent } from './submit-history/submit-history.component';
+import { ChangeHistoryComponent } from './change-history/change-history.component';
+import { EventHistoryComponent } from './event-history/event-history.component';
+import { SubmitDetailComponent } from './submit-detail/submit-detail.component';
+import { EventListComponent } from './event-list/event-list.component';
+//import { SweetAlertService } from 'angular-sweetalert-service';
 //Dimitar
 import {FooterComponent} from './footer/footer.component';
 import {AgmCoreModule} from '@agm/core';
@@ -53,85 +57,30 @@ import {CartComponent} from './cart/cart.component';
 const rutas = [
     {path: '', component: HomeComponent},
     {path: 'Mapa', component: MapaComponent},
-    {
-      path: 'Premios', component: PremiosComponent
-    },
-    {
-      path: 'premiosSingle/:id', component: PremiosSingleComponent
-    },
-    {
-      path: 'cart', component: CartComponent
-    },
-    {
-      path: 'Contactos', component:
-      ContactosComponent
-    },
-    {
-      path: 'Client', component:
-      ClientProfileComponent
-    },
-    {
-      path: 'RegisterSubmit', component:
-      RegisterSubmitComponent
-    },
-    {
-      path: 'RegisterChange', component:
-      RegisterChangeComponent
-    },
-    {
-      path: 'Employee', component:
-      EmployeeProfileComponent
-    }
-    ,
-    {
-      path: 'Admin', component:
-      AdminProfileComponent
-    }
-    ,
-    {
-      path: 'Register', component:
-      RegisterComponent
-    }
-    ,
-    {
-      path: 'activateAccount/:id', component:
-      ActivateAccountComponent
-    }
-    ,
-    {
-      path: 'recoverPassword', component:
-      RecoverPasswordComponent
-    }
-    ,
-    {
-      path: 'recoverPassword/:username', component:
-      RecoverPasswordComponent
-    }
-    ,
-    {
-      path: 'setting', component:
-      SettingComponent
-    }
-    ,
-    {
-      path: 'settingClient', component:
-      SettingClientComponent
-    }
-    ,
-    {
-      path: 'EmployeeList', component:
-      EmployeeListComponent
-    }
-    ,
-    {
-      path: 'EventAdmin', component:
-      EventAdminComponent
-    }
-    ,
-    {
-      path: 'recoverPassword/:username', component:
-      RecoverPasswordComponent
-    }
+    {path: 'Premios', component: PremiosComponent},
+    {path: 'premiosSingle/:id', component: PremiosSingleComponent},
+    {path: 'cart', component: CartComponent},
+    {path: 'Contactos', component: ContactosComponent},
+    {path: 'Client', component: ClientProfileComponent},
+    {path: 'RegisterSubmit', component: RegisterSubmitComponent},
+    {path: 'RegisterChange', component: RegisterChangeComponent},
+    {path: 'Employee', component: EmployeeProfileComponent},
+    {path: 'Admin', component: AdminProfileComponent},
+    {path: 'Register', component: RegisterComponent},
+    {path: 'activateAccount/:id', component: ActivateAccountComponent},
+    {path: 'recoverPassword', component: RecoverPasswordComponent},
+    {path: 'recoverPassword/:username', component: RecoverPasswordComponent},
+    {path: 'setting', component: SettingComponent},
+    {path: 'settingClient', component: SettingClientComponent},
+    {path: 'EmployeeList', component: EmployeeListComponent},
+    {path: 'EventAdmin', component: EventAdminComponent},
+    {path: 'recoverPassword/:username', component: RecoverPasswordComponent},
+    {path: 'ClaimList', component: ClaimListComponent},
+    {path: 'SubmitHistory', component: SubmitHistoryComponent},
+    {path: 'ChangeHistory', component: ChangeHistoryComponent},
+    {path: 'EventHistory', component: EventHistoryComponent},
+    {path: 'EventList', component: EventListComponent},
+     
 //{path: '**', component: 404}
   ]
 ;
@@ -160,7 +109,18 @@ const rutas = [
     EventAdminComponent,
     ContactosComponent,
     PremiosSingleComponent,
-    CartComponent
+    CartComponent,
+    ClaimListComponent,
+    ClaimDetailComponent,
+    EventDetailComponent,
+    NewEventComponent,
+    ParticipateDetailComponent,
+    EmployeeDetailComponent,
+    SubmitHistoryComponent,
+    ChangeHistoryComponent,
+    EventHistoryComponent,
+    SubmitDetailComponent,
+    EventListComponent
   ],
   imports: [
     RouterModule.forRoot(rutas),
@@ -183,9 +143,15 @@ const rutas = [
     MatAutocompleteModule,     // Dimitar
   ],
   entryComponents: [
-    LoginComponent // Ouxiang
+    LoginComponent, // Ouxiang
+    EventDetailComponent,
+    NewEventComponent,
+    ClaimDetailComponent,
+    ParticipateDetailComponent,
+    EmployeeDetailComponent,
+    SubmitDetailComponent
   ],
-  providers: [Globals, Estacion, Premio],
+  providers: [Globals, Estacion/*, PremioSweetAlertService,*/],
   bootstrap: [AppComponent]
 })
 export class AppModule {

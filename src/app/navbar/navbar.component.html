@@ -40,10 +40,10 @@
             <!-- Cuando es un cliente -->
             <div *ngIf="session.userType==1">
               <a class="dropdown-item" href="#">Lista de Premio</a>
-              <a class="dropdown-item" href="#">Listas de Eventos</a>
-              <a class="dropdown-item" href="#">Historial de Entrega</a>
-              <a class="dropdown-item" href="#">Historial de Cambio</a>
-              <a class="dropdown-item" href="#">Historial de Evento</a>
+              <a class="dropdown-item" routerLink="/EventList">Listas de Eventos</a>
+              <a class="dropdown-item" routerLink="/SubmitHistory">Historial de Entrega</a>
+              <a class="dropdown-item" routerLink="/ChangeHistory">Historial de Cambio</a>
+              <a class="dropdown-item" routerLink="/EventHistory">Historial de Evento</a>
             </div>
             <!-- Cuando es un empleado -->
             <div *ngIf="session.userType==2">

@@ -7,7 +7,7 @@ import {Globals} from '../globals/globals';
   styleUrls: ['./setting-client.component.css']
 })
 export class SettingClientComponent implements OnInit {
-	client:any = {
+	/*client:any = {
 		"Apellido":"",
 		"Avatar":"",
 		"Direccion":"",
@@ -24,7 +24,8 @@ export class SettingClientComponent implements OnInit {
 		"Telefono":"",
 		"TipoIdentificador":"",
 		"Username":""
-	};
+	};*/
+	client:any;
 	identification:string;
 	id:number;
 	isId :boolean = true;
@@ -59,4 +60,16 @@ export class SettingClientComponent implements OnInit {
 			});
   	}
   }
+  changeCliente(){
+  	this.http.put(this.globals['SERVER']+'/changeClient', this.client).subscribe(data => {
+			if (data['error']) {
+				//this.createStatud = false;
+				//this.msgError = data['error'].text;
+			}else{
+				//this.createStatud = true;
+				//this.msgError = null;
+				console.log("Correct");
+			}
+		});
+	}
 }

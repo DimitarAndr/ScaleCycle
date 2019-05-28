@@ -1,0 +1,27 @@
+<div class="col-lg-9" align="left">
+	<h2 mat-dialog-title>Reclamacion:{{claim.Id}} ({{claim.Titulo}})</h2>
+</div>
+<mat-dialog-content>
+	<div class="col-lg-12">
+		<p><b>Cliente: </b>{{claim.IdCliente}}</p>
+		<p><b>Tipo: </b>{{claim.Tipo==0?'Entrega':claim.Tipo==1?'Premio':claim.Tipo==2?'Evento':claim.Tipo==3?'Empleado':'Otros'}}</p>
+		<p><b>Id Tipo: </b>{{claim.IdTipo}}</p>
+		<p><b>Titulo: </b>{{claim.Titulo}}</p>
+		<p><b>Descripcion: </b></p>
+		<textarea cols="30" rows="10">{{claim.Descripcion}}</textarea>
+		<p><b>Fecha: </b>{{claim.Fecha}}</p>
+		<p><b>Estado: </b>{{(claim.Estado==0)?'Inicio':(claim.Estado==1)?'En Proceso':'Solucionado'}}</p>
+	</div>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+	<div class="container">
+	  <button class="btn btn-primary" (click)="updateEstado(0)" *ngIf="claim['Estado']==1">Inicio</button>
+	  <button class="btn btn-primary" (click)="updateEstado(1)" *ngIf="claim['Estado']==0 || claim['Estado']==2">En Proceso</button>
+	  <button class="btn btn-primary" (click)="updateEstado(2)" *ngIf="claim['Estado']==1">Solucionado</button>
+	</div>
+</mat-dialog-actions>
+<mat-dialog-actions align="end">
+	<div class="container">
+	  <button mat-button mat-dialog-close>Cerrar</button> 
+	</div>
+</mat-dialog-actions>

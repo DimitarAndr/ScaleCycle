@@ -1,0 +1,15 @@
+.card{
+	display: inline-block !important;
+	padding: 0;
+}
+.card-text{
+	height: 200px;
+	overflow: hidden;
+}
+.card-title{
+	height: 48px;
+	overflow: hidden;
+}
+.card-block{
+	padding: 20px;
+}

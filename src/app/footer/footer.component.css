@@ -1,6 +1,8 @@
 .footer {
   height: 400px;
   background-color: #D5DAD6;
+  position: absolute;
+  bottom: 0;
 }
 
 .text-footer {
@@ -49,7 +51,7 @@
   font-weight: bold;
   font-size: 42px;
   line-height: 49px;
-  display: flex;
+  /*display: flex;*/
   align-items: center;
   text-align: center;
   color: #152E1A;
