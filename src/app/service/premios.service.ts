@@ -23,4 +23,23 @@ export class PremiosService {
     return this.http.get<Premio[]>(this.url, this.httpOptions);
   }
 
+  modificarPremios(premiosCart) {
+
+    let putSuccess = true;
+
+    for (const premio of premiosCart) {
+      let putPremio = {
+        'id': premio[1],
+        'nombre': premio[2],
+        'descripcion': premio[3],
+        'categoria': premio[4],
+        'puntos': premio[5],
+        'cantidad': premio[6]
+      }
+      return this.http.put<void>(this.url + premio[0], putPremio, this.httpOptions);
+    }
+
+
+  }
+
 }

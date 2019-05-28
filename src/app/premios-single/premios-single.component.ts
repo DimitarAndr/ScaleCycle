@@ -101,7 +101,7 @@ export class PremiosSingleComponent implements OnInit {
       sessionStorage.setItem('user', JSON.stringify(this.session));
     }
 
-    const premioSession = [premio.id, premio.nombre, premio.descripcion, premio.puntos, premio.cantidad, this.quantitatPremio];
+    const premioSession = [premio._id, premio.id, premio.nombre, premio.descripcion, premio.categoria, premio.puntos, premio.cantidad, this.quantitatPremio];
 
     if (sessionStorage.getItem('user') != null) {
 

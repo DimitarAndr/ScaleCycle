@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Premio} from '../model/Premio';
+import {ToastrService} from 'ngx-toastr';
+import {PremiosService} from '../service/premios.service';
 
 
 @Component({
@@ -11,13 +13,16 @@ import {Premio} from '../model/Premio';
 
 
 export class CartComponent implements OnInit {
+
   session: any = [['premios']];
   premiosCart = [];
   premioCart;
+  enviarPremios = true;
+  isValidPuntos = true;
   sum = 0;
 
 
-  constructor(private route: ActivatedRoute, private router: Router) {
+  constructor(private route: ActivatedRoute, private router: Router, private toastr: ToastrService, private premiosService: PremiosService) {
   }
 
 
@@ -35,17 +40,18 @@ export class CartComponent implements OnInit {
       this.premiosCart.push(this.session.premios[i]);
     }
 
+
     this.calcularSumTotal(this.premiosCart);
 
   }
 
   addOnePremioCart(premioCart) {
     this.premioCart = premioCart;
-    if (this.premioCart[5] < this.premioCart[4]) {
-      this.premioCart[5] += 1;
+    if (this.premioCart[7] < this.premioCart[6]) {
+      this.premioCart[7] += 1;
 
     } else {
-      alert('No hay cantidad');
+      this.toastr.warning('No hay cantidad de ' + this.premioCart[2]);
     }
 
     this.saveToSessionStorage(premioCart);
@@ -54,10 +60,10 @@ export class CartComponent implements OnInit {
 
   remOnePremioCart(premioCart) {
     this.premioCart = premioCart;
-    if (this.premioCart[5] > 0) {
-      this.premioCart[5] -= 1;
+    if (this.premioCart[7] > 0) {
+      this.premioCart[7] -= 1;
     } else {
-      this.premioCart[5] = 0;
+      this.premioCart[7] = 0;
     }
     this.saveToSessionStorage(premioCart);
     this.sum = this.calcularSumTotal(this.premiosCart);
@@ -73,7 +79,7 @@ export class CartComponent implements OnInit {
   }
 
   saveToSessionStorage(premioCart) {
-    this.premiosCart.map(premio => this.premiosCart.find(premioCart => premioCart[0] === premio.id) || this.premiosCart);
+    this.premiosCart.map(premio => this.premiosCart.find(premioCart => premioCart[0] === premio._id) || this.premiosCart);
     console.log(this.premiosCart);
     this.session.premios = this.premiosCart;
     sessionStorage.setItem('user', JSON.stringify(this.session));
@@ -83,11 +89,37 @@ export class CartComponent implements OnInit {
     this.sum = 0;
     this.premiosCart = premiosCart;
     this.premiosCart.forEach(premio => {
-      this.sum += premio[3] * premio[5];
+      this.sum += premio[5] * premio[7];
     });
-    return this.sum;
+    if (this.sum < this.session.puntos) {
+      this.isValidPuntos = true;
+      return this.sum;
+    } else {
+      this.toastr.warning('Puntos insuficientes');
+      this.isValidPuntos = false;
+      return this.sum;
+    }
+
   }
 
+  enviarPremio(premiosCart) {
+    premiosCart.forEach(premio => {
+      if (premio[6] - premio[7] > 0) {
+        premio[6] = premio[6] - premio[7];
+      } else {
+        this.toastr.warning('No hay cantidad de ' + premio[2]);
+        this.enviarPremios = false;
+      }
+    });
+    if (this.enviarPremios) {
+      this.premiosService.modificarPremios(premiosCart).subscribe(data => {
+      }, () => {
+        this.toastr.warning('Error intente de nuevo más tarde', 'Warning');
+      }, () => {
+        this.toastr.success('Su premio será enviado pronto!', 'Success');
+      });
+    }
+  }
 }
 
 

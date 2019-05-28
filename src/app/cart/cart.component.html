@@ -27,11 +27,11 @@
             <tr *ngFor="let premioCart of premiosCart">
               <td class="product-thumbnail h-25 w-25 p1">
                 <img
-                  src="./assets/Storage/Premios/{{premioCart[0]}}.jpg" alt="Image" class="img-fluid"
+                  src="./assets/Storage/Premios/{{premioCart[1]}}.jpg" alt="Image" class="img-fluid"
                   style="height: 100px;">
               </td>
               <td class="product-name">
-                <h2 class="h5 text-black">{{premioCart[1]}}</h2>
+                <h2 class="h5 text-black">{{premioCart[2]}}</h2>
               </td>
               <td>{{premioCart[3]}}</td>
               <td>
@@ -42,17 +42,17 @@
                     </button>
                   </div>
                   <input [disabled]="true" type="text" class="form-control text-center"
-                         value="{{premioCart[5]}}"
+                         value="{{premioCart[7]}}"
                          aria-label="Example text with button addon" aria-describedby="button-addon1">
                   <div class="input-group-append">
-                    <button class="btn btn-outline-primary js-btn-plus" type="button"
+                    <button class="btn btn-outline-primary js-btn-plus" type="button" [disabled]="isValidPuntos==false"
                             (click)="addOnePremioCart(premioCart)">+
                     </button>
                   </div>
                 </div>
 
               </td>
-              <td class="precioTotal">{{premioCart[3]*premioCart[5]}}</td>
+              <td class="precioTotal">{{premioCart[5]*premioCart[7]}}</td>
               <td><a href="javascript:void(0);" class="btn btn-primary btn-sm"
                      (click)="eliminarPremio(premioCart)">X</a></td>
             </tr>
@@ -88,7 +88,7 @@
             </div>
             <div class="row">
               <div class="col-md-12 text-center mb-5">
-                <button class="btn btn-primary" onclick="window.location='checkout.html'">Enviar Premio
+                <button class="btn btn-primary" [disabled]="isValidPuntos==false" (click)="enviarPremio(premiosCart)">Enviar Premio
                 </button>
               </div>
             </div>

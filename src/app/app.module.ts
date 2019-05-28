@@ -45,6 +45,7 @@ import {NewEventComponent} from './new-event/new-event.component';
 import {ParticipateDetailComponent} from './participate-detail/participate-detail.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {EventsComponent} from './events/events.component';
+import {ToastrModule} from 'ngx-toastr';
 
 
 const rutas = [
@@ -187,7 +188,8 @@ const rutas = [
     ReactiveFormsModule,        // Dimitar
     MatInputModule,             // Dimitar
     MatAutocompleteModule,      // Dimitar
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    ToastrModule.forRoot()
   ],
   entryComponents: [
     LoginComponent // Ouxiang
