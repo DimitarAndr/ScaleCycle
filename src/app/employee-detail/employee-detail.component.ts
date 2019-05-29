@@ -12,9 +12,19 @@ export class EmployeeDetailComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private http: HttpClient, private globals:Globals) { }
   aux = 1;
-  employee = this.data['employee'];
+  employee:any;
   ngOnInit() {
-  	console.log(this.employee);
+  	if (this.data['vista']=='newEmployee') {
+  		this.aux=0;
+  		this.employee = {
+  			Username:"",
+  			Password:"",
+  			Nombre:"",
+  			Apellido:""
+  		}
+  	}else{
+  		this.employee=this.data['employee'];
+  	}
   }
 	delete(id){
 		this.http.delete(this.globals['SERVER']+'/deleteEmployee/'+this.employee['Id']).subscribe(data => {
@@ -24,7 +34,6 @@ export class EmployeeDetailComponent implements OnInit {
   			window.location.replace(this.globals['ScaleCycle']+'/EmployeeList');
   		}
   	});
-
 	}
 	onSubmit(){
 		this.http.put(this.globals['SERVER']+'/modifyEmployee',this.employee).subscribe(data => {
@@ -47,7 +56,6 @@ export class EmployeeDetailComponent implements OnInit {
 				'id':this.employee['Id'],
 				'statud':this.employee['Estado']
 			}
-			console.log(data);
 			this.http.put(this.globals['SERVER']+'/updateEmployeeStatud', data).subscribe(data => {
 				if (data['error']) {
 					//this.createStatud = false;
@@ -58,5 +66,14 @@ export class EmployeeDetailComponent implements OnInit {
 				}
 			});
 		}
+	}
+	createEmployee(){
+		this.http.post(this.globals['SERVER']+'/createEmployee',this.employee).subscribe(data => {
+  		if (data['error']) {
+
+  		}else{
+  			window.location.replace(this.globals['ScaleCycle']+'/EmployeeList');
+  		}
+  	});
 	}
 }

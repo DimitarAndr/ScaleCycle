@@ -89,12 +89,9 @@ export class SettingComponent implements OnInit {
     console.log(this.user);
     this.http.put(this.globals['SERVER'] + '/changeClient', this.user).subscribe(data => {
       if (data['error']) {
-        //this.createStatud = false;
-        //this.msgError = data['error'].text;
+        this.toastr.warning('Fallo Modificacion, Intenta Otra Vez.', 'Warning');
       } else {
-        //this.createStatud = true;
-        //this.msgError = null;
-        console.log('Correct');
+        this.toastr.success('Datos Modificado', 'Success');
       }
     });
   }
@@ -103,12 +100,9 @@ export class SettingComponent implements OnInit {
     console.log(this.employee);
     this.http.post(this.globals['SERVER'] + '/changeEmployee', this.employee).subscribe(data => {
       if (data['error']) {
-        //this.createStatud = false;
-        //this.msgError = data['error'].text;
+        this.toastr.warning('Fallo Modificacion, Intenta Otra Vez.', 'Warning');
       } else {
-        //this.createStatud = true;
-        //this.msgError = null;
-        console.log('Correct');
+        this.toastr.success('Datos Modificado', 'Success');
       }
     });
   }

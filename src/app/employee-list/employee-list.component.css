@@ -1,3 +1,6 @@
 tfoot {
     display: table-header-group;
 }
+.buttonBar{
+	padding: 10px 0;
+}

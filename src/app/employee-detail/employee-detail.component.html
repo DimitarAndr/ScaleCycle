@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" *ngIf="aux==1 || aux==2">
 	<div class="col-lg-9" align="left">
 		<h2 mat-dialog-title>Empleado: {{employee.Id}} ({{employee.Nombre}} {{employee.Apellido}})</h2>
 	</div>
@@ -7,6 +7,43 @@
 		<button *ngIf="aux==1" (click)="changeEstado(2)">Modificar</button>
 	</div>
 </div>
+<mat-dialog-content *ngIf="aux=='0'">
+	<div class="row">
+		<div class="col-md-6" align="center">
+			<img src="https://pbs.twimg.com/profile_images/534017689694371840/A-p12OyT.png" alt="img"><br/>
+			<label for="avatar" class="btn btn-primary">Seleccionar Imagen</label>
+			<input type="file" accept="image/*" style="display: none" form="createEmployee" name="avatar" id="avatar" [(ngModel)]="Avatar" (change)="onFileChange($event)">
+		</div>
+		<div class="col-md-6">
+			<form class="form" (ngSubmit)="createEmployee()" id="createEmployee">
+				<b>Crea nueva Empleado</b>
+			  <div class="form-row">
+				  <div class="form-group col-md-6">
+				    <label for="username">Username</label>
+			      <input type="text" class="form-control" name="username" [(ngModel)]="employee.Username" id="username" placeholder="Introduce Username">
+				  </div>
+				  <div class="form-group col-md-6">
+				    <label for="password">Contraseña</label>
+			      <input type="text" class="form-control" name="password" [(ngModel)]="employee.Password" id="password" placeholder="Introduce Contraseña">
+				  </div>
+				</div>
+			  <div class="form-row">
+			    <div class="form-group col-md-6">
+			      <label for="name">Nombre</label>
+			      <input type="text" class="form-control" name="name" [(ngModel)]="employee.Nombre" id="name" placeholder="Introduce Nombre">
+			    </div>
+			    <div class="form-group col-md-6">
+			      <label for="lastName">Apellido</label>
+			      <input type="text" class="form-control" name="lastName" [(ngModel)]="employee.Apellido" id="lastName" placeholder="Introduce Apellido">
+			    </div>
+			  </div>
+				<div class="justify-content-lg-end">
+					<button type="submit" *ngIf="aux==0">Crear Empleado</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</mat-dialog-content>
 <mat-dialog-content *ngIf="aux=='1'">
 	<div class="row">
 		<div class="col-lg-5">
@@ -29,7 +66,6 @@
 			<input type="file" accept="image/*" style="display: none" form="modifyEmployee" name="avatar" id="avatar" [(ngModel)]="Avatar" (change)="onFileChange($event)">
 		</div>
 		<div class="col-md-6">
-			<b id="error" *ngIf='!createStatud'>{{msgError}}</b>
 			<form class="form" #modifyEmployee="ngForm" (ngSubmit)="onSubmit()" id="modifyEmployee">
 				<b>Crea nueva evento</b>
 			  <div class="form-row">
