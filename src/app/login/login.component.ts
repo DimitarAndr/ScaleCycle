@@ -47,11 +47,10 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-  	this.toastr.warning('Error al recibir la pregunta, por favor intente más tarde', 'Warning');
     this.http.post(this.globals['SERVER'] + '/login', this.user).subscribe(data => {
       if (data['error']) {
         this.loginStatud = false;
-        this.msgError = data['error'].text;
+        this.toastr.warning('Contraseña Incorrecta o No Existe Usuario', 'Warning');
       } else {
         this.loginStatud = true;
         this.msgError = null;
@@ -68,16 +67,20 @@ export class LoginComponent implements OnInit {
           switch (data[0]['Estado']) {
             //Client Locked
             case '0':
+              this.toastr.warning('Cuenta Bloqueado', 'Warning');
               //kill all session!!!!!!!!
-              this.router.navigateByUrl('/userLocked');
+              //this.router.navigateByUrl('/userLocked');
               //OR
-              this.loginStatud = true;
-              this.msgError = 'User Locked';
+              //this.loginStatud = true;
+              //this.msgError = 'User Locked';
               break;
             //Client Activado con Email
+            case '1':
+              this.toastr.warning('Cuenta No Activado', 'Warning');
+              break;
             case '2':
               this.dialogRef.close();
-              sessionStorage.setItem('userState', '1');
+              sessionStorage.setItem('user', JSON.stringify(this.session));
               window.location.replace(this.globals['ScaleCycle'] + '/Client');
               break;
             default:
@@ -88,22 +91,22 @@ export class LoginComponent implements OnInit {
           switch (data[0]['Estado']) {
             //Empleado bloqueado
             case '0':
-              //kill all session!!!!!!!!
-              this.router.navigateByUrl('/userLocked');
+              this.toastr.warning('Cuenta Bloqueado', 'Warning');
+              //this.router.navigateByUrl('/userLocked');
               //OR
-              this.loginStatud = true;
-              this.msgError = 'User Locked';
+              //this.loginStatud = true;
+              //this.msgError = 'User Locked';
               break;
             //Employee
             case '1':
               this.dialogRef.close();
-              sessionStorage.setItem('userState', '1');
+              sessionStorage.setItem('user', JSON.stringify(this.session));
               window.location.replace(this.globals['ScaleCycle'] + '/Employee');
               break;
             //Administrator
             case '2':
               this.dialogRef.close();
-              sessionStorage.setItem('userState', '2');
+              sessionStorage.setItem('user', JSON.stringify(this.session));
               window.location.replace(this.globals['ScaleCycle'] + '/Admin');
               break;
             default:

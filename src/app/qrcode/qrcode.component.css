@@ -1,0 +1,9 @@
+.parent{
+	height: 100%;
+	position: relative;
+}
+.child{
+	position: absolute;
+	top: 50%; 
+	transform: translateY(-50%);
+}

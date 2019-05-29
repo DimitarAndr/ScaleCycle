@@ -32,8 +32,7 @@ export class EventListComponent implements OnInit {
   	}
   	this.http.post(this.globals['SERVER']+'/joinEvent', data).subscribe(data => {
 			if (data['error']) {
-				//this.createStatud = false;
-				//this.msgError = data['error'].text;
+				//this.toastr.warning('Error', 'Warning');
 			}else{
 				this.toastr.success('Uniste a Evento '+event.Titulo+' Correctamente', 'Success');
 			}

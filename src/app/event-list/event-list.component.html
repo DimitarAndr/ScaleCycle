@@ -36,8 +36,8 @@
 		    <button class="btn btn-primary" (click)="detailEvent(event)">Más Informacion</button>
 		  </div>
 		   <div class="card-block">
-		   	<button class="btn btn-success" *ngIf="event.Estado==2" (click)="join(event)">Unirse</button>
-		   	<button class="btn btn-success" *ngIf="event.Estado==3 || event.Estado==1" disabled>Unirse</button>
+		   	<button class="btn btn-success" *ngIf="event.Estado==1" (click)="join(event)">Unirse</button>
+		   	<button class="btn btn-success" *ngIf="event.Estado==0 || event.Estado==2" disabled>Unirse</button>
 		  </div>
 		</div>
 	</div>

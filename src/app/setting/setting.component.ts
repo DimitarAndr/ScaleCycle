@@ -2,6 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {Globals} from '../globals/globals';
+import {ToastrService} from 'ngx-toastr';
 import {NgForm} from '@angular/forms';
 
 
@@ -46,7 +47,7 @@ export class SettingComponent implements OnInit {
   isClient: boolean;
   localidades = ['Barcelona', 'Hospitalet de Llobregat', 'Badalona'];
 
-  constructor(private http: HttpClient, private globals: Globals) {
+  constructor(private http: HttpClient, private globals: Globals, private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -56,8 +57,7 @@ export class SettingComponent implements OnInit {
       this.isClient = true;
       this.http.get(this.globals['SERVER'] + '/getClient/' + this.session['userId']).subscribe(data => {
         if (data['error']) {
-          //this.createStatud = false;
-          //this.msgError = data['error'].text;
+          this.toastr.warning('Falla Por Cargar Informacion De Usuario, Por Favor Volver a Loguearse', 'Warning');
         } else {
           this.user = data[0];
           this.user['Genero'] = data[0]['Genero'];
@@ -71,8 +71,7 @@ export class SettingComponent implements OnInit {
       this.isClient = false;
       this.http.get(this.globals['SERVER'] + '/getEmployee/' + this.session['userId']).subscribe(data => {
         if (data['error']) {
-          //this.createStatud = false;
-          //this.msgError = data['error'].text;
+          this.toastr.warning('Falla Por Cargar Informacion De Usuario, Por Favor Volver a Loguearse', 'Warning');
         } else {
           //this.createStatud = true;
           //this.msgError = null;
