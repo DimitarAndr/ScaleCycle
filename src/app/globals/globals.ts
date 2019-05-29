@@ -2,15 +2,15 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class Globals {
-  SERVER = 'http://localhost/M12';
+  SERVER = 'http://192.168.0.161/M12';
   Key = "ScaleCycle";
   ScaleCycle = 'http://localhost:4200';
-  PoinPlastic:number = 2;
-  PoinPaperBoard:number = 1;
-  PoinCrystal:number = 1;
-  PoinMetal:number = 1;
-  PoinOil:number = 5;
-  PoinBattry:number = 5;
+  PoinPlastic = 2;
+  PoinPaperBoard = 1;
+  PoinCrystal = 1;
+  PoinMetal = 1;
+  PoinOil = 5;
+  PoinBattry = 5;
 }
 
 /*import { Component, OnInit } from '@angular/core';
