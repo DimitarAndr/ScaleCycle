@@ -45,6 +45,15 @@ export class EmployeeListComponent implements OnInit {
 		  }
     });
   }
+  newEmployee(){
+  	let dialogRef = this.dialog.open(EmployeeDetailComponent, {
+      /*'width': '330px',
+		  'height': '400px',*/
+		  'data':{
+		  	vista:'newEmployee'
+		  }
+    });
+  }
   /*filter(){
   	
   	
