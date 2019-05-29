@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class Globals {
-  SERVER = 'http://192.168.0.161/M12';
+  SERVER = 'http://192.168.17.67/M12';
   Key = "ScaleCycle";
   ScaleCycle = 'http://localhost:4200';
   PoinPlastic = 2;
