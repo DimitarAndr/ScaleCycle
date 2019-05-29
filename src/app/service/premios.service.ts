@@ -24,6 +24,7 @@ export class PremiosService {
   }
 
   modificarPremios(premiosCart) {
+    let a;
 
     let putSuccess = true;
 
@@ -36,10 +37,11 @@ export class PremiosService {
         'puntos': premio[5],
         'cantidad': premio[6]
       }
-      return this.http.put<void>(this.url + premio[0], putPremio, this.httpOptions);
+
+      a = this.http.put<void>(this.url + premio[0], putPremio, this.httpOptions);
     }
-
-
+    return a;
   }
+
 
 }
