@@ -10,8 +10,8 @@
 			      <div class="input-group-prepend">
 	            <span class="input-group-text"><i class="fas fa-users"></i></span>
 	          </div>
-			      <input type="text" class="form-control" name="username" id="username" placeholder="Introduce su Username" [(ngModel)]="user.username" #username="ngModel" [ngClass]="{'is-invalid':loginForm.submitted && username.invalid}" required>
-			      <div class="invalid-feedback">
+			      <input type="text" class="form-control" name="username" id="username" placeholder="Introduce su Username" [(ngModel)]="user.username" #username="ngModel" required pattern="^2$">
+			      <div class="alert alert-danger" *ngIf="loginForm?.controls.username?.touched && loginForm?.controls.username?.errors?.required">
 			      	Invalid
 			      </div>
 			    </div>
@@ -22,7 +22,7 @@
 			      <div class="input-group-prepend">
 	            <span class="input-group-text"><i class="fa fa-lock"></i></span>
 	          </div>
-			     	<input type="text" class="form-control" name="password" id="password" placeholder="Introduce su Password" [(ngModel)]="user.password" #password="ngModel" [ngClass]="{'is-invalid':loginForm.submitted && password.invalid}" required minlength="2"> 
+			     	<input type="text" class="form-control" name="password" id="password" placeholder="Introduce su Password" [(ngModel)]="user.password" #password="ngModel" [ngClass]="{'is-invalid':loginForm.submitted && password.invalid}" ngModel required minlength="2"> 
 			     	<div *ngIf="loginForm.submitted && password.invalid" class="invalid-feedback">
 			      	<div *ngIf="password.errors.required">Required</div>
 			      	<div *ngIf="password.errors.minlength">min8</div>

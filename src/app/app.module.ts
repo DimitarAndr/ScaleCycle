@@ -82,6 +82,7 @@ const rutas = [
     {path: 'ChangeHistory', component: ChangeHistoryComponent},
     {path: 'EventHistory', component: EventHistoryComponent},
     {path: 'EventList', component: EventListComponent},
+    {path: 'Events', component: EventsComponent},
 
 //{path: '**', component: 404}
   ]

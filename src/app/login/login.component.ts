@@ -1,18 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {FormControl, NgForm} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {MatDialogRef} from '@angular/material';
 import {Globals} from '../globals/globals';
-
+import {ToastrService} from 'ngx-toastr';
+ 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(public dialogRef: MatDialogRef<LoginComponent>, private route: ActivatedRoute, private http: HttpClient, private router: Router, private globals: Globals) {
+  constructor(public dialogRef: MatDialogRef<LoginComponent>, private route: ActivatedRoute, private http: HttpClient, private router: Router, private globals: Globals, private toastr:ToastrService) {
   }
-
+	@ViewChild('loginForm')
+  htmlForm: NgForm;
   user = {
     'username': '',
     'password': '',
@@ -32,6 +35,7 @@ export class LoginComponent implements OnInit {
   };
 
   ngOnInit() {
+  	
   }
 
   changeType() {
@@ -43,6 +47,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+  	this.toastr.warning('Error al recibir la pregunta, por favor intente más tarde', 'Warning');
     this.http.post(this.globals['SERVER'] + '/login', this.user).subscribe(data => {
       if (data['error']) {
         this.loginStatud = false;
