@@ -1,1 +1,6 @@
-<qrcode [qrdata]="qrText" [size]="256" [level]="'M'"></qrcode>
+<div align="center">
+	<qrcode [qrdata]="qrText" [size]="256" [level]="'M'"></qrcode>
+	<p><b>Id: </b>{{session.userId}}</p>
+	<p><b>Nombre: </b>{{session.userName}}</p>
+	<p><b>Apellido: </b>{{session.userLastName}}</p>
+</div>

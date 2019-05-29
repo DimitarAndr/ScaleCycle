@@ -7,15 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QrcodeComponent implements OnInit {
 	qrText: string = null;
+	session:any;
   constructor() { }
 
   ngOnInit() {
-  	var session = (JSON.parse(sessionStorage.getItem('user')));
+  	this.session = (JSON.parse(sessionStorage.getItem('user')));
   	this.qrText = JSON.stringify({
-  		userId : session.userId,
-  		userType : session.userType,
-  		userName: session.userName,
-  		userLastName: session.userLastName
+  		userId : this.session.userId,
+  		userType : this.session.userType,
+  		userName: this.session.userName,
+  		userLastName: this.session.userLastName
   	});
   }
 
