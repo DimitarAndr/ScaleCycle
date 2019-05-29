@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {Globals} from '../globals/globals';
 import {MatDialog} from '@angular/material';
 import { EventDetailComponent } from '../event-detail/event-detail.component';
-
+import {ToastrService} from 'ngx-toastr';
 @Component({
   selector: 'app-event-list',
   templateUrl: './event-list.component.html',
@@ -11,7 +11,7 @@ import { EventDetailComponent } from '../event-detail/event-detail.component';
 })
 export class EventListComponent implements OnInit {
 
-  constructor(private http:HttpClient, private globals:Globals, private dialog:MatDialog) { }
+  constructor(private http:HttpClient, private globals:Globals, private dialog:MatDialog, private toastr:ToastrService) { }
   session:any;
   events:any;
   ngOnInit() {
@@ -22,22 +22,20 @@ export class EventListComponent implements OnInit {
 				//this.msgError = data['error'].text;
 			}else{
 				this.events = data;
-				console.log(this.events);
 			}
 		});
   }
   join(event){
   	var data = {
-  		'eventId': event,
+  		'eventId': event['Id'],
   		'clientId': this.session['userId']
   	}
-  	this.http.put(this.globals['SERVER']+'/joinEvent', data).subscribe(data => {
+  	this.http.post(this.globals['SERVER']+'/joinEvent', data).subscribe(data => {
 			if (data['error']) {
 				//this.createStatud = false;
 				//this.msgError = data['error'].text;
 			}else{
-				this.events = data;
-				console.log(this.events);
+				this.toastr.success('Uniste a Evento '+event.Titulo+' Correctamente', 'Success');
 			}
 		});
   }

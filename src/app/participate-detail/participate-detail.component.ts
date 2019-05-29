@@ -57,5 +57,6 @@ export class ParticipateDetailComponent implements OnInit {
 				//this.msgError = null;
 				this.changeDescription = false;
 			}
-		});	}
+		});	
+	}
 }

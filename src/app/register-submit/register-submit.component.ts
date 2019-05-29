@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Globals} from '../globals/globals';
-
+import {FormControl, NgForm} from '@angular/forms';
+  
 
 @Component({
   selector: 'app-register-submit',
@@ -9,6 +10,9 @@ import {Globals} from '../globals/globals';
   styleUrls: ['./register-submit.component.css']
 })
 export class RegisterSubmitComponent implements OnInit {
+	@ViewChild('form')
+	htmlForm: NgForm;
+
 	client:any = {
 		"Apellido":"",
 		"Avatar":"",
@@ -93,6 +97,8 @@ export class RegisterSubmitComponent implements OnInit {
 				//this.createStatud = false;
 				//this.msgError = data['error'].text;
 			}else{
+				this.htmlForm.resetForm();
+				this.submit['points'] = 0;
 				//this.createStatud = true;
 				//this.msgError = null;
 				//this.client = data[0];

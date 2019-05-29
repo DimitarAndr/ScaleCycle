@@ -1,5 +1,5 @@
 <div class="container">
-	<p class="text-danger" align="center">No hay ninguno evento en este momento</p>
+	<p *ngIf="!events" class="text-danger" align="center">No hay ninguno evento en este momento</p>
 	<div class="card-columns">
 		<div class="card" *ngFor = "let event of events">
 		  <div id="carouselExampleIndicators" style="height: 100%" class="carousel slide" data-ride="carousel">
@@ -36,7 +36,7 @@
 		    <button class="btn btn-primary" (click)="detailEvent(event)">Más Informacion</button>
 		  </div>
 		   <div class="card-block">
-		   	<button class="btn btn-success" *ngIf="event.Estado==2" (click)="join(event.Id)">Unirse</button>
+		   	<button class="btn btn-success" *ngIf="event.Estado==2" (click)="join(event)">Unirse</button>
 		   	<button class="btn btn-success" *ngIf="event.Estado==3 || event.Estado==1" disabled>Unirse</button>
 		  </div>
 		</div>

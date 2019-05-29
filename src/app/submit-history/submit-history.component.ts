@@ -24,7 +24,6 @@ export class SubmitHistoryComponent implements OnInit {
   ngOnInit() {
   	this.session = JSON.parse(sessionStorage.getItem('user'));
   	this.http.get(this.globals['SERVER']+'/getAllSubmitByUser/'+this.session['userId']).subscribe(data => {
-  		console.log(data);
 			if (data['error']) {
 				//this.createStatud = false;
 				//this.msgError = data['error'].text;

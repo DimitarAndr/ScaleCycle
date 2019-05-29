@@ -50,7 +50,7 @@ export class RegisterComponent implements OnInit {
 			}else{
 				this.createStatud = true;
 				this.msgError = null;
-				console.log("Correct");
+				window.location.replace(this.globals['ScaleCycle'] + '/');
 			}
 		});
   }

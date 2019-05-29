@@ -23,10 +23,12 @@ export class EventHistoryComponent implements OnInit {
   	this.session = JSON.parse(sessionStorage.getItem('user'));
 
 		this.http.get(this.globals['SERVER']+'/getAllEventByUser/'+this.session['userId']).subscribe(data => {
+			console.log(this.session);
 			if (data['error']) {
 				//this.createStatud = false;
 				//this.msgError = data['error'].text;
 			}else{
+				console.log(data);
 				this.events = data;
 				this.dtTrigger.next();
 			}

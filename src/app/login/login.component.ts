@@ -74,8 +74,8 @@ export class LoginComponent implements OnInit {
               this.loginStatud = true;
               this.msgError = 'User Locked';
               break;
-            //Client
-            case '1':
+            //Client Activado con Email
+            case '2':
               this.dialogRef.close();
               sessionStorage.setItem('userState', '1');
               window.location.replace(this.globals['ScaleCycle'] + '/Client');

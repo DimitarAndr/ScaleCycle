@@ -36,6 +36,8 @@ import { ChangeHistoryComponent } from './change-history/change-history.componen
 import { EventHistoryComponent } from './event-history/event-history.component';
 import { SubmitDetailComponent } from './submit-detail/submit-detail.component';
 import { EventListComponent } from './event-list/event-list.component';
+import { QrcodeComponent } from './qrcode/qrcode.component';
+import { QRCodeModule } from 'angularx-qrcode';
 //import { SweetAlertService } from 'angular-sweetalert-service';
 //Dimitar
 import {FooterComponent} from './footer/footer.component';
@@ -78,99 +80,14 @@ const rutas = [
     {path: 'settingClient', component: SettingClientComponent},
     {path: 'EmployeeList', component: EmployeeListComponent},
     {path: 'EventAdmin', component: EventAdminComponent},
-    {path: 'recoverPassword/:username', component: RecoverPasswordComponent},
     {path: 'ClaimList', component: ClaimListComponent},
     {path: 'SubmitHistory', component: SubmitHistoryComponent},
     {path: 'ChangeHistory', component: ChangeHistoryComponent},
     {path: 'EventHistory', component: EventHistoryComponent},
     {path: 'EventList', component: EventListComponent},
     {path: 'Events', component: EventsComponent},
-
-    {
-      path: 'Premios', component: PremiosComponent
-    },
-    {
-      path: 'Events', component: EventsComponent
-    },
-    {
-      path: 'premiosSingle/:id', component: PremiosSingleComponent
-    },
-    {
-      path: 'cart', component: CartComponent
-    },
-    {
-      path: 'Contactos', component:
-      ContactosComponent
-    },
-    {
-      path: 'Client', component:
-      ClientProfileComponent
-    },
-    {
-      path: 'RegisterSubmit', component:
-      RegisterSubmitComponent
-    },
-    {
-      path: 'RegisterChange', component:
-      RegisterChangeComponent
-    },
-    {
-      path: 'Employee', component:
-      EmployeeProfileComponent
-    }
-    ,
-    {
-      path: 'Admin', component:
-      AdminProfileComponent
-    }
-    ,
-    {
-      path: 'Register', component:
-      RegisterComponent
-    }
-    ,
-    {
-      path: 'activateAccount/:id', component:
-      ActivateAccountComponent
-    }
-    ,
-    {
-      path: 'recoverPassword', component:
-      RecoverPasswordComponent
-    }
-    ,
-    {
-      path: 'recoverPassword/:username', component:
-      RecoverPasswordComponent
-    }
-    ,
-    {
-      path: 'setting', component:
-      SettingComponent
-    }
-    ,
-    {
-      path: 'settingClient', component:
-      SettingClientComponent
-    }
-    ,
-    {
-      path: 'EmployeeList', component:
-      EmployeeListComponent
-    }
-    ,
-    {
-      path: 'EventAdmin', component:
-      EventAdminComponent
-    }
-    ,
-    {
-      path: 'recoverPassword/:username', component:
-      RecoverPasswordComponent
-    },
-    {
-      path: 'chart', component: ChartComponent
-    }
+    {path: 'chart', component: ChartComponent},
+    {path: 'qrcode', component: QrcodeComponent}
 //{path: '**', component: 404}
   ]
 ;
@@ -214,7 +131,8 @@ const rutas = [
     EventsComponent,
     ClaimListComponent,
     EventsComponent,
-    ChartComponent
+    ChartComponent,
+    QrcodeComponent
 
   ],
   imports: [
@@ -239,7 +157,8 @@ const rutas = [
     MatProgressSpinnerModule,
     ToastrModule.forRoot(),
     MatProgressSpinnerModule,
-    ChartsModule
+    ChartsModule,
+    QRCodeModule
 
   ],
   entryComponents: [

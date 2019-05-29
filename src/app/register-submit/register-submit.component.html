@@ -12,7 +12,7 @@
 			<p><b>{{client.Nombre}} {{client.Apellido}}</b></p>
 		</div>
 		<div class="col-lg-8">
-			<form (ngSubmit)="onSubmit()">
+			<form (ngSubmit)="onSubmit()" id="formSubmit" #form="ngForm">
 				<b>Entrega</b>
 			  <div class="form-row">
 			    <div class="form-group col-md-4">
