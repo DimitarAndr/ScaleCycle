@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Globals} from '../globals/globals';
 import {FormControl, NgForm} from '@angular/forms';
-  
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-register-submit',
@@ -45,7 +45,7 @@ export class RegisterSubmitComponent implements OnInit {
 		"battery":0,
 		"points":0
 	}
-  constructor(private http:HttpClient, private globals:Globals) { }
+  constructor(private http:HttpClient, private globals:Globals, private toastr: ToastrService) { }
 
   ngOnInit() {
   	console.log(this.session);
@@ -54,24 +54,17 @@ export class RegisterSubmitComponent implements OnInit {
   	if(this.type == "1"){
   		this.http.get(this.globals['SERVER']+'/getClientForId/'+this.id).subscribe(data => {
 				if (data['error']) {
-					//this.createStatud = false;
-					//this.msgError = data['error'].text;
+					this.toastr.warning('Error no se encuentra cliente', 'Warning');
 				}else{
 					this.client = data[0];
-					//this.createStatud = true;
-					//this.msgError = null;
 				}
 			});
   	}else if(this.type == "2"){
   		this.http.get(this.globals['SERVER']+'/getClientForIdentification/'+this.identification).subscribe(data => {
 				if (data['error']) {
-					//this.createStatud = false;
-					//this.msgError = data['error'].text;
+					this.toastr.warning('Error no se encuentra cliente', 'Warning');
 				}else{
-					//this.createStatud = true;
-					//this.msgError = null;
 					this.client = data[0];
-					console.log(this.client);
 				}
 			});
   	}
@@ -92,18 +85,19 @@ export class RegisterSubmitComponent implements OnInit {
   		"submit":this.submit,
   		"employee":this.session['userId']
   	}
-  	this.http.post(this.globals['SERVER']+'/newRegisterSubmit',data).subscribe(data => {
-			if (data['error']) {
-				//this.createStatud = false;
-				//this.msgError = data['error'].text;
-			}else{
-				this.htmlForm.resetForm();
-				this.submit['points'] = 0;
-				//this.createStatud = true;
-				//this.msgError = null;
-				//this.client = data[0];
-			}
-		});
+  	if (this.submit['points'] == 0 || !data.client) {
+  		this.toastr.warning('Error, entrega estan vacio o faltan cliente', 'Warning');
+  	}else{
+	  	this.http.post(this.globals['SERVER']+'/newRegisterSubmit',data).subscribe(data => {
+				if (data['error']) {
+					this.toastr.warning('Error Entrega, Intenta Otra vez', 'Warning');
+				}else{
+					this.htmlForm.resetForm();
+					this.submit['points'] = 0;
+					this.toastr.success('Enviado con éxito', 'Success');
+				}
+			});
+  	}
   }
   /*
 	PoinPlastic = '2';

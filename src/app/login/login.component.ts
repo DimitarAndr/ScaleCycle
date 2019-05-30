@@ -90,7 +90,7 @@ export class LoginComponent implements OnInit {
 
               break;
             default:
-              console.log('Estado desconocido');
+              this.toastr.warning('Estado Desconocido', 'Warning');
               break;
           }
         } else if (this.user.type == '2') {
@@ -116,11 +116,10 @@ export class LoginComponent implements OnInit {
               window.location.replace(this.globals['ScaleCycle'] + '/Admin');
               break;
             default:
-              console.log('Estado desconocido');
+              this.toastr.warning('Estado Desconocido', 'Warning');
               break;
           }
         }
-        console.log('Login Correct');
         //sessionStorage.setItem('userState',"1");
       }
     });

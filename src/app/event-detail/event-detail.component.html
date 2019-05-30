@@ -55,7 +55,6 @@
 		<table datatable class="table row-border hover " [dtTrigger]="dtTrigger1" align="center">
 		  <thead>
 		    <tr>
-		      <th>Id</th>
 		      <th>Identificador</th>
 		      <th>Username</th>
 		      <th>Nombre</th>
@@ -67,7 +66,6 @@
 		  </thead>
 		  <tbody>
 				<tr *ngFor = "let participant of participants" (click)="openDialog(participant.IdCliente, participant.IdEvento)" [ngClass]="(participant.Estado==0)?'bg-danger':(participant.Estado==1)?'bg-warning':'bg-success'">
-					<td>{{participant.IdCliente}}</td>
 					<td>{{participant.Identificador}}</td>
 					<td>{{participant.Username}}</td>
 					<td>{{participant.Nombre}}</td>

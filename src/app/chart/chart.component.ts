@@ -26,6 +26,4 @@ export class ChartComponent {
     {data: [78, 28, 20, 62, 74, 67, 45, 65, 78, 46, 71, 65], label: 'Aceite'},
     {data: [64, 32, 51, 47, 68, 47, 39, 48, 53, 39, 45, 58], label: 'Pilas'}
   ];
-
-
 }
