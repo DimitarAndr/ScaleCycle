@@ -1,20 +1,21 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {FormControl, NgForm} from '@angular/forms';
+import {NgForm} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {MatDialogRef} from '@angular/material';
 import {Globals} from '../globals/globals';
 import {ToastrService} from 'ngx-toastr';
- 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(public dialogRef: MatDialogRef<LoginComponent>, private route: ActivatedRoute, private http: HttpClient, private router: Router, private globals: Globals, private toastr:ToastrService) {
+  constructor(public dialogRef: MatDialogRef<LoginComponent>, private route: ActivatedRoute, private http: HttpClient, private router: Router, private globals: Globals, private toastr: ToastrService) {
   }
-	@ViewChild('loginForm')
+
+  @ViewChild('loginForm')
   htmlForm: NgForm;
   user = {
     'username': '',
@@ -35,7 +36,7 @@ export class LoginComponent implements OnInit {
   };
 
   ngOnInit() {
-  	
+
   }
 
   changeType() {
@@ -81,7 +82,12 @@ export class LoginComponent implements OnInit {
             case '2':
               this.dialogRef.close();
               sessionStorage.setItem('user', JSON.stringify(this.session));
-              window.location.replace(this.globals['ScaleCycle'] + '/Client');
+              if (sessionStorage.getItem('url')) {
+                window.location.replace(this.globals['ScaleCycle'] + sessionStorage.getItem('url'));
+              } else {
+                window.location.replace(this.globals['ScaleCycle'] + '/Client');
+              }
+
               break;
             default:
               console.log('Estado desconocido');

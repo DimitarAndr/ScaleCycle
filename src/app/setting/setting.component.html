@@ -132,7 +132,7 @@
         </div>
       </div>
       <div class="text-center">
-        <button id="done" type="submit" [disabled]="loginForm?.invalid" class="btn btn-primary mx-auto" form="client">
+        <button type="submit" [disabled]="loginForm?.invalid" class="btn btn-primary mx-auto" form="client">
           Enviar
         </button>
       </div>
@@ -179,14 +179,14 @@
       <div *ngIf="vistaForm=='datoP'">
         <div class="form-row">
           <div class="form-group col-md-6 mx-auto">
-              <label for="name"></label>
-              <input type="text" class="form-control" pattern="^[a-zA-Z0-9]*[a-zA-Z0-9\-' ]*[a-zA-Z0-9 ]*$"
-                     name="name"
-                     [(ngModel)]="employee.Name" id="name"
-                     placeholder="Introduce nuevo Nombre" ngModel>
-              <div class="alert alert-danger" *ngIf="loginForm?.controls.name?.errors?.pattern">
-                Error en el nombre.
-              </div>
+            <label for="name"></label>
+            <input type="text" class="form-control" pattern="^[a-zA-Z0-9]*[a-zA-Z0-9\-' ]*[a-zA-Z0-9 ]*$"
+                   name="name"
+                   [(ngModel)]="employee.Name" id="name"
+                   placeholder="Introduce nuevo Nombre" ngModel>
+            <div class="alert alert-danger" *ngIf="loginForm?.controls.name?.errors?.pattern">
+              Error en el nombre.
+            </div>
           </div>
         </div>
         <div class="form-row">
@@ -201,9 +201,11 @@
           </div>
         </div>
       </div>
-      <button id="done" type="submit" [disabled]="loginForm?.invalid" class="btn btn-primary mx-auto" form="employee">
-        Cambiar Contraseña
-      </button>
+      <div class="text-center">
+        <button type="submit" [disabled]="loginForm?.invalid" class="btn btn-primary mx-auto" form="employee">
+          Cambiar Contraseña
+        </button>
+      </div>
     </div>
   </form>
 </div>

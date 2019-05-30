@@ -7,23 +7,23 @@
 	  <thead>
 	    <tr>
 	      <th>Id</th>
-	      <th>Titulo</th>
-	      <th>Tipo</th>
-	      <th>IdTipo</th>
-	      <th>Descripcion</th>
-	      <th>IdCliente</th>
+	      <th>Nombre</th>
+	      <th>Apellido</th>
+        <th>Email</th>
+	      <th>Tema</th>
+	      <th>Consulta</th>
 	      <th>Estado</th>
 	    </tr>
 	  </thead>
 	  <tbody>
 			<tr *ngFor = "let claim of claims" (click)="openDialog(claim)">
-				<td>{{claim.Id}}</td>
-				<td class="line-limit-length">{{claim.Titulo}}</td>
-				<td>{{claim.Tipo==0?'Entrega':claim.Tipo==1?'Premio':claim.Tipo==2?'Evento':claim.Tipo==3?'Empleado':'Otros'}}</td>
-				<td>{{claim.IdTipo}}</td>
-				<td class="line-limit-length">{{claim.Descripcion}}</td>
-				<td>{{claim.IdCliente}}</td>
-				<td>{{(claim.Estado==0)?'Inicio':(claim.Estado==1)?'En Proceso':'Solucionado'}}</td>
+				<td>{{claim['_id']}}</td>
+				<td class="line-limit-length">{{claim.nombre}}</td>
+        <td class="line-limit-length">{{claim.apellido}}</td>
+				<td>{{claim.email}}</td>
+				<td>{{claim.tema}}</td>
+				<td class="line-limit-length">{{claim.consulta}}</td>
+				<td>{{(claim.estado==0)?'Pendiente':(claim.Estado==1)?'En Tramite':'Finalizado'}}</td>
 			</tr>
 	  </tbody>
 	</table>

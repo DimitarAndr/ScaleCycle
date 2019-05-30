@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Contacto} from '../model/Contacto';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +21,16 @@ export class ContactosService {
   }
 
   addConsulta(form) {
+    form.estado = 0;
     return this.http.post(this.url, form, this.httpOptions);
+  }
+
+  getAllConsultas(): Observable<Contacto[]> {
+    return this.http.get<Contacto[]>(this.url, this.httpOptions);
+  }
+
+  cambiarEstadoConsulta(claim) {
+    return this.http.put(this.url + claim._id, claim, this.httpOptions);
   }
 }
 

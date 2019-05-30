@@ -88,46 +88,39 @@ export class PremiosSingleComponent implements OnInit {
 
     //Iniciar session: si no hay BBDD
     if (!sessionStorage.getItem('user') || sessionStorage.getItem('user') === 'null') {
-      this.session = {
-        userId: '1',
-        userName: 'a',
-        userLastName: 'a',
-        userType: '1',
-        userState: '1',
-        puntos: '500',
-        premios: []
-      };
+
+      sessionStorage.setItem('url', window.location.pathname);
+
+
+      const dialogRef = this.dialog.open(LoginComponent, {});
+
       sessionStorage.setItem('user', JSON.stringify(this.session));
-    }
+    } else {
+      const premioSession = [premio._id, premio.id, premio.nombre, premio.descripcion, premio.categoria, premio.puntos, premio.cantidad, this.quantitatPremio];
 
-    const premioSession = [premio._id, premio.id, premio.nombre, premio.descripcion, premio.categoria, premio.puntos, premio.cantidad, this.quantitatPremio];
 
+      if (sessionStorage.getItem('user') != null) {
 
-    if (sessionStorage.getItem('user') != null) {
+        this.session = JSON.parse(sessionStorage.getItem('user'));
 
-      this.session = JSON.parse(sessionStorage.getItem('user'));
-
-      if (!this.session.premios || this.session.premios == null) {
-        this.session.premios = [[]];
-      }
-
-      for (let i = 0; i < this.session.premios.length; i++) {
-        if (premioSession[0] === this.session.premios[i][0]) {
-          const cantidad = this.session.premios[i][5];
-          this.session.premios.splice(i, 1);
-          premioSession[5] += cantidad * 1;
+        if (!this.session.premios || this.session.premios == null) {
+          this.session.premios = [[]];
         }
+
+        for (let i = 0; i < this.session.premios.length; i++) {
+          if (premioSession[0] === this.session.premios[i][0]) {
+            const cantidad = this.session.premios[i][5];
+            this.session.premios.splice(i, 1);
+            premioSession[5] += cantidad * 1;
+          }
+        }
+
+        this.session.premios.push(premioSession);
+        sessionStorage.setItem('user', JSON.stringify(this.session));
+
+
+        this.router.navigate(['/cart']);
       }
-
-      this.session.premios.push(premioSession);
-      sessionStorage.setItem('user', JSON.stringify(this.session));
-
-
-      this.router.navigate(['/cart']);
     }
-    /* else {
-       const
-         dialogRef = this.dialog.open(LoginComponent, {});
-     }*/
   }
 }

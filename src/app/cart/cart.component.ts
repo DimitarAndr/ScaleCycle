@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Premio} from '../model/Premio';
 import {ToastrService} from 'ngx-toastr';
 import {PremiosService} from '../service/premios.service';
 
@@ -116,6 +115,10 @@ export class CartComponent implements OnInit {
       }, () => {
         this.toastr.warning('Error intente de nuevo más tarde', 'Warning');
       }, () => {
+        this.session.premios = [];
+        sessionStorage.setItem('user', JSON.stringify(this.session));
+        this.premiosCart = [];
+        this.sum = 0;
         this.toastr.success('Su premio será enviado pronto!', 'Success');
       });
     }

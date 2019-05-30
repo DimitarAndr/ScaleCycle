@@ -31,7 +31,7 @@ export class ContactosComponent implements OnInit {
     }, () => {
       this.toastr.warning('Error al recibir la pregunta, por favor intente más tarde', 'Warning');
     }, () => {
-      this.htmlForm.resetForm(), this.toastr.success('Su pregunta ha sido recibida', 'Success');
+      this.htmlForm.resetForm(), this.toastr.success('Su pregunta has ido recibida', 'Success');
     });
 
   }
