@@ -2,6 +2,7 @@ import {Component, OnInit, Inject} from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material';
 import {HttpClient} from '@angular/common/http';
 import {Globals} from '../globals/globals';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-employee-detail',
@@ -10,7 +11,7 @@ import {Globals} from '../globals/globals';
 })
 export class EmployeeDetailComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private http: HttpClient, private globals: Globals) {
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private http: HttpClient, private globals: Globals, private toastr: ToastrService) {
   }
 
   aux = 1;
@@ -78,9 +79,10 @@ export class EmployeeDetailComponent implements OnInit {
   createEmployee() {
     this.http.post(this.globals['SERVER'] + '/createEmployee', this.employee).subscribe(data => {
       if (data['error']) {
-
+        this.toastr.warning('Error de creación de usuario, Por favor intente de nuevo mas tarde', 'Warning');
       } else {
         window.location.replace(this.globals['ScaleCycle'] + '/EmployeeList');
+        this.toastr.success('Creaccion Correcta', 'Success');
       }
     });
   }

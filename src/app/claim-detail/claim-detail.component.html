@@ -7,7 +7,7 @@
     <p><b>Email: </b>{{claim.email}}</p>
     <p><b>Tema: </b>{{claim.tema}}</p>
     <p><b>Descripcion: </b></p>
-    <textarea cols="30" rows="10">{{claim.consulta}}</textarea>
+    <textarea cols="30" rows="10" disabled>{{claim.consulta}}</textarea>
     <p><b>Fecha: </b>{{claim._kmd['lmt']}}</p>
     <p><b>Estado: </b>{{(claim.estado==0)?'Pendiente':(claim.estado==1)?'En Tramite':'Finalizado'}}</p>
   </div>
