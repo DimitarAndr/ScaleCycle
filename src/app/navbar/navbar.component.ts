@@ -26,6 +26,13 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     if(sessionStorage.getItem('user') != null){
       this.session = JSON.parse(sessionStorage.getItem('user'));
+      if (this.session['userType']==2) {
+        if (this.session['userState']==2) {
+          this.Estado = "Employee";
+        }else{
+          this.Estado = "Admin";
+        }
+      }
       this.isLogin = true;
     }else{
       this.isLogin = false;
