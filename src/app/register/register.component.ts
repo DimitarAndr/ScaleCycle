@@ -2,7 +2,7 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
-
+import {ToastrService} from 'ngx-toastr';
 import {MatDialog} from '@angular/material';
 import {LoginComponent} from '../login/login.component';
 
@@ -16,7 +16,7 @@ import {Globals} from '../globals/globals';
 })
 export class RegisterComponent implements OnInit {
 
-  @ViewChild('form')
+  @ViewChild('register')
   htmlForm: NgForm;
   localidades = ['Barcelona', 'Hospitalet de Llobregat', 'Badalona'];
 
@@ -41,7 +41,7 @@ export class RegisterComponent implements OnInit {
   msgError: String;
   genders: any = ['Hombre', 'Mujer'];
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, public dialog: MatDialog, private globals: Globals) {
+  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, public dialog: MatDialog, private globals: Globals, private toastr: ToastrService) {
   }
 
   ngOnInit() {
@@ -50,15 +50,14 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.msgError = '';
-    console.log(this.user);
     this.http.post(this.globals['SERVER'] + '/createAccount', this.user).subscribe(data => {
       if (data['error']) {
-        this.createStatud = false;
-        this.msgError = data['error'].text;
+        this.toastr.warning('Error Registrar', 'Warning');
       } else {
         this.createStatud = true;
         this.msgError = null;
-        console.log('Correct');
+        this.toastr.success('Enviado Correo Para Validacion', 'Success');
+        this.register.resetForm();
       }
     });
   }
