@@ -31,7 +31,7 @@ export class EventsComponent implements OnInit {
         this.eventos = data;
       },
       () => {
-        this.toastr.warning('Error al recibir la pregunta, por favor intente más tarde', 'Warning');
+        this.toastr.warning('No se pueden recuperar los eventos, por favor intente más tarde', 'Warning');
       });
 
 

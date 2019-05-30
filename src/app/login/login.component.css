@@ -1,11 +1,49 @@
-.form-row{
-	display: block;
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,400i,500,500i,700,700i,900&display=swap');
+
+* {
+  font-family: 'Rubik', sans-serif !important;
 }
-strong{
-	font-size: 3em;
-	margin: 5px;
-	text-align: center;
+
+.form-row {
+  display: block;
 }
-.title{
-	margin: 10px;
+
+strong {
+  font-size: 3em;
+  margin: 5px;
+  text-align: center;
+}
+
+.title {
+  margin: 10px;
+}
+
+button.registerLogin {
+  font-family: 'Rubik', sans-serif !important;
+  font-size: 18px;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0 !important;
+  cursor: pointer;
+}
+
+span.registrate {
+  font-weight: bolder;
+  border-bottom: 1px solid #444;
+}
+
+button.recuperarContrasena {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0 !important;
+  cursor: pointer;
+  font-family: 'Rubik', sans-serif !important;
+  font-size: 12px;
+}
+
+span.recuperar {
+
+  color: dodgerblue;
 }
