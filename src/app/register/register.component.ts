@@ -57,7 +57,7 @@ export class RegisterComponent implements OnInit {
         this.createStatud = true;
         this.msgError = null;
         this.toastr.success('Enviado Correo Para Validacion', 'Success');
-        this.register.resetForm();
+        this.htmlForm.resetForm();
       }
     });
   }
