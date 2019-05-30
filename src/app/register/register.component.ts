@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 
 import {MatDialog} from '@angular/material';
 import {LoginComponent} from '../login/login.component';
@@ -15,6 +15,11 @@ import {Globals} from '../globals/globals';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+
+  @ViewChild('form')
+  htmlForm: NgForm;
+  localidades = ['Barcelona', 'Hospitalet de Llobregat', 'Badalona'];
+
   Avatar: any;
   form: FormGroup;
   user = {
@@ -34,6 +39,7 @@ export class RegisterComponent implements OnInit {
   };
   createStatud: boolean;
   msgError: String;
+  genders: any = ['Hombre', 'Mujer'];
 
   constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router, public dialog: MatDialog, private globals: Globals) {
   }
@@ -44,8 +50,7 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     this.msgError = '';
-    //let file = $<HTMLInputElement>("input[type='file']")[0].files;
-    //console.log(file[0]);
+    console.log(this.user);
     this.http.post(this.globals['SERVER'] + '/createAccount', this.user).subscribe(data => {
       if (data['error']) {
         this.createStatud = false;

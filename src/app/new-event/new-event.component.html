@@ -1,53 +1,70 @@
 <div class="row">
-		<div class="col-md-6" align="center">
-			<img src="https://pbs.twimg.com/profile_images/534017689694371840/A-p12OyT.png" alt="img"><br/>
-			<label for="avatar" class="btn btn-primary">Seleccionar Imagen</label>
-			<input type="file" accept="image/*" style="display: none" form="newEvent" name="avatar" id="avatar" [(ngModel)]="Avatar" (change)="onFileChange($event)">
-		</div>
-		<div class="col-md-6">
-			<b id="error" *ngIf='!createStatud'>{{msgError}}</b>
-			<form class="form" #newEvent="ngForm" (ngSubmit)="onSubmit()" id="newEvent">
-				<b>Crea nueva evento</b>
-			  <div class="form-row">
-			    <div class="form-group col-md-6">
-			      <label for="title">Titulo</label>
-			      <input type="text" class="form-control" name="title" [(ngModel)]="event.Titulo" id="title" placeholder="Introduce Titulo">
-			    </div>
-			    <div class="form-group col-md-6">
-			      <label for="location">Lugar</label>
-			      <input type="text" class="form-control" name="location" [(ngModel)]="event.Lugar" id="location" placeholder="Introduce Lugar">
-			    </div>
-			  </div>
-			  <div class="form-row">
-				  <div class="form-group col-md-12">
-				    <label for="Description">Descripcion</label>
-				    <textarea class="md-textarea form-control" rows="5" name="Description" [(ngModel)]="event.Descripcion" id="Description" placeholder="Introduce Descripcion"></textarea>
-				  </div>
-				</div>
-			  <div class="form-row">
-			    <div class="form-group col-md-4">
-			      <label for="points">Puntos</label>
-			      <input type="number" minlength="0" class="form-control" name="points" [(ngModel)]="event.Puntos" id="points" placeholder="Introduce Puntos">
-			    </div>
-			    <div class="form-group col-md-8">
-			      <label for="date">Fecha</label>
-			      <input type="date" class="form-control" name="date" [(ngModel)]="event.Fecha" id="date" placeholder="Introduce su Fecha">
-			    </div>
-			  </div>
-			  <div class="form-row">
-			    <div class="form-group col-md-6">
-			      <label for="startTime">Hora Inicial</label>
-			      <input type="time" class="form-control" name="startTime" [(ngModel)]="event.HoraInicio" id="startTime" placeholder="Introduce Hora Inicial">
-			    </div>
-			  	<div class="form-group col-md-6">
-			      <label for="endTime">Hora Final</label>
-			      <input type="time" class="form-control" name="endTime" [(ngModel)]="event.HoraFinal" id="endTime" placeholder="Introduce Hora Final">
-			    </div>
-			  </div>
-			  <div align="center">
-			  	<button id="done" type="submit" class="btn btn-primary" [disabled]="newEvent.invalid || loading">Crear</button>
-			  	<button mat-button mat-dialog-close>Cerrar</button> 
-			  </div>
-			</form>
-		</div>
-	</div>
+  <div class="col-md-6 d-flex" align="center">
+    <img class="ml-5" src="./assets/Storage/SVG_Files/recycled-bagEventos1.svg" width="200px" alt="recycling bags"><br/>
+
+    <!-- <label for="avatar" class="btn btn-primary">Seleccionar Imagen</label>
+     <input type="file" accept="image/*" style="display: none" form="newEvent" name="avatar" id="avatar"
+            [(ngModel)]="Avatar" (change)="onFileChange($event)">-->
+  </div>
+  <div class="col-md-6">
+    <b id="error" *ngIf='!createStatud'>{{msgError}}</b>
+    <form class="form" #newEvent="ngForm" (ngSubmit)="onSubmit()" id="newEvent">
+      <b>Crea nueva evento</b>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="title">Titulo</label>
+          <input type="text" class="form-control" name="title" [(ngModel)]="event.Titulo" id="title"
+                 placeholder="Introduce Titulo" required>
+          <div class="alert alert-danger"
+               *ngIf="newEvent?.controls.title?.touched && newEvent?.controls.title?.errors?.required">
+            Este campo es obligatorio
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="location">Lugar</label>
+          <input type="text" class="form-control" name="location" [(ngModel)]="event.Lugar" id="location"
+                 placeholder="Introduce Lugar" required>
+          <div class="alert alert-danger"
+               *ngIf="newEvent?.controls.location?.touched && newEvent?.controls.location?.errors?.required">
+            Este campo es obligatorio
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label for="Description">Descripcion</label>
+          <textarea class="md-textarea form-control" rows="5" name="Description" [(ngModel)]="event.Descripcion"
+                    id="Description" placeholder="Introduce Descripcion"></textarea>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="points">Puntos</label>
+          <input type="number" minlength="0" class="form-control" name="points" [(ngModel)]="event.Puntos" id="points"
+                 placeholder="Introduce Puntos">
+        </div>
+        <div class="form-group col-md-8">
+          <label for="date">Fecha</label>
+          <input type="date" class="form-control" name="date" [(ngModel)]="event.Fecha" id="date"
+                 placeholder="Introduce su Fecha">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="startTime">Hora Inicial</label>
+          <input type="time" class="form-control" name="startTime" [(ngModel)]="event.HoraInicio" id="startTime"
+                 placeholder="Introduce Hora Inicial">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="endTime">Hora Final</label>
+          <input type="time" class="form-control" name="endTime" [(ngModel)]="event.HoraFinal" id="endTime"
+                 placeholder="Introduce Hora Final">
+        </div>
+      </div>
+      <div align="center">
+        <button type="submit" class="btn btn-primary ml-5" [disabled]="newEvent.invalid || loading">Crear</button>
+        <button class="btn btn-outline-danger float-right" mat-button mat-dialog-close>Cerrar</button>
+      </div>
+    </form>
+  </div>
+</div>
