@@ -8,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 export class ClientProfileComponent implements OnInit {
 
   constructor() { }
+	session:any;
 
   ngOnInit() {
+		this.session = JSON.parse(sessionStorage.getItem('user'));
+  	console.log(JSON.parse(sessionStorage.getItem('user')));
   }
 
 }
