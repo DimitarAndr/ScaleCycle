@@ -12,7 +12,7 @@
         <div class="form-group col-md-12">
           <label for="password">Password</label>
           <div class="form-group input-group">
-            <input type="text" class="form-control" name="password" id="password" placeholder="Introduce tu Password"
+            <input type="password" class="form-control" name="password" id="password" placeholder="Introduce tu Password"
                    [(ngModel)]="user.password" #password="ngModel"
                    [ngClass]="{'is-invalid':loginForm.submitted && password.invalid}" ngModel>
             </div>
