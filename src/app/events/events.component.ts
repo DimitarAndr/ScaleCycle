@@ -61,7 +61,7 @@ export class EventsComponent implements OnInit {
     } else {
 
       this.session = JSON.parse(sessionStorage.getItem('user'));
-      if (this.session.userType == 1) {
+      if (this.session.userType === '1') {
         let data = {
           'eventId': event['Id'],
           'clientId': this.session['userId']
