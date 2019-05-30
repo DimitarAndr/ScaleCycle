@@ -25,12 +25,6 @@ export class PremiosSingleComponent implements OnInit {
   quantitatPremio = 1;
   array: any = ['1', '2'];
   session = {
-    userId: '1',
-    userName: 'a',
-    userLastName: 'a',
-    userType: '1',
-    userState: '1',
-    puntos: '500',
     premios: []
   };
 

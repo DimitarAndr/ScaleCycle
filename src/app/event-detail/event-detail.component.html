@@ -3,8 +3,8 @@
 		<h2 mat-dialog-title [ngClass]="event['Estado']==1?'text-warning':event['Estado']==2?'text-success':event['Estado']==3?'text-danger':''">Evento:{{event.Id}} ({{event.Titulo}})</h2>
 	</div>
 	<div class="col-lg-3" align="right">
-		<button *ngIf="aux=='1'" (click)="delete(event.Id)" mat-button mat-dialog-close>Eliminar</button>
-		<button *ngIf="aux=='1'" (click)="changeEstado(3)">Modificar</button>
+		<button class="btn btn-primary m-1" *ngIf="aux=='1'" (click)="delete(event.Id)" mat-button mat-dialog-close>Eliminar</button>
+		<button class="btn btn-primary m-1" *ngIf="aux=='1'" (click)="changeEstado(3)">Modificar</button>
 	</div>
 </div>
 <mat-dialog-content *ngIf="aux=='1' || aux==0 || aux==-1">
@@ -18,18 +18,9 @@
 				    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
 				    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
 				  </ol>
-				  <div class="carousel-inner">
-				  	<!--for each -> src -->
-				    <div class="carousel-item active">
-				      <img class="d-block w-100" src="https://imgcomfort.com/Userfiles/Upload/images/illustration-geiranger.jpg" alt="First slide" height="200px" width="100%" style="object-fit: cover;">
-				    </div>
-				    <div class="carousel-item">
-				      <img class="d-block w-100" src="https://img.pngio.com/horizontal-png-horizontal-road-road-horizon-png-1024_683.jpg" alt="Second slide" height="200px" width="100%" style="object-fit: cover;">
-				    </div>
-				    <div class="carousel-item">
-				      <img class="d-block w-100" src="https://imgcomfort.com/Userfiles/Upload/images/illustration-geiranger.jpg" alt="Third slide" height="200px" width="100%" style="object-fit: cover;">
-				    </div>
-				  </div>
+          <img class="group list-group-image img-fluid"
+               src="./assets/Storage/Eventos/{{event.Id}}.jpg" alt=""
+               style="border-top-left-radius:10px;border-bottom-left-radius:10px"/>
 				</div>
 			  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 			    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -104,14 +95,14 @@
 <mat-dialog-content *ngIf="aux=='3'">
 	<div class="row">
 		<div class="col-md-6" align="center">
-			<img src="https://pbs.twimg.com/profile_images/534017689694371840/A-p12OyT.png" alt="img"><br/>
-			<label for="avatar" class="btn btn-primary">Seleccionar Imagen</label>
-			<input type="file" accept="image/*" style="display: none" form="modifyEvent" name="avatar" id="avatar" [(ngModel)]="Avatar" (change)="onFileChange($event)">
+      <img class="group list-group-image img-fluid"
+           src="./assets/Storage/Eventos/{{event.Id}}.jpg" alt=""
+           style="border-top-left-radius:10px;border-bottom-left-radius:10px"/>
 		</div>
 		<div class="col-md-6">
 			<b id="error" *ngIf='!createStatud'>{{msgError}}</b>
 			<form class="form" #modifyEvent="ngForm" (ngSubmit)="onSubmit()" id="modifyEvent">
-				<b>Crea nueva evento</b>
+				<b>Crear nuevo evento</b>
 			  <div class="form-row">
 			    <div class="form-group col-md-6">
 			      <label for="title">Titulo</label>
@@ -149,7 +140,7 @@
 			    </div>
 			  </div>
 			  <div align="center">
-			  	
+
 			  </div>
 			</form>
 		</div>
@@ -157,10 +148,10 @@
 </mat-dialog-content>
 <mat-dialog-actions align="end">
 	<div class="container">
-		<button type="submit" form="modifyEvent" class="btn btn-primary" [disabled]="modifyEvent.invalid || loading" *ngIf="aux=='3'">Modificar</button>
-	  <button class="btn btn-primary" (click)="changeEstado(2)" *ngIf="aux=='1'">Participante</button>
-	  <button class="btn btn-primary" (click)="changeEstado(1)" *ngIf="aux=='2'">Evento</button>
-	  <button class="btn btn-primary" (click)="changeEstado(1)" *ngIf="aux=='3'">Volver</button>
-	  <button mat-button mat-dialog-close>Cerrar</button> 
+		<button type="submit" form="modifyEvent" class="btn btn-primary mr-2" [disabled]="modifyEvent.invalid || loading" *ngIf="aux=='3'">Modificar</button>
+	  <button class="btn btn-primary mr-2" (click)="changeEstado(2)" *ngIf="aux=='1'">Participantes</button>
+	  <button class="btn btn-primary mr-2" (click)="changeEstado(1)" *ngIf="aux=='2'">Evento</button>
+	  <button class="btn btn-primary mr-2" (click)="changeEstado(1)" *ngIf="aux=='3'">Volver</button>
+	  <button class="btn btn-danger ml-2"  mat-dialog-close>Cerrar</button>
 	</div>
 </mat-dialog-actions>

@@ -26,6 +26,7 @@ export class EventListComponent implements OnInit {
 			}
 		});
   }
+
   join(event){
   	var data = {
   		'eventId': event['Id'],
