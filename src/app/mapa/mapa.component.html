@@ -6,7 +6,7 @@
           <mat-label>Buscar...</mat-label>
           <input type="text" aria-label="Default" matInput [formControl]="myControl" [matAutocomplete]="auto">
           <mat-autocomplete #auto="matAutocomplete">
-            <mat-option *ngFor="let option of filteredOptions | async" [value]="option" (onSelectionChange)="buscarPunto(option)">
+            <mat-option *ngFor="let option of filteredOptions | async " [value]="option" (onSelectionChange)="buscarPunto(option)">
               {{option}}
             </mat-option>
           </mat-autocomplete>
@@ -35,8 +35,8 @@
         </agm-marker-cluster>
       </agm-map>
     </div>
-    <div class="container">
-      
+
+    <div class="container mt-2">
       <div class="row" align="center">
         <div class="col-lg-3">
           <img src='./assets/Storage/SVG_Files/green-earth-1.svg' height="400px">

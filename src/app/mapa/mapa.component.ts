@@ -27,12 +27,11 @@ export class MapaComponent implements OnInit {
   defaultLong = 2.175246;
   defaultZoom = 12;
 
-  //punts: any = data;
+  // punts: any = data;
   punts: Estacion[] = [];
   mapStyle: any;
-  imageCluster: any;
   labelOptions: any;
-  icon: any;
+  icon: {};
   currentIW: AgmInfoWindow;
   previousIW: AgmInfoWindow;
 
@@ -43,11 +42,6 @@ export class MapaComponent implements OnInit {
 
 
   ngOnInit() {
-
-
-    this.imageCluster = {
-      url: './assets/Storage/SVG_Files/recycled-bagEventos1.svg'
-    };
 
     this.icon = {
       url: './assets/Storage/SVG_Files/recycled-bagEventos1.svg',

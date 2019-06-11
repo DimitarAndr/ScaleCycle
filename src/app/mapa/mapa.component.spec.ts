@@ -1,6 +1,8 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MapaComponent } from './mapa.component';
+import {MapaComponent} from './mapa.component';
+import {expect} from "@angular/core/testing/src/testing_internal";
+import {describe} from "jasmine";
 
 describe('MapaComponent', () => {
   let component: MapaComponent;
@@ -8,9 +10,9 @@ describe('MapaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MapaComponent ]
+      declarations: [MapaComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
