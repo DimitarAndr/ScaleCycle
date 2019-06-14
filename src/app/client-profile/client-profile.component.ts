@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-client-profile',
@@ -7,12 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientProfileComponent implements OnInit {
 
-  constructor() { }
-	session:any;
+  constructor() {
+  }
+
+  session: any;
 
   ngOnInit() {
-		this.session = JSON.parse(sessionStorage.getItem('user'));
-  	console.log(JSON.parse(sessionStorage.getItem('user')));
+    this.session = JSON.parse(sessionStorage.getItem('user'));
+    console.log(JSON.parse(sessionStorage.getItem('user')));
   }
 
 }

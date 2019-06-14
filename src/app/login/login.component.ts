@@ -5,6 +5,9 @@ import {HttpClient} from '@angular/common/http';
 import {MatDialogRef} from '@angular/material';
 import {Globals} from '../globals/globals';
 import {ToastrService} from 'ngx-toastr';
+import {LoginService} from '../service/login.service';
+import {User} from '../model/User';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +15,15 @@ import {ToastrService} from 'ngx-toastr';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  constructor(public dialogRef: MatDialogRef<LoginComponent>, private route: ActivatedRoute, private http: HttpClient, private router: Router, private globals: Globals, private toastr: ToastrService) {
+
+
+  constructor(public dialogRef: MatDialogRef<LoginComponent>, private route: ActivatedRoute,
+              private http: HttpClient, private router: Router, private loginService: LoginService,
+              private globals: Globals, private toastr: ToastrService) {
   }
+
+
+  ifTakesUser: User[];
 
   @ViewChild('loginForm')
   htmlForm: NgForm;
@@ -25,7 +35,7 @@ export class LoginComponent implements OnInit {
   //user:any = {};
   loginStatud: boolean;
   msgError: string;
-  typeUser: string = 'Cliente';
+  typeUser = 'Cliente';
   session = {
     'userId': '',
     'userName': '',

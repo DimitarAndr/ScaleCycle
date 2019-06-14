@@ -1,15 +1,16 @@
 import {Injectable} from '@angular/core';
-import {Estacion} from '../model/Estacion';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
-
+import {User} from '../model/User';
+import {Cliente} from '../model/Cliente';
 
 @Injectable({
   providedIn: 'root'
 })
-export class EstacionService {
 
-  url = 'https://baas.kinvey.com/appdata/kid_BkbjwXQ5N/Estacion/';
+export class LoginService {
+
+  url = 'https://baas.kinvey.com/appdata/kid_BkbjwXQ5N/Users/';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',
@@ -17,13 +18,13 @@ export class EstacionService {
     })
   };
 
+
   constructor(private http: HttpClient) {
   }
 
-  getAllEstaciones(): Observable<Estacion[]> {
-    return this.http.get<Estacion[]>(this.url, this.httpOptions);
+  checkUserLogin(): Observable<User> {
+    return this.http.get<User>(this.url + '5cbed2a325b7c52e19edf750', this.httpOptions);
   }
-
 
 
 }

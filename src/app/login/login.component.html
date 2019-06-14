@@ -9,6 +9,9 @@
             <input type="text" class="form-control" name="username" id="username" placeholder="Introduce tu Username"
                    [(ngModel)]="user.username" #username="ngModel">
         </div>
+
+        <div class="btn btn-primary" (click)="checkUser()">CheckUser</div>
+
         <div class="form-group col-md-12">
           <label for="password">Password</label>
           <div class="form-group input-group">
