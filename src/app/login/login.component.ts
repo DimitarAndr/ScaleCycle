@@ -8,7 +8,6 @@ import {ToastrService} from 'ngx-toastr';
 import {LoginService} from '../service/login.service';
 import {User} from '../model/User';
 import {map} from 'rxjs/operators';
-import {AuthenticationService} from '../service/authentication.service';
 
 @Component({
   selector: 'app-login',

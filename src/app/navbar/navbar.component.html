@@ -1,72 +1,74 @@
 <div class="container">
-<nav class="navbar navbar-expand-md navbar-light bg-white">
-  <a class="navbar-brand mr-auto" href="#">
-    <img class="logo" src="../../assets/Storage/Logo.png" alt="Logo ScaleCycle">
-  </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <div class="navbarOpciones mx-auto">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" routerLink="Mapa">Mapa</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="Events">Eventos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="Premios">Premios</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="Contactos">Contactos</a>
-        </li>
-      </ul>
-    </div>
-    <div class="dropdown-divider"></div>
-    <div class="navbarRegister">
-      <ul class="navbar-nav text-left">
-        <li class="nav-item" *ngIf="!isLogin">
-          <div class="btn-outline-info table-hover"></div>
-          <a class="nav-link register" (click)="openDialog()"><img class="fa fa-fw" src="../../assets/Storage/SVG_Files/outline-person_outline-24px.svg"></a>
-        </li>
-        <li class="nav-item dropdown" *ngIf="isLogin">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img class="fa fa-fw" src="../../assets/Storage/SVG_Files/outline-person_outline-24px.svg">
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" routerLink="./{{Estado}}">Mi perfil</a>
-            <!-- Cuando es un cliente -->
-            <div *ngIf="session.userType==1">
-              <a class="dropdown-item" routerLink="/EventList">Listas de Eventos</a>
-              <a class="dropdown-item" routerLink="/SubmitHistory">Historial de Entrega</a>
-              <!--<a class="dropdown-item" routerLink="/ChangeHistory">Historial de Cambio</a>-->
-              <a class="dropdown-item" routerLink="/EventHistory">Historial de Evento</a>
-            </div>
-            <!-- Cuando es un empleado -->
-            <div *ngIf="session.userType==2">
-              <a class="dropdown-item" routerLink="/RegisterSubmit">Registrar Entrega</a>
-              <!--<a class="dropdown-item" routerLink="/RegisterChange">Registrar Cambios</a>-->
-              <a class="dropdown-item" routerLink="/settingClient">Ajuste Cliente</a>
-              <!-- Cuando es un admin-->
-              <div *ngIf="session.userState==2">
-                <div class="dropdown-divider linea"></div>
-                <a class="dropdown-item" routerLink="/EmployeeList">Lista Empleado</a>
-                <a class="dropdown-item" routerLink="/EventAdmin">Administrar Evento</a>
-                <a class="dropdown-item" routerLink="/ClaimList">Lista Reclamacion</a>
+  <nav class="navbar navbar-expand-md navbar-light bg-white">
+    <a class="navbar-brand mr-auto" href="#">
+      <img class="logo" src="../../assets/Storage/Logo.png" alt="Logo ScaleCycle">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="navbarOpciones mx-auto">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="Mapa">Mapa</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="Events">Eventos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="Premios">Premios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="Contactos">Contactos</a>
+          </li>
+        </ul>
+      </div>
+      <div class="dropdown-divider"></div>
+      <div class="navbarRegister">
+        <ul class="navbar-nav text-left">
+          <li class="nav-item" *ngIf="!isLogin">
+            <div class="btn-outline-info table-hover"></div>
+            <a class="nav-link register" (click)="openDialog()"><img class="fa fa-fw"
+                                                                     src="../../assets/Storage/SVG_Files/outline-person_outline-24px.svg"></a>
+          </li>
+          <li class="nav-item dropdown" *ngIf="isLogin">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
+              <img class="fa fa-fw" src="../../assets/Storage/SVG_Files/outline-person_outline-24px.svg">
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" routerLink="./{{Estado}}">Mi perfil</a>
+              <!-- Cuando es un cliente -->
+              <div *ngIf="session.userType==1">
+                <a class="dropdown-item" routerLink="/EventList">Lista de Eventos</a>
+                <a class="dropdown-item" routerLink="/SubmitHistory">Historial de Entrega</a>
+                <!--<a class="dropdown-item" routerLink="/ChangeHistory">Historial de Cambio</a>-->
+                <a class="dropdown-item" routerLink="/EventHistory">Historial de Evento</a>
               </div>
-            </div>
+              <!-- Cuando es un empleado -->
+              <div *ngIf="session.userType==2">
+                <a class="dropdown-item" routerLink="/RegisterSubmit">Registrar Entrega</a>
+                <!--<a class="dropdown-item" routerLink="/RegisterChange">Registrar Cambios</a>-->
+                <a class="dropdown-item" routerLink="/settingClient">Ajuste Cliente</a>
+                <!-- Cuando es un admin-->
+                <div *ngIf="session.userState==2">
+                  <div class="dropdown-divider linea"></div>
+                  <a class="dropdown-item" routerLink="/EmployeeList">Lista Empleado</a>
+                  <a class="dropdown-item" routerLink="/EventAdmin">Administrar Evento</a>
+                  <a class="dropdown-item" routerLink="/ClaimList">Lista Reclamacion</a>
+                </div>
+              </div>
 
-            <div class="dropdown-divider linea"></div>
-            <a class="dropdown-item" routerLink="/chart">Ranking</a>
-            <a class="dropdown-item" routerLink="/setting">Ajuste</a>
-            <a class="dropdown-item" routerLink="/qrcode">Generar QR Code</a>
-            <a class="dropdown-item" (click)="logout()">Logout</a>
-          </div>
-        </li>
-      </ul>
+              <div class="dropdown-divider linea"></div>
+              <a class="dropdown-item" routerLink="/chart">Estadistica</a>
+              <a class="dropdown-item" routerLink="/setting">Ajuste</a>
+              <a class="dropdown-item" routerLink="/qrcode">Generar QR Code</a>
+              <a class="dropdown-item" (click)="logout()">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 </div>

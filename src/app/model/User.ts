@@ -9,9 +9,6 @@ export class User {
   estado;
   token?: string;
 
-  public static printUser(user: User): void {
-    console.log('Nombre: ' + user.nombre);
-  }
 }
 
 

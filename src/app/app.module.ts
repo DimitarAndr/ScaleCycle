@@ -7,7 +7,6 @@ import {DataTablesModule} from 'angular-datatables';
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {NavbarComponent} from './navbar/navbar.component';
-//Ouxiang Lin
 import {MatDialogModule} from '@angular/material/dialog';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {ClientProfileComponent} from './client-profile/client-profile.component';
@@ -38,8 +37,6 @@ import { SubmitDetailComponent } from './submit-detail/submit-detail.component';
 import { EventListComponent } from './event-list/event-list.component';
 import { QrcodeComponent } from './qrcode/qrcode.component';
 import { QRCodeModule } from 'angularx-qrcode';
-//import { SweetAlertService } from 'angular-sweetalert-service';
-//Dimitar
 import {FooterComponent} from './footer/footer.component';
 import {AgmCoreModule} from '@agm/core';
 import {AgmSnazzyInfoWindowModule} from '@agm/snazzy-info-window';
@@ -148,9 +145,7 @@ const rutas = [
     }),                         // Dimitar
     AgmSnazzyInfoWindowModule,  // Dimitar
     AgmJsMarkerClustererModule, // Dimitar
-    //FilterPipeModule,           // Dimitar
     DataTablesModule,
-    //FilterPipeModule,           // Dimitar
     ReactiveFormsModule,        // Dimitar
     MatInputModule,             // Dimitar
     MatAutocompleteModule,      // Dimitar
