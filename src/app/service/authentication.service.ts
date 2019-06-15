@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
 import {User} from '../model/User';
 import {Router} from '@angular/router';
 
@@ -33,16 +32,9 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
-    return this.http.get<any>(this.url + '?query={"username":"' + username + '","password":"' + password + '"}', this.httpOptions)
-      .pipe(map(user => {
-        for (const data of user) {
-          if (user && data.username === username && data.password === password) {
-            localStorage.setItem('currentUser', JSON.stringify(data));
-            this.currentUserSubject.next(data);
-            return user;
-          }
-        }
-      }));
+   return this.http.get<User>(this.url + '?query={"username":"' + username + '","password":"' + password + '"}',
+      this.httpOptions);
+
   }
 
   logout() {

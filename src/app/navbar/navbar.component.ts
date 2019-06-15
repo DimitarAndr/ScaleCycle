@@ -1,8 +1,11 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material';
 import {LoginComponent} from '../login/login.component';
 import {Globals} from '../globals/globals';
+import {AuthenticationService} from '../service/authentication.service';
+import {User} from '../model/User';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -10,38 +13,33 @@ import {Globals} from '../globals/globals';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public dialog: MatDialog,private router: Router, private globals:Globals) {}
-  isLogin: boolean = false;
-  Estado:String = 'Client';
-  session = {};
-  openDialog():void {
-    let dialogRef = this.dialog.open(LoginComponent, {
-      
-    });
-    /*dialogRef.afterClosed().subscribe(result => {
-    	console.log("gg");
-    })*/
+  user: User;
+  isLoggedIn;
+
+  constructor(public dialog: MatDialog, private router: Router,
+              private globals: Globals, private authService: AuthenticationService) {
+  }
+
+
+  openDialog(): void {
+    this.dialog.open(LoginComponent, {});
   }
 
   ngOnInit() {
-    if(sessionStorage.getItem('user') != null){
-      this.session = JSON.parse(sessionStorage.getItem('user'));
-      if (this.session['userType']==2) {
-        if (this.session['userState']==2) {
-          this.Estado = "Employee";
-        }else{
-          this.Estado = "Admin";
-        }
+    debugger;
+    if (sessionStorage.getItem('user') != null) {
+      this.user = JSON.parse(sessionStorage.getItem('user'));
+      if (this.user) {
+        this.isLoggedIn = true;
+        console.log(this.user + ' ' + this.isLoggedIn);
       }
-      this.isLogin = true;
-    }else{
-      this.isLogin = false;
+    } else {
+      this.isLoggedIn = false;
     }
   }
-  logout(){
-    sessionStorage.removeItem('user');
-    sessionStorage.clear();
-    window.location.replace(this.globals['ScaleCycle']);
+
+  logout() {
+    this.authService.logout();
   }
 
 }

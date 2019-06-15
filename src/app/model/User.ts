@@ -7,6 +7,7 @@ export class User {
   username;
   password;
   estado;
+  role;
   token?: string;
 
 }

@@ -1,47 +1,35 @@
-<h2 mat-dialog-title class="text-center">Login ({{typeUser}})</h2>
+<h2 mat-dialog-title class="text-center">Login</h2>
 <mat-dialog-content>
-  <b id="error" *ngIf='!loginStatud'>{{msgError}}</b>
   <div class="container">
-    <form class="form" #loginForm="ngForm" (ngSubmit)="onSubmit()" id="login" novalidate>
-      <div class="form-row">
+    <form class="form" #loginForm="ngForm" id="login" (ngSubmit)="onSubmit()">
+      <div class=" form-row">
         <div class="form-group col-md-12">
           <label for="username">Username</label>
-            <input type="text" class="form-control" name="username" id="username" placeholder="Introduce tu Username"
-                   [(ngModel)]="user.username" #username="ngModel">
+          <input type="text" class="form-control" name="username" id="username" placeholder="Introduce tu Username"
+                 [(ngModel)]="username">
         </div>
-
-        <div class="btn btn-primary" (click)="checkUser()">CheckUser</div>
 
         <div class="form-group col-md-12">
           <label for="password">Password</label>
           <div class="form-group input-group">
-            <input type="password" class="form-control" name="password" id="password" placeholder="Introduce tu Password"
-                   [(ngModel)]="user.password" #password="ngModel"
-                   [ngClass]="{'is-invalid':loginForm.submitted && password.invalid}" ngModel>
-            </div>
-          </div>
-        </div>
-      <div class="dropdown">
-        <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown" style="width: 100%;">
-          Avanzado
-        </button>
-        <div class="dropdown-menu" style="width: 100%;">
-          <div class="radio">
-            <label><input type="radio" name="type" [(ngModel)]="user.type" value="1" (ngModelChange)="changeType()">Cliente</label>
-            <div class="dropdown-divider"></div>
-            <label><input type="radio" name="type" [(ngModel)]="user.type" value="2" (ngModelChange)="changeType()">Empleado</label>
+            <input type="password" class="form-control" name="password" id="password"
+                   placeholder="Introduce tu Password"
+                   [(ngModel)]="password">
           </div>
         </div>
       </div>
+
     </form>
     <button class="mx-auto recuperarContrasena" mat-button mat-dialog-close routerLink="./recoverPassword">
       <span class="recuperar">Recuperar Contraseña</span></button>
-
   </div>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
   <div class="container text-center mb-4">
-    <button type="submit" class="btn btn-outline-success mx-auto" form="login">Login</button>
+    <button type="submit" class="btn btn-outline-success mx-auto" [disabled]="!loginForm.form.valid"
+            form="login">
+      Login
+    </button>
   </div>
   <button class="registerLogin mx-auto" mat-button mat-dialog-close routerLink="./Register">No tienes cuenta, <span
     class="registrate">Registrate ahora</span></button>

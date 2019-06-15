@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {User} from '../model/User';
 
 @Component({
   selector: 'app-admin-profile',
@@ -7,11 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminProfileComponent implements OnInit {
 
-  constructor() { }
-  session:any;
+  user: User;
+
+  constructor() {
+
+  }
+
+
   ngOnInit() {
-  	this.session = JSON.parse(sessionStorage.getItem('user'));
-  	console.log(JSON.parse(sessionStorage.getItem('user')));
+    this.user = JSON.parse(localStorage.getItem('user'));
   }
 
 }

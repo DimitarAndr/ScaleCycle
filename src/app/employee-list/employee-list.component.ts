@@ -1,62 +1,67 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import {Globals} from '../globals/globals';
-import { Subject } from 'rxjs';
-import { DataTableDirective } from 'angular-datatables';
+import {Subject} from 'rxjs';
+import {DataTableDirective} from 'angular-datatables';
 import {MatDialog} from '@angular/material';
-import { EmployeeDetailComponent } from '../employee-detail/employee-detail.component';
+import {EmployeeDetailComponent} from '../employee-detail/employee-detail.component';
+
 @Component({
   selector: 'app-employee-list',
   templateUrl: './employee-list.component.html',
   styleUrls: ['./employee-list.component.css']
 })
 export class EmployeeListComponent implements OnInit {
-	//type:string ="3";
-	employeeList: any;
-	//isNull:boolean = false;
-	dtTrigger = new Subject();
+  //type:string ="3";
+  employeeList: any;
+  //isNull:boolean = false;
+  dtTrigger = new Subject();
   //x:boolean = false;
 
-	@ViewChild(DataTableDirective)
-	dtElement: DataTableDirective;
-  constructor(private globals:Globals, private http:HttpClient, private dialog:MatDialog) { }
+  @ViewChild(DataTableDirective)
+  dtElement: DataTableDirective;
+
+  constructor(private globals: Globals, private http: HttpClient, private dialog: MatDialog) {
+  }
 
   ngOnInit() {
-		this.filter();
-  	/*this.http.get(this.globals['SERVER']+'/getAllEmployee').subscribe(data => {
-			if (data['error']) {
-				//this.createStatud = false;
-				//this.msgError = data['error'].text;
-			}else{
-				//this.createStatud = true;
-				//this.msgError = null;
-				this.employeeList = data;
-				console.log(this.employeeList);
-			}
-		});*/
+    this.filter();
+    /*this.http.get(this.globals['SERVER']+'/getAllEmployee').subscribe(data => {
+            if (data['error']) {
+                //this.createStatud = false;
+                //this.msgError = data['error'].text;
+            }else{
+                //this.createStatud = true;
+                //this.msgError = null;
+                this.employeeList = data;
+                console.log(this.employeeList);
+            }
+        });*/
   }
-  openDialog(employee):void {
+
+  openDialog(employee): void {
     let dialogRef = this.dialog.open(EmployeeDetailComponent, {
       /*'width': '330px',
 		  'height': '400px',*/
-		  'data': {
-		    'employee': employee
-		  }
+      'data': {
+        'employee': employee
+      }
     });
   }
-  newEmployee(){
-  	let dialogRef = this.dialog.open(EmployeeDetailComponent, {
+
+  newEmployee() {
+    let dialogRef = this.dialog.open(EmployeeDetailComponent, {
       /*'width': '330px',
 		  'height': '400px',*/
-		  'data':{
-		  	vista:'newEmployee'
-		  }
+      'data': {
+        vista: 'newEmployee'
+      }
     });
   }
+
   /*filter(){
-  	
-  	
+
+
   	var error = false;
   	var string = "";
   	switch (this.type) {
@@ -82,7 +87,7 @@ export class EmployeeListComponent implements OnInit {
   	}
   	if(!error){
   		this.http.get(this.globals['SERVER']+string).subscribe(data => {
-  			
+
 				if (data['error']) {
 					this.isNull = true;
 					this.employeeList = null;
@@ -102,44 +107,49 @@ export class EmployeeListComponent implements OnInit {
 			});
   	}
   }*/
-  filter(){
-		this.http.get(this.globals['SERVER']+"/getAllEmployee").subscribe(data => {
-			
-			if (data['error']) {
-				//this.createStatud = false;
-				//this.msgError = data['error'].text;
-			}else{
-				//this.createStatud = true;
-				//this.msgError = null;
-				this.employeeList = data;
-				this.dtTrigger.next();
-				this.valid();
-			}
-		});
+  filter() {
+    this.http.get(this.globals['SERVER'] + '/getAllEmployee').subscribe(data => {
+
+      if (data['error']) {
+        //this.createStatud = false;
+        //this.msgError = data['error'].text;
+      } else {
+        //this.createStatud = true;
+        //this.msgError = null;
+        this.employeeList = data;
+        this.dtTrigger.next();
+        this.valid();
+      }
+    });
   }
-	locked():void{
-		this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      dtInstance.column(4).search("\^Bloqueado\$",true,false).draw();
+
+  locked(): void {
+    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+      dtInstance.column(4).search('\^Bloqueado\$', true, false).draw();
     });
-	}
-	empleado():void{
-		this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      dtInstance.column(4).search("\^Empleado\$",true,false).draw();
+  }
+
+  empleado(): void {
+    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+      dtInstance.column(4).search('\^Empleado\$', true, false).draw();
     });
-	}
-	administrador():void{
-		this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      dtInstance.column(4).search("\^Administrador\$",true,false).draw();
+  }
+
+  administrador(): void {
+    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+      dtInstance.column(4).search('\^Administrador\$', true, false).draw();
     });
-	}
-	valid():void{
-		this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      dtInstance.column(4).search("\^Empleado|Administrador\$",true,false).draw();
+  }
+
+  valid(): void {
+    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+      dtInstance.column(4).search('\^Empleado|Administrador\$', true, false).draw();
     });
-	}
-	all():void{
-		this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-			dtInstance.column(4).search("\^Bloqueado|Empleado|Administrador\$",true,false).draw();
-		});
-	}
+  }
+
+  all(): void {
+    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
+      dtInstance.column(4).search('\^Bloqueado|Empleado|Administrador\$', true, false).draw();
+    });
+  }
 }
