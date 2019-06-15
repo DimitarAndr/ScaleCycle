@@ -7,6 +7,7 @@ export class User {
   username;
   password;
   estado;
+  token?: string;
 
   public static printUser(user: User): void {
     console.log('Nombre: ' + user.nombre);

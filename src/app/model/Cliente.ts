@@ -12,5 +12,7 @@ export class Cliente extends User {
   direccion;
   puntos;
   oculto;
+  role;
+  token;
 }
 

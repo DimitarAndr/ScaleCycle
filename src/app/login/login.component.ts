@@ -8,6 +8,7 @@ import {ToastrService} from 'ngx-toastr';
 import {LoginService} from '../service/login.service';
 import {User} from '../model/User';
 import {map} from 'rxjs/operators';
+import {AuthenticationService} from '../service/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent implements OnInit {
 
 
   constructor(public dialogRef: MatDialogRef<LoginComponent>, private route: ActivatedRoute,
-              private http: HttpClient, private router: Router, private loginService: LoginService,
+              private http: HttpClient, private router: Router, private  authService: AuthenticationService,
               private globals: Globals, private toastr: ToastrService) {
   }
 
@@ -132,6 +133,12 @@ export class LoginComponent implements OnInit {
         }
         //sessionStorage.setItem('userState',"1");
       }
+    });
+  }
+
+  checkUser() {
+    this.authService.login('gogo', 'gogo').subscribe((data) => {
+      console.log(data);
     });
   }
 }
