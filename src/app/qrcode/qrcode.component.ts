@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {User} from '../model/User';
 
 @Component({
   selector: 'app-qrcode',
@@ -6,18 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./qrcode.component.css']
 })
 export class QrcodeComponent implements OnInit {
-	qrText: string = null;
-	session:any;
-  constructor() { }
+  qrText: string = null;
+  user: User;
+
+  constructor() {
+  }
 
   ngOnInit() {
-  	this.session = (JSON.parse(sessionStorage.getItem('user')));
-  	this.qrText = JSON.stringify({
-  		userId : this.session.userId,
-  		userType : this.session.userType,
-  		userName: this.session.userName,
-  		userLastName: this.session.userLastName
-  	});
+    this.user = (JSON.parse(localStorage.getItem('user')));
+    this.qrText = JSON.stringify({
+      userId: this.user._id,
+      userType: this.user.role,
+      userName: this.user.username,
+      userLastName: this.user.apellido
+    });
   }
 
 }

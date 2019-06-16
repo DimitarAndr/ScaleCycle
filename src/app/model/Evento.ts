@@ -1,5 +1,5 @@
-export class Evento {
-  id;
+export interface Evento {
+  _id;
   titulo: string;
   lugar: string;
   descripcion: string;
@@ -7,5 +7,6 @@ export class Evento {
   fecha: string;
   horaInicio: string;
   horaFinal: string;
+  estado;
   idEmpleado;
 }

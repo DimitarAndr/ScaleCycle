@@ -24,13 +24,13 @@ export class PremiosSingleComponent implements OnInit {
   categoria;
   quantitatPremio = 1;
   array: any = ['1', '2'];
-  session = {
+  user = {
     premios: []
   };
 
   ngOnInit() {
-    this.session = JSON.parse(sessionStorage.getItem('user'));
-    sessionStorage.setItem('user', JSON.stringify(this.session));
+    this.user = JSON.parse(localStorage.getItem('user'));
+    localStorage.setItem('user', JSON.stringify(this.user));
 
     this.route.params.subscribe(params => {
       this.id = params.id;
@@ -80,37 +80,37 @@ export class PremiosSingleComponent implements OnInit {
 
   addPremio(premio) {
 
-    //Iniciar session: si no hay BBDD
-    if (!sessionStorage.getItem('user') || sessionStorage.getItem('user') === 'null') {
+    //Iniciar user: si no hay BBDD
+    if (!localStorage.getItem('user') || localStorage.getItem('user') === 'null') {
 
-      sessionStorage.setItem('url', window.location.pathname);
+      localStorage.setItem('url', window.location.pathname);
 
 
       const dialogRef = this.dialog.open(LoginComponent, {});
 
-      sessionStorage.setItem('user', JSON.stringify(this.session));
+      localStorage.setItem('user', JSON.stringify(this.user));
     } else {
       const premioSession = [premio._id, premio.id, premio.nombre, premio.descripcion, premio.categoria, premio.puntos, premio.cantidad, this.quantitatPremio];
 
 
-      if (sessionStorage.getItem('user') != null) {
+      if (localStorage.getItem('user') != null) {
 
-        this.session = JSON.parse(sessionStorage.getItem('user'));
+        this.user = JSON.parse(localStorage.getItem('user'));
 
-        if (!this.session.premios || this.session.premios == null) {
-          this.session.premios = [[]];
+        if (!this.user.premios || this.user.premios == null) {
+          this.user.premios = [[]];
         }
 
-        for (let i = 0; i < this.session.premios.length; i++) {
-          if (premioSession[0] === this.session.premios[i][0]) {
-            const cantidad = this.session.premios[i][5];
-            this.session.premios.splice(i, 1);
+        for (let i = 0; i < this.user.premios.length; i++) {
+          if (premioSession[0] === this.user.premios[i][0]) {
+            const cantidad = this.user.premios[i][5];
+            this.user.premios.splice(i, 1);
             premioSession[5] += cantidad * 1;
           }
         }
 
-        this.session.premios.push(premioSession);
-        sessionStorage.setItem('user', JSON.stringify(this.session));
+        this.user.premios.push(premioSession);
+        localStorage.setItem('user', JSON.stringify(this.user));
 
 
         this.router.navigate(['/cart']);

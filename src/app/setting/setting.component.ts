@@ -4,6 +4,7 @@ import {HttpClient} from '@angular/common/http';
 import {Globals} from '../globals/globals';
 import {ToastrService} from 'ngx-toastr';
 import {NgForm} from '@angular/forms';
+import {User} from '../model/User';
 
 
 @Component({
@@ -17,7 +18,7 @@ export class SettingComponent implements OnInit {
   htmlForm: NgForm;
 
   vistaForm = 'datoP';
-  session: any;
+  user: User;
   employee = {
     'Id': '',
     'Username': '',
@@ -25,25 +26,7 @@ export class SettingComponent implements OnInit {
     'Name': '',
     'LastName': ''
   };
-  user: any = {
-    'Apellido': '',
-    'Avatar': '',
-    'Direccion': '',
-    'Email': '',
-    'Estado': '',
-    'FechaNacimiento': '',
-    'Genero': '',
-    'Id': '',
-    'Identificador': '',
-    'Localidad': '',
-    'Nombre': '',
-    'Oculto': '',
-    'Password': '',
-    'Puntos': '',
-    'Telefono': '',
-    'TipoIdentificador': '',
-    'Username': ''
-  }
+
   isClient: boolean;
   localidades = ['Barcelona', 'Hospitalet de Llobregat', 'Badalona'];
 
@@ -51,11 +34,11 @@ export class SettingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.session = JSON.parse(sessionStorage.getItem('user'));
+    this.user = JSON.parse(localStorage.getItem('user'));
     //Cliente
-    if (this.session.userType == '1') {
+    if (this.user.role == 'Cliente') {
       this.isClient = true;
-      this.http.get(this.globals['SERVER'] + '/getClient/' + this.session['userId']).subscribe(data => {
+      this.http.get(this.globals['SERVER'] + '/getClient/' + this.user['userId']).subscribe(data => {
         if (data['error']) {
           this.toastr.warning('Falla Por Cargar Informacion De Usuario, Por Favor Volver a Loguearse', 'Warning');
         } else {
@@ -67,9 +50,9 @@ export class SettingComponent implements OnInit {
         }
       });
       //Empleado
-    } else if (this.session.userType == '2') {
+    } else if (this.user.role == 'Admin') {
       this.isClient = false;
-      this.http.get(this.globals['SERVER'] + '/getEmployee/' + this.session['userId']).subscribe(data => {
+      this.http.get(this.globals['SERVER'] + '/getEmployee/' + this.user['userId']).subscribe(data => {
         if (data['error']) {
           this.toastr.warning('Falla Por Cargar Informacion De Usuario, Por Favor Volver a Loguearse', 'Warning');
         } else {

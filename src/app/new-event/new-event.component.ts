@@ -30,7 +30,7 @@ export class NewEventComponent implements OnInit {
   }
 
   onSubmit() {
-    this.event['Id_empleado'] = JSON.parse(sessionStorage.getItem('user'))['userId'];
+    this.event['Id_empleado'] = JSON.parse(localStorage.getItem('user'))['userId'];
 
     this.http.post(this.globals['SERVER'] + '/newEvnet', this.event).subscribe(data => {
       if (data['error']) {

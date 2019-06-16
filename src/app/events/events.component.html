@@ -1,34 +1,32 @@
-<div class="container-fluid mb-4 mt-4">
-  <div class="container">
-    <div id="eventos" class="row view-group" *ngFor="let event of eventos">
-      <div class="item list-group-item col-xs-4 col-lg-4">
-        <div class="thumbnail card mt-3" style="border-radius: 10px">
-          <div class="img-event" style="min-height: 100%">
-            <img class="group list-group-image img-fluid"
-                 src="./assets/Storage/Eventos/{{event.Id}}.jpg" alt=""
-                 style="border-top-left-radius:10px;border-bottom-left-radius:10px"/>
+<app-navbar></app-navbar>
+<div class="container">
+  <div id="eventos" class="row view-group" *ngFor="let event of eventos">
+    <div class="card mb-3 mx-auto" style="max-width: 800px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img class="group list-group-image img-fluid"
+               src="./assets/Storage/Eventos/{{event._id}}.jpg" alt=""/>
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <h4 class="card-title">{{event.titulo}}</h4>
+            <p class="card-text">Fecha: {{event.fecha}}</p>
+            <p class="card-text">
+              <small >Hora: {{event.horaInicio}} - {{event.horaFinal}}</small>
+            </p>
+            <p class="card-text text-muted" style="width: 800px">{{event.descripcion}}</p>
           </div>
-          <div class=" caption card-body">
-            <h4 class="group card-title inner list-group-item-heading ml-2 text-center titulo-evento">
-              {{event.Titulo}}</h4>
-            <p class="group inner list-group-item-text ml-2 descripcion-evento">{{event.Descripcion}}</p>
-            <p class="text-capitalize ml-2 mb-0 mt-0 fecha-hora">Fecha: {{event.Fecha}}</p>
-            <p class="text-capitalize ml-2 mb-0 mt-0 fecha-hora">hora: {{event.HoraInicio}} - {{event.HoraFinal}}</p>
-            <div class="row">
-              <div class="col-xs-12 col-md-6 mt-4">
-                <p class="lead font-weight-bold ml-2">
-                  Bonus: {{event.Puntos}} Puntos</p>
-              </div>
-              <div class="col-xs-12 col-md-6 mt-3">
-                <a class="btn btn-outline-success btn-lg float-right" (click)="unirseEvento(event)"><img
-                  class="mx-auto d-block"
-                  src="../../assets/Storage/SVG_Files/recycled-bagEventos1.svg"
-                  style="height: 5vh;"
-                  alt="Image Events">
-                  <span style="font-size:smaller;">Participar</span></a>
-              </div>
-            </div>
-          </div>
+        </div>
+        <div class="col-md-2 text-center my-auto">
+          <a class="btn btn-outline-success btn-lg" (click)="unirseEvento(event)"><img
+            class="mx-auto d-block"
+            src="../../assets/Storage/SVG_Files/recycled-bagEventos1.svg"
+            style="height: 4vh;"
+            alt="Image Events">
+            <span style="font-size:smaller;">Participar</span></a>
+          <p class="card-text">
+            <small class="text-muted">Puntos: {{event.puntos}}</small>
+          </p>
         </div>
       </div>
     </div>

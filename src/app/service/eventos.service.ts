@@ -8,7 +8,7 @@ import {Evento} from '../model/Evento';
 })
 export class EventosService {
 
-  url = 'https://baas.kinvey.com/appdata/kid_BkbjwXQ5N/Eventos/';
+  url = 'https://baas.kinvey.com/appdata/kid_BkbjwXQ5N/Evento/';
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json',

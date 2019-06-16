@@ -1,3 +1,4 @@
+<app-navbar></app-navbar>
 <div class="row">
 	<div class="col-lg-6"><h2 mat-dialog-title>Evento:{{event.Id}} ({{event.Titulo}})</h2></div>
 	<div class="col-lg-6"><h2 mat-dialog-title>Participante:{{participant.IdCliente}} ({{participant.Nombre}} {{participant.Apellido}})</h2></div>
@@ -29,7 +30,7 @@
 			<div class="container">
 			  <button class="btn btn-primary" (click)="getPaericipante()" *ngIf="aux">Participante</button>
 			  <button class="btn btn-primary" (click)="getevento()" *ngIf="!aux">Evento</button>
-			  <button mat-button mat-dialog-close>Cerrar</button> 
+			  <button mat-button mat-dialog-close>Cerrar</button>
 			</div>
 		</mat-dialog-actions>
 	</div>

@@ -31,7 +31,7 @@ export class CartComponent implements OnInit {
       this.session.premios = [[]];
     }
 
-    this.session = JSON.parse(sessionStorage.getItem('user'));
+    this.session = JSON.parse(localStorage.getItem('user'));
     for (let i = 0; i < this.session.premios.length; i++) {
       if (this.session.premios[0].length == 0) {
         i = 1;
@@ -74,14 +74,14 @@ export class CartComponent implements OnInit {
     this.calcularSumTotal(this.premiosCart);
     this.session.premios = this.premiosCart;
     this.sum = this.calcularSumTotal(this.premiosCart);
-    sessionStorage.setItem('user', JSON.stringify(this.session));
+    localStorage.setItem('user', JSON.stringify(this.session));
   }
 
   saveToSessionStorage(premioCart) {
     this.premiosCart.map(premio => this.premiosCart.find(premioCart => premioCart[0] === premio._id) || this.premiosCart);
     console.log(this.premiosCart);
     this.session.premios = this.premiosCart;
-    sessionStorage.setItem('user', JSON.stringify(this.session));
+    localStorage.setItem('user', JSON.stringify(this.session));
   }
 
   calcularSumTotal(premiosCart) {
@@ -116,7 +116,7 @@ export class CartComponent implements OnInit {
         this.toastr.warning('Error intente de nuevo más tarde', 'Warning');
       }, () => {
         this.session.premios = [];
-        sessionStorage.setItem('user', JSON.stringify(this.session));
+        localStorage.setItem('user', JSON.stringify(this.session));
         this.premiosCart = [];
         this.sum = 0;
         this.toastr.success('Su premio será enviado pronto!', 'Success');

@@ -1,7 +1,7 @@
 <div class="container">
   <nav class="navbar navbar-expand-md navbar-light bg-white">
     <a class="navbar-brand mr-auto" href="#">
-      <img class="logo" src="../../assets/Storage/Logo.png" alt="Logo ScaleCycle">
+      <img class="logo" src="../../../assets/Storage/Logo.png" alt="Logo ScaleCycle">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,16 +11,16 @@
       <div class="navbarOpciones mx-auto">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" routerLink="Mapa">Mapa</a>
+            <a class="nav-link" routerLink="/Mapa">Mapa</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="Events">Eventos</a>
+            <a class="nav-link" routerLink="/Events">Eventos</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="Premios">Premios</a>
+            <a class="nav-link" routerLink="/Premios">Premios</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="Contactos">Contactos</a>
+            <a class="nav-link" routerLink="/Contactos">Contactos</a>
           </li>
         </ul>
       </div>
@@ -31,29 +31,26 @@
           <li class="nav-item" *ngIf="!isLoggedIn">
             <div class="btn-outline-info table-hover"></div>
             <a class="nav-link register" (click)="openDialog()"><img class="fa fa-fw"
-                                                                     src="../../assets/Storage/SVG_Files/outline-person_outline-24px.svg"></a>
+                                                                     src="../../../assets/Storage/SVG_Files/outline-person_outline-24px.svg"></a>
           </li>
-
           <li class="nav-item dropdown" *ngIf="isLoggedIn">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false">
-              <img class="fa fa-fw" src="../../assets/Storage/SVG_Files/outline-person_outline-24px.svg">
+              <img class="fa fa-fw" src="../../../assets/Storage/SVG_Files/outline-person_outline-24px.svg">
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" routerLink="./{{user[0].role}}">Mi perfil</a>
-              <!-- Cuando es un cliente -->
+              <a class="dropdown-item" routerLink="/{{user[0].role}}">Mi perfil</a>
               <div *ngIf="user[0].role==='Cliente'">
                 <a class="dropdown-item" routerLink="/EventList">Lista de Eventos</a>
                 <a class="dropdown-item" routerLink="/SubmitHistory">Historial de Entrega</a>
-                <!--<a class="dropdown-item" routerLink="/ChangeHistory">Historial de Cambio</a>-->
+                <a class="dropdown-item" routerLink="/ChangeHistory">Historial de Cambio</a>
                 <a class="dropdown-item" routerLink="/EventHistory">Historial de Evento</a>
               </div>
-              <!-- Cuando es un empleado -->
               <div *ngIf="user[0].role=='Admin'">
                 <a class="dropdown-item" routerLink="/RegisterSubmit">Registrar Entrega</a>
-                <!--<a class="dropdown-item" routerLink="/RegisterChange">Registrar Cambios</a>-->
+                <a class="dropdown-item" routerLink="/RegisterChange">Registrar Cambios</a>
                 <a class="dropdown-item" routerLink="/settingClient">Ajuste Cliente</a>
-                <!-- Cuando es un admin-->
+
                 <div *ngIf="user[0].role=='Admin'">
                   <div class="dropdown-divider linea"></div>
                   <a class="dropdown-item" routerLink="/EmployeeList">Lista Empleado</a>

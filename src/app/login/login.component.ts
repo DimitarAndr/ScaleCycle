@@ -6,6 +6,7 @@ import {MatDialogRef} from '@angular/material';
 import {Globals} from '../globals/globals';
 import {ToastrService} from 'ngx-toastr';
 import {AuthenticationService} from '../service/authentication.service';
+import {User} from '../model/User';
 
 @Component({
   selector: 'app-login',
@@ -14,12 +15,12 @@ import {AuthenticationService} from '../service/authentication.service';
 })
 export class LoginComponent {
 
+  user: User;
 
-  constructor(public dialogRef: MatDialogRef<LoginComponent>, private route: ActivatedRoute,
+  constructor(public dialogRef: MatDialogRef<LoginComponent>,
               private http: HttpClient, private router: Router, private  authService: AuthenticationService,
               private globals: Globals, private toastr: ToastrService) {
   }
-
 
   @ViewChild('loginForm')
   loginForm: NgForm;
@@ -32,20 +33,20 @@ export class LoginComponent {
     this.authService.login(username, password).subscribe(user => {
       if (user[0] && user[0].username === username && user[0].password === password) {
         localStorage.setItem('user', JSON.stringify(user));
-
         if (user[0].role === 'Cliente') {
-          this.router.navigate(['/SubmitHistory']);
           this.dialogRef.close();
+          this.router.navigate(['/SubmitHistory']);
+
         }
         if (user[0].role === 'Admin') {
-          this.router.navigate(['/Admin']);
           this.dialogRef.close();
+          this.router.navigate(['/Admin']);
+
         }
       } else {
         this.toastr.warning('Invalid Username or Password');
       }
-    }, () => this.toastr.warning('Invalid Username or Password'));
+    });
 
   }
-
 }

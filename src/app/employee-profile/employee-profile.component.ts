@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {User} from '../model/User';
 
 @Component({
   selector: 'app-employee-profile',
@@ -7,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeProfileComponent implements OnInit {
 
-  constructor() { }
-	session:any;
+  constructor() {
+  }
+
+  user: User;
+
   ngOnInit() {
-		this.session = JSON.parse(sessionStorage.getItem('user'));
-  	console.log(JSON.parse(sessionStorage.getItem('user')));
+    this.user = JSON.parse(localStorage.getItem('user'));
+    console.log(JSON.parse(localStorage.getItem('user')));
   }
 
 }
