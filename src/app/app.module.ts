@@ -45,7 +45,6 @@ import {PremiosComponent} from './premios/premios.component';
 import {MatAutocompleteModule, MatInputModule} from '@angular/material';
 import {ContactosComponent} from './contactos/contactos.component';
 import {Estacion} from './model/Estacion';
-import {Evento} from './model/Evento';
 import {Premio} from './model/Premio';
 import {PremiosSingleComponent} from './premios-single/premios-single.component';
 import {CartComponent} from './cart/cart.component';
@@ -54,9 +53,8 @@ import {EventsComponent} from './events/events.component';
 import {ToastrModule} from 'ngx-toastr';
 import {ChartComponent} from './chart/chart.component';
 import {ChartsModule} from 'ng2-charts';
-import { NavAdminComponent } from './navbar/nav-admin/nav-admin.component';
-
-
+import {NavAdminComponent} from './navbar/nav-admin/nav-admin.component';
+import {Participation} from './model/Participation';
 
 
 @NgModule({
