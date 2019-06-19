@@ -21,29 +21,29 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-				<tr *ngFor = "let event of events" (click)="openDialog(event.Id)">
-					<td>{{event.Id}}</td>
-					<td class="line-limit-length">{{event.Titulo}}</td>
-					<td class="line-limit-length">{{event.Descripcion}}</td>
-					<td class="line-limit-length">{{event.Lugar}}</td>
-					<td>{{event.Fecha}}</td>
-					<td>{{event.HoraInicio}}</td>
-					<td>{{event.HoraFinal}}</td>
-					<td>{{event.Puntos}}</td>
-					<td>{{event.Id_empleado}}</td>
+				<tr *ngFor = "let event of events" (click)="openDialog(event._id)">
+					<td>{{event._id}}</td>
+					<td class="line-limit-length">{{event.titulo}}</td>
+					<td class="line-limit-length">{{event.descripcion}}</td>
+					<td class="line-limit-length">{{event.lugar}}</td>
+					<td>{{event.fecha}}</td>
+					<td>{{event.horaInicio}}</td>
+					<td>{{event.horaFinal}}</td>
+					<td>{{event.puntos}}</td>
+					<td>{{event.idEmpleado}}</td>
 				</tr>
 		  </tbody>
 		  <tfoot>
 		    <tr>
-		      <th><input type="text" placeholder="Id"/></th>
-		      <th><input type="text" placeholder="Titulo"/></th>
-		      <th><input type="text" placeholder="Descripcion"/></th>
-		      <th><input type="text" placeholder="Lugar"/></th>
-		      <th><input type="text" placeholder="Fecha"/></th>
-		      <th><input type="text" placeholder="Hora Inicio"/></th>
-		      <th><input type="text" placeholder="Hora Final"/></th>
-		      <th><input type="text" placeholder="Puntos"/></th>
-		      <th><input type="text" placeholder="Creador"/></th>
+          <th>ID</th>
+          <th>Titulo</th>
+          <th>Descripcion</th>
+          <th>Lugar</th>
+          <th>Fecha</th>
+          <th>Hora Inicio</th>
+          <th>Hora Final</th>
+          <th>Puntos</th>
+          <th>Creador</th>
 		    </tr>
 		  </tfoot>
 		</table>

@@ -6,6 +6,8 @@ import {DataTableDirective} from 'angular-datatables';
 import {MatDialog} from '@angular/material';
 import {EventDetailComponent} from '../event-detail/event-detail.component';
 import {NewEventComponent} from '../new-event/new-event.component';
+import {EventAdminService} from '../service/event-admin.service';
+import {Evento} from '../model/Evento';
 
 
 @Component({
@@ -14,52 +16,37 @@ import {NewEventComponent} from '../new-event/new-event.component';
   styleUrls: ['./event-admin.component.css']
 })
 export class EventAdminComponent implements OnInit {
-  events: any;
+  events: Evento[];
   dtTrigger = new Subject();
   @ViewChild(DataTableDirective)
   dtElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
 
-  constructor(public dialog: MatDialog, private http: HttpClient) {
+  constructor(public dialog: MatDialog, private http: HttpClient, private eventAdmin: EventAdminService) {
   }
 
   ngOnInit() {
-    /*this.dtOptions = {
+
+    //Defining datatable options
+    this.dtOptions = {
       responsive: true
     };
-    this.http.get(this.globals['SERVER'] + '/getAllEvent').subscribe(data => {
-      if (data['error']) {
-      } else {
-        this.events = data;
-        this.dtTrigger.next();
-        this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-          dtInstance.columns().every(function () {
-            const that = this;
-            $('input', this.footer()).on('keyup change', function () {
-              if (that.search() !== this['value']) {
-                that
-                  .search(this['value'])
-                  .draw();
-              }
-            });
-          });
-        });
-      }
-    });*/
-  }
 
-  openDialog(id): void {
-    let dialogRef = this.dialog.open(EventDetailComponent, {
-      /*'width': '330px',
-		  'height': '400px',*/
-      'data': {
-        'id': id
-      }
+    this.eventAdmin.getAllEventosAdmin().subscribe(data => {
+      this.events = data;
+      this.dtTrigger.next();
+
     });
   }
 
-  filter(): void {
+  openDialog(event) {
+    const dialogRef = this.dialog.open(EventDetailComponent, event
+    );
+  }
 
+  filter()
+    :
+    void {
   }
 
   newEvent() {
