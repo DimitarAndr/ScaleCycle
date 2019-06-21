@@ -1,12 +1,15 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {Component, OnInit, Inject} from '@angular/core';
 import {Globals} from '../globals/globals';
-import {MAT_DIALOG_DATA, MatDialog} from '@angular/material';
+import {MatDialog} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
 import {ParticipateDetailComponent} from '../participate-detail/participate-detail.component';
 import {Evento} from '../model/Evento';
-
-//import { Subject } from 'rxjs';
-//import { DataTableDirective } from 'angular-datatables';
+import {EventosService} from '../service/eventos.service';
+import {role} from '../service/role.service';
+import {UserService} from '../service/user.service';
+import {EventParticipationService} from '../service/event-participation.service';
+import {Participation} from '../model/Participation';
+import {User} from '../model/User';
 
 @Component({
   selector: 'app-event-detail',
@@ -21,70 +24,46 @@ export class EventDetailComponent implements OnInit {
         aux = 3 -> Modificar evento
     */
   aux = 1;
-  event: Evento;
-  participants: any;
+  evento: Evento;
+  participants: User[];
+  user: User;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private http: HttpClient, private globals: Globals, private dialog: MatDialog) {
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private eventosService: EventosService,
+              private globals: Globals, private dialog: MatDialog, private userService: UserService,
+              private participationService: EventParticipationService) {
   }
 
-  /*dtTrigger = new Subject();
-	@ViewChild(DataTableDirective)
-	dtElement: DataTableDirective;*/
-  employee = {
-    'Nombre': '',
-    'Apellido': ''
-  };
 
   ngOnInit() {
-    this.event = {};
-    console.log(this.data);
-    if (this.data['vista'] == 'public') {
-      this.aux = -1;
-      this.event = this.data['data'];
-    } else if (this.data['vista'] == 'client') {
-      this.aux = 0;
-      this.event = this.data['data'];
-    } else {
-      this.http.get(this.globals['SERVER'] + '/getEvent/' + this.data['id']).subscribe(data => {
-        if (data['error']) {
-          //this.createStatud = false;
-          //this.msgError =
-          data['error'].text;
-        } else {
-          this.event = data[0];
-          this.http.get(this.globals['SERVER'] + '/getEmployee/' + this.event['Id_empleado']).subscribe(employee => {
-            if (data['error']) {
-              //this.createStatud = false;
-              //this.msgError = data['error'].text;
-            } else {
-              this.employee = employee[0];
-            }
-          });
-          this.http.get(this.globals['SERVER'] + '/getAllParticipants/' + this.event['Id']).subscribe(participants => {
-            if (data['error']) {
-              //this.createStatud = false;
-              //this.msgError = data['error'].text;
-            } else {
-              this.participants = participants;
-              //this.dtTrigger.next();
-              /*this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-                          dtInstance.columns().every(function () {
-                            const that = this;
-                            $('input', this.footer()).on('keyup change', function () {
-                              if (that.search() !== this['value']) {
-                                that
-                                  .search(this['value'])
-                                  .draw();
-                              }
-                            });
-                          });
-                        });*/
-            }
-          });
-        }
+
+    // Useless for the moment will check later if i need it
+    /* if (this.data['vista'] == 'public') {
+       this.aux = -1;
+       this.event = this.data['data'];
+       }
+
+     if (this.data.vista === 'client') {
+       this.aux = 0;
+       this.event = this.data.data;
+     } else {*/
+
+
+    this.eventosService.getEventoById(this.data.event._id).subscribe(data => {
+      console.log(data);
+      this.evento = data;
+    });
+
+    this.userService.getUserById(this.data.event.idEmpleado).subscribe(user => {
+      console.log(user);
+      this.user = user[0];
+    });
+
+    this.participationService.getParticipantsByEventId(this.data.event._id).subscribe(participants => {
+      this.participationService.getUsersParticipating(participants).subscribe(users => {
+        this.participants = users;
       });
-    }
-    //console.log(this.dtElement);
+    });
   }
 
   /*ngAfterViewInit(): void {
@@ -101,18 +80,19 @@ export class EventDetailComponent implements OnInit {
       });
     });
   }*/
-  openDialog(idParticipant: number, idEvent: number): void {
-    var participant: any;
-    for (var i = 0; i < this.participants.length; i++) {
-      if (this.participants[i]['IdCliente'] == idParticipant) {
+  openDialog(idParticipant, idEvent): void {
+    let participant: User;
+
+    for (let i = 0; i < this.participants.length; i++) {
+      if (this.participants[i]._id == idParticipant) {
         participant = this.participants[i];
       }
     }
 
-    let dialogRef = this.dialog.open(ParticipateDetailComponent, {
-      'data': {
-        'participant': participant,
-        'event': this.event
+    const dialogRef = this.dialog.open(ParticipateDetailComponent, {
+      data: {
+        participant,
+        event: this.evento
       }
     });
   }
@@ -124,22 +104,22 @@ export class EventDetailComponent implements OnInit {
   }
 
   delete() {
-    this.http.delete(this.globals['SERVER'] + '/deleteEvent/' + this.event['Id']).subscribe(data => {
-      if (data['error']) {
+    /* this.http.delete(this.globals.SERVER + '/deleteEvent/' + this.evento._id).subscribe(data => {
+       if (data.error) {
 
-      } else {
-        window.location.replace(this.globals['ScaleCycle'] + '/EventAdmin');
-      }
-    });
+       } else {
+         window.location.replace(this.globals.ScaleCycle + '/EventAdmin');
+       }
+     });*/
   }
 
   onSubmit() {
-    this.http.put(this.globals['SERVER'] + '/modifyEvent', this.event).subscribe(data => {
-      if (data['error']) {
+    /*  this.http.put(this.globals.SERVER + '/modifyEvent', this.evento).subscribe(data => {
+        if (data.error) {
 
-      } else {
-        window.location.replace(this.globals['ScaleCycle'] + '/EventAdmin');
-      }
-    });
+        } else {
+          window.location.replace(this.globals.ScaleCycle + '/EventAdmin');
+        }
+      });*/
   }
 }

@@ -8,7 +8,7 @@ import {Cliente} from '../model/Cliente';
   providedIn: 'root'
 })
 
-export class LoginService {
+export class UserService {
 
   url = 'https://baas.kinvey.com/appdata/kid_BkbjwXQ5N/Users/';
   httpOptions = {
@@ -22,9 +22,14 @@ export class LoginService {
   constructor(private http: HttpClient) {
   }
 
-  checkUserLogin(): Observable<User> {
-    return this.http.get<User>(this.url + '5cbed2a325b7c52e19edf750', this.httpOptions);
+
+  getUserById(idEmpleado): Observable<User> {
+    return this.http.get<User>(this.url + idEmpleado, this.httpOptions);
   }
 
+  getAllUsersWithGivenIds(idUsers): Observable<User[]> {
+    return this.http.get <User[]>(this.url + '?query={"_id":{"$in":[' + idUsers + ']}}', this.httpOptions
+    );
+  }
 
 }

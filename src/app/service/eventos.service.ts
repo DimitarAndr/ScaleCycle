@@ -22,4 +22,9 @@ export class EventosService {
   getAllEventos(): Observable<Evento[]> {
     return this.http.get<Evento[]>(this.url, this.httpOptions);
   }
+
+  getEventoById(idEvento): Observable<Evento> {
+    return this.http.get<Evento>(this.url + idEvento, this.httpOptions);
+  }
+
 }

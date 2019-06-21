@@ -1,17 +1,17 @@
 <div class="row">
   <div class="col-lg-9" align="left">
     <h2 mat-dialog-title
-        [ngClass]="event['estado']==1?'text-warning':event['estado']==2?'text-success':event['estado']==3?'text-danger':''">
-      Evento:{{event._id}} ({{event.titulo}})</h2>
+        [ngClass]="evento['estado']==1?'text-warning':evento['estado']==2?'text-success':evento['estado']==3?'text-danger':''">
+      Evento:{{evento._id}} ({{evento.titulo}})</h2>
   </div>
   <div class="col-lg-3" align="right">
-    <button class="btn btn-primary m-1" *ngIf="aux=='1'" (click)="delete(event.Id)" mat-button mat-dialog-close>
+    <button class="btn btn-primary m-1" *ngIf="aux=='1'" (click)="delete(evento._id)" mat-button mat-dialog-close>
       Eliminar
     </button>
     <button class="btn btn-primary m-1" *ngIf="aux=='1'" (click)="changeEstado(3)">Modificar</button>
   </div>
 </div>
-<mat-dialog-content *ngIf="aux=='1' || aux==0 || aux==-1">
+<mat-dialog-content>
   <div class="row">
     <div class="col-lg-5">
       <div id="carouselExampleIndicators" style="height: 100%" class="carousel slide" data-ride="carousel">
@@ -23,7 +23,7 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
           </ol>
           <img class="group list-group-image img-fluid"
-               src="./assets/Storage/Eventos/{{event._id}}.jpg" alt=""
+               src="./assets/Storage/Eventos/{{evento._id}}.jpg" alt=""
                style="border-top-left-radius:10px;border-bottom-left-radius:10px"/>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -35,23 +35,22 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-      <!--<img src="https://img.pngio.com/horizontal-png-horizontal-road-road-horizon-png-1024_683.jpg" alt="imagen de evento" width="100%">-->
+      <!--<img src="https://img.pngio.com/horizontal-png-horizontal-road-road-horizon-png-1024_683.jpg" alt="imagen de eventoo" width="100%">-->
     </div>
     <div class="col-lg-7">
-      <p><b>Id: </b>{{event._id}}</p>
-      <p><b>Titulo: </b>{{event.titulo}}</p>
-      <p><b>Descripcion: </b>{{event.descripcion}}</p>
-      <p><b>Lugar: </b>{{event.lugar}}</p>
-      <p><b>Fecha: </b>{{event.fecha}}</p>
-      <p><b>Hora Inicio: </b>{{event.horaInicio}}</p>
-      <p><b>Hora Final: </b>{{event.horaFinal}}</p>
-      <p><b>Puntos: </b>{{event.puntos}}</p>
-      <p><b>Estado: </b>{{event.estado==0?'Cancelado':event.estado==1?'Activo':event.estado==2?'Finalizado':'Estado
-        Desconocido'}}</p>a
-      <p *ngIf="aux==1"><b>Creador: </b>{{employee.nombre}} {{employee.pellido}}</p>
-      <p *ngIf="aux==0"><b>Descripcion sobre participante: </b>{{event.descripcionP}}</p>
-      <p *ngIf="aux==0"><b>Estado sobre Participante: </b>{{event.EstadoP==0?'No
-        Presentado':event.EstadoP==1?'Presentado':event.EstadoP==2?'Completo':'Estado Desconocido'}}</p>
+      <p><b>Id: </b>{{evento._id}}</p>
+      <p><b>Titulo: </b>{{evento.titulo}}</p>
+      <p><b>Descripcion: </b>{{evento.descripcion}}</p>
+      <p><b>Lugar: </b>{{evento.lugar}}</p>
+      <p><b>Fecha: </b>{{evento.fecha}}</p>
+      <p><b>Hora Inicio: </b>{{evento.horaInicio}}</p>
+      <p><b>Hora Final: </b>{{evento.horaFinal}}</p>
+      <p><b>Puntos: </b>{{evento.puntos}}</p>
+      <p><b>Estado: </b>{{evento.estado==0?'Cancelado':evento.estado==1?'Activo':evento.estado==2?'Finalizado':'Estado:Desconocido'}}
+      </p>a
+      <p *ngIf="aux==1"><b>Creador: </b>{{user.nombre}} {{user.apellido}}</p>
+      <p *ngIf="aux==0"><b>Descripcion sobre participante: </b>{{evento.descripcion}}</p>
+      <p *ngIf="aux==0"><b>Estado sobre Participante: </b>{{evento.estado==0?'No Presentado':evento.estado==1?'Presentado':evento.estado==2?'Completo':'estado Desconocido'}}</p>
 
     </div>
   </div>
@@ -72,14 +71,14 @@
       </thead>
       <tbody>
       <tr *ngFor="let participant of participants" (click)="openDialog(participant.IdCliente, participant.IdEvento)"
-          [ngClass]="(participant.Estado==0)?'bg-danger':(participant.Estado==1)?'bg-warning':'bg-success'">
-        <td>{{participant.Identificador}}</td>
-        <td>{{participant.Username}}</td>
-        <td>{{participant.Nombre}}</td>
-        <td>{{participant.Apellido}}</td>
-        <td>{{participant.Telefono}}</td>
-        <td class="line-limit-length">{{participant.Descripcion}}</td>
-        <td>{{participant.Estado==0?'No Presentado':participant.Estado==1?'Presentado':'Completo'}}</td>
+          [ngClass]="(participant.estado==0)?'bg-danger':(participant.estado==1)?'bg-warning':'bg-success'">
+        <td>{{participant._id}}</td>
+        <td>{{participant.username}}</td>
+        <td>{{participant.nombre}}</td>
+        <td>{{participant.apellido}}</td>
+        <td>{{participant.telefono}}</td>
+        <td class="line-limit-length">{{participant.descripcion}}</td>
+        <td>{{participant.estado==0?'No Presentado':participant.estado==1?'Presentado':'Completo'}}</td>
       </tr>
       </tbody>
       <!--<tfoot>
@@ -101,53 +100,54 @@
   <div class="row">
     <div class="col-md-6" align="center">
       <img class="group list-group-image img-fluid"
-           src="./assets/Storage/Eventos/{{event.Id}}.jpg" alt=""
+           src="./assets/Storage/Eventos/{{evento._id}}.jpg" alt=""
            style="border-top-left-radius:10px;border-bottom-left-radius:10px"/>
     </div>
     <div class="col-md-6">
       <b id="error" *ngIf='!createStatud'>{{msgError}}</b>
       <form class="form" #modifyEvent="ngForm" (ngSubmit)="onSubmit()" id="modifyEvent">
-        <b>Crear nuevo evento</b>
+        <b>Crear nuevo eventoo</b>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="title">Titulo</label>
-            <input type="text" class="form-control" name="title" [(ngModel)]="event.titulo" id="title"
+            <input type="text" class="form-control" name="title" [(ngModel)]="evento.titulo" id="title"
                    placeholder="Introduce Titulo">
           </div>
           <div class="form-group col-md-6">
             <label for="location">Lugar</label>
-            <input type="text" class="form-control" name="location" [(ngModel)]="event.lugar" id="location"
+            <input type="text" class="form-control" name="location" [(ngModel)]="evento.lugar" id="location"
                    placeholder="Introduce Lugar">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-12">
             <label for="Description">Descripcion</label>
-            <textarea class="md-textarea form-control" rows="5" name="Description" [(ngModel)]="event.descripcion"
+            <textarea class="md-textarea form-control" rows="5" name="Description" [(ngModel)]="evento.descripcion"
                       id="Description" placeholder="Introduce Descripcion"></textarea>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-4">
             <label for="points">Puntos</label>
-            <input type="number" minlength="0" class="form-control" name="points" [(ngModel)]="event.puntos" id="points"
+            <input type="number" minlength="0" class="form-control" name="points" [(ngModel)]="evento.puntos"
+                   id="points"
                    placeholder="Introduce Puntos">
           </div>
           <div class="form-group col-md-8">
             <label for="date">Fecha</label>
-            <input type="date" class="form-control" name="date" [(ngModel)]="event.fecha" id="date"
+            <input type="date" class="form-control" name="date" [(ngModel)]="evento.fecha" id="date"
                    placeholder="Introduce su Fecha">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
             <label for="startTime">Hora Inicial</label>
-            <input type="time" class="form-control" name="startTime" [(ngModel)]="event.horaInicio" id="startTime"
+            <input type="time" class="form-control" name="startTime" [(ngModel)]="evento.horaInicio" id="startTime"
                    placeholder="Introduce Hora Inicial">
           </div>
           <div class="form-group col-md-6">
             <label for="endTime">Hora Final</label>
-            <input type="time" class="form-control" name="endTime" [(ngModel)]="event.horaFinal" id="endTime"
+            <input type="time" class="form-control" name="endTime" [(ngModel)]="evento.horaFinal" id="endTime"
                    placeholder="Introduce Hora Final">
           </div>
         </div>

@@ -21,7 +21,7 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-				<tr *ngFor = "let event of events" (click)="openDialog(event._id)">
+				<tr *ngFor = "let event of events" (click)="openDialog(event)">
 					<td>{{event._id}}</td>
 					<td class="line-limit-length">{{event.titulo}}</td>
 					<td class="line-limit-length">{{event.descripcion}}</td>

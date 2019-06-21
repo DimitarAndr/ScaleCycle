@@ -28,6 +28,7 @@ import {QrcodeComponent} from './qrcode/qrcode.component';
 import {RecoverPasswordComponent} from './recover-password/recover-password.component';
 import {SettingComponent} from './setting/setting.component';
 import {AuthClienteGuard} from './guards/auth-cliente.guard';
+import {EventDetailComponent} from './event-detail/event-detail.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -109,8 +110,8 @@ const routes: Routes = [
   },
   {
     path: 'EventAdmin',
-    component: EventAdminComponent,
-    canActivate: [AuthAdminGuard]
+    canActivate: [AuthAdminGuard],
+    component: EventAdminComponent
   },
   {
     path: 'ClaimList',
@@ -124,7 +125,7 @@ const routes: Routes = [
   {
     path: 'ChangeHistory',
     component: ChangeHistoryComponent,
-    canActivate: [AuthAdminGuard]
+    canActivate: [AuthClienteGuard]
   },
   {
     path: 'EventHistory',

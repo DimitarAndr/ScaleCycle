@@ -6,8 +6,8 @@ import {DataTableDirective} from 'angular-datatables';
 import {MatDialog} from '@angular/material';
 import {EventDetailComponent} from '../event-detail/event-detail.component';
 import {NewEventComponent} from '../new-event/new-event.component';
-import {EventAdminService} from '../service/event-admin.service';
 import {Evento} from '../model/Evento';
+import {EventosService} from '../service/eventos.service';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class EventAdminComponent implements OnInit {
   dtElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
 
-  constructor(public dialog: MatDialog, private http: HttpClient, private eventAdmin: EventAdminService) {
+  constructor(public dialog: MatDialog, private http: HttpClient, private eventos: EventosService) {
   }
 
   ngOnInit() {
@@ -32,7 +32,7 @@ export class EventAdminComponent implements OnInit {
       responsive: true
     };
 
-    this.eventAdmin.getAllEventosAdmin().subscribe(data => {
+    this.eventos.getAllEventos().subscribe(data => {
       this.events = data;
       this.dtTrigger.next();
 
@@ -40,8 +40,11 @@ export class EventAdminComponent implements OnInit {
   }
 
   openDialog(event) {
-    const dialogRef = this.dialog.open(EventDetailComponent, event
-    );
+    const dialogRef = this.dialog.open(EventDetailComponent, {
+      data: {
+        event: event
+      }
+    });
   }
 
   filter()
