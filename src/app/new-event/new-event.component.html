@@ -3,13 +3,13 @@
     <img class="ml-5" src="./assets/Storage/SVG_Files/recycled-bagEventos1.svg" width="200px" alt="recycling bags"><br/>
   </div>
   <div class="col-md-6">
-    <b id="error" *ngIf='!createStatud'>{{msgError}}</b>
+    <b id="error" *ngIf='!createStatus'>{{msgError}}</b>
     <form class="form" #newEvent="ngForm" (ngSubmit)="onSubmit()" id="newEvent">
       <b>Crea nueva evento</b>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="title">Titulo</label>
-          <input type="text" class="form-control" name="title" [(ngModel)]="event.Titulo" id="title"
+          <label for="titulo">Titulo</label>
+          <input type="text" class="form-control" name="titulo" [(ngModel)]="titulo" id="titulo"
                  placeholder="Introduce Titulo" required>
           <div class="alert alert-danger"
                *ngIf="newEvent?.controls.title?.touched && newEvent?.controls.title?.errors?.required">
@@ -17,8 +17,8 @@
           </div>
         </div>
         <div class="form-group col-md-6">
-          <label for="location">Lugar</label>
-          <input type="text" class="form-control" name="location" [(ngModel)]="event.Lugar" id="location"
+          <label for="lugar">Lugar</label>
+          <input type="text" class="form-control" name="lugar" [(ngModel)]="lugar" id="lugar"
                  placeholder="Introduce Lugar" required>
           <div class="alert alert-danger"
                *ngIf="newEvent?.controls.location?.touched && newEvent?.controls.location?.errors?.required">
@@ -28,32 +28,32 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-12">
-          <label for="Description">Descripcion</label>
-          <textarea class="md-textarea form-control" rows="5" name="Description" [(ngModel)]="event.Descripcion"
-                    id="Description" placeholder="Introduce Descripcion"></textarea>
+          <label for="descripcion">Descripcion</label>
+          <textarea class="md-textarea form-control" rows="5" name="descripcion" [(ngModel)]="descripcion"
+                    id="descripcion" placeholder="Introduce Descripcion"></textarea>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-4">
-          <label for="points">Puntos</label>
-          <input type="number" minlength="0" class="form-control" name="points" [(ngModel)]="event.Puntos" id="points"
+          <label for="puntos">Puntos</label>
+          <input type="number" minlength="0" class="form-control" name="puntos" [(ngModel)]="puntos" id="puntos"
                  placeholder="Introduce Puntos">
         </div>
         <div class="form-group col-md-8">
           <label for="date">Fecha</label>
-          <input type="date" class="form-control" name="date" [(ngModel)]="event.Fecha" id="date"
+          <input type="date" class="form-control" name="date" [(ngModel)]="fecha" id="date"
                  placeholder="Introduce su Fecha">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="startTime">Hora Inicial</label>
-          <input type="time" class="form-control" name="startTime" [(ngModel)]="event.HoraInicio" id="startTime"
+          <label for="horaInicio">Hora Inicial</label>
+          <input type="time" class="form-control" name="horaInicio" [(ngModel)]="horaInicio" id="horaInicio"
                  placeholder="Introduce Hora Inicial">
         </div>
         <div class="form-group col-md-6">
-          <label for="endTime">Hora Final</label>
-          <input type="time" class="form-control" name="endTime" [(ngModel)]="event.HoraFinal" id="endTime"
+          <label for="horaFinal">Hora Final</label>
+          <input type="time" class="form-control" name="horaFinal" [(ngModel)]="horaFinal" id="horaFinal"
                  placeholder="Introduce Hora Final">
         </div>
       </div>
