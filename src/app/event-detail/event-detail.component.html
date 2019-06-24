@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-lg-9" align="left">
     <h2 mat-dialog-title
-        [ngClass]="evento['estado']==1?'text-warning':evento['estado']==2?'text-success':evento['estado']==3?'text-danger':''">
+        *ngIf="evento?.estado == 0 ? 'text-warning':evento?.estado == 1 ? 'text-success':evento?.estado  == 2 ? 'text-danger':''">
       Evento:{{evento._id}} ({{evento.titulo}})</h2>
   </div>
   <div class="col-lg-3" align="right">
@@ -11,7 +11,7 @@
     <button class="btn btn-primary m-1" *ngIf="aux=='1'" (click)="changeEstado(3)">Modificar</button>
   </div>
 </div>
-<mat-dialog-content>
+<mat-dialog-content *ngIf="aux=='1' || aux=='2'">
   <div class="row">
     <div class="col-lg-5">
       <div id="carouselExampleIndicators" style="height: 100%" class="carousel slide" data-ride="carousel">
@@ -23,7 +23,7 @@
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
           </ol>
           <img class="group list-group-image img-fluid"
-               src="./assets/Storage/Eventos/{{evento._id}}.jpg" alt=""
+               src="./assets/Storage/Eventos/{{evento?._id}}.jpg" alt=""
                style="border-top-left-radius:10px;border-bottom-left-radius:10px"/>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -35,22 +35,25 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-      <!--<img src="https://img.pngio.com/horizontal-png-horizontal-road-road-horizon-png-1024_683.jpg" alt="imagen de eventoo" width="100%">-->
+      <!--  <img class="group list-group-image img-fluid"
+             src="./assets/Storage/Eventos/{{evento?._id}}.jpg" alt=""
+             style="border-top-left-radius:10px;border-bottom-left-radius:10px"/>-->
     </div>
     <div class="col-lg-7">
-      <p><b>Id: </b>{{evento._id}}</p>
-      <p><b>Titulo: </b>{{evento.titulo}}</p>
-      <p><b>Descripcion: </b>{{evento.descripcion}}</p>
-      <p><b>Lugar: </b>{{evento.lugar}}</p>
-      <p><b>Fecha: </b>{{evento.fecha}}</p>
-      <p><b>Hora Inicio: </b>{{evento.horaInicio}}</p>
-      <p><b>Hora Final: </b>{{evento.horaFinal}}</p>
-      <p><b>Puntos: </b>{{evento.puntos}}</p>
-      <p><b>Estado: </b>{{evento.estado==0?'Cancelado':evento.estado==1?'Activo':evento.estado==2?'Finalizado':'Estado:Desconocido'}}
-      </p>a
-      <p *ngIf="aux==1"><b>Creador: </b>{{user.nombre}} {{user.apellido}}</p>
+      <p><b>Id: </b>{{evento?._id}}</p>
+      <p><b>Titulo: </b>{{evento?.titulo}}</p>
+      <p><b>Descripcion: </b>{{evento?.descripcion}}</p>
+      <p><b>Lugar: </b>{{evento?.lugar}}</p>
+      <p><b>Fecha: </b>{{evento?.fecha}}</p>
+      <p><b>Hora Inicio: </b>{{evento?.horaInicio}}</p>
+      <p><b>Hora Final: </b>{{evento?.horaFinal}}</p>
+      <p><b>Puntos: </b>{{evento?.puntos}}</p>
+      <p><b>Estado: </b>{{evento?.estado==0?'Cancelado':evento?.estado==1?'Activo':evento?.estado==2?'Finalizado':'Estado:Desconocido'}}
+      </p>
+      <p *ngIf="aux==1"><b>Creador: </b>{{user?.nombre}} {{user?.apellido}}</p>
       <p *ngIf="aux==0"><b>Descripcion sobre participante: </b>{{evento.descripcion}}</p>
-      <p *ngIf="aux==0"><b>Estado sobre Participante: </b>{{evento.estado==0?'No Presentado':evento.estado==1?'Presentado':evento.estado==2?'Completo':'estado Desconocido'}}</p>
+      <p *ngIf="aux==0"><b>Estado sobre Participante: </b>{{evento.estado==0?'No
+        Presentado':evento.estado==1?'Presentado':evento.estado==2?'Completo':'estado Desconocido'}}</p>
 
     </div>
   </div>

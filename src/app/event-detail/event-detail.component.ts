@@ -2,14 +2,13 @@ import {Component, OnInit, Inject} from '@angular/core';
 import {Globals} from '../globals/globals';
 import {MatDialog} from '@angular/material';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material';
-import {ParticipateDetailComponent} from '../participate-detail/participate-detail.component';
 import {Evento} from '../model/Evento';
 import {EventosService} from '../service/eventos.service';
-import {role} from '../service/role.service';
 import {UserService} from '../service/user.service';
 import {EventParticipationService} from '../service/event-participation.service';
-import {Participation} from '../model/Participation';
 import {User} from '../model/User';
+import {ToastrService} from 'ngx-toastr';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-event-detail',
@@ -20,7 +19,7 @@ export class EventDetailComponent implements OnInit {
   /*
         aux = 0 -> Definicion de envento (vista cliente)
         aux = 1 -> Definicion de evento
-        aux = 2 -> Participante de evento
+        aux = 2 -> Participantes de evento
         aux = 3 -> Modificar evento
     */
   aux = 1;
@@ -31,7 +30,8 @@ export class EventDetailComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private eventosService: EventosService,
               private globals: Globals, private dialog: MatDialog, private userService: UserService,
-              private participationService: EventParticipationService) {
+              private participationService: EventParticipationService, private toastr: ToastrService,
+              private router: Router) {
   }
 
 
@@ -49,13 +49,16 @@ export class EventDetailComponent implements OnInit {
      } else {*/
 
 
-    this.eventosService.getEventoById(this.data.event._id).subscribe(data => {
-      console.log(data);
+    this.eventosService.getEventById(this.data.event._id).subscribe(data => {
       this.evento = data;
+
+      console.log(this.evento.estado);
+
+    }, () => {
+      alert('Error');
     });
 
     this.userService.getUserById(this.data.event.idEmpleado).subscribe(user => {
-      console.log(user);
       this.user = user[0];
     });
 
@@ -66,51 +69,23 @@ export class EventDetailComponent implements OnInit {
     });
   }
 
-  /*ngAfterViewInit(): void {
-    this.dtElement.dtInstance.then((dtInstance: DataTables.Api) => {
-      dtInstance.columns().every(function () {
-        const that = this;
-        $('input', this.footer()).on('keyup change', function () {
-          if (that.search() !== this['value']) {
-            that
-              .search(this['value'])
-              .draw();
-          }
-        });
-      });
-    });
-  }*/
-  openDialog(idParticipant, idEvent): void {
-    let participant: User;
-
-    for (let i = 0; i < this.participants.length; i++) {
-      if (this.participants[i]._id == idParticipant) {
-        participant = this.participants[i];
-      }
-    }
-
-    const dialogRef = this.dialog.open(ParticipateDetailComponent, {
-      data: {
-        participant,
-        event: this.evento
-      }
-    });
-  }
-
   changeEstado(estado) {
     if (estado >= 1 && estado <= 3) {
       this.aux = estado;
     }
   }
 
-  delete() {
-    /* this.http.delete(this.globals.SERVER + '/deleteEvent/' + this.evento._id).subscribe(data => {
-       if (data.error) {
+  delete(idEvento) {
+    this.eventosService.deleteEvent(idEvento).subscribe(data => {
 
-       } else {
-         window.location.replace(this.globals.ScaleCycle + '/EventAdmin');
-       }
-     });*/
+      }, () => {
+        this.toastr.error('Could not remove the event, please retry later', 'Error');
+      },
+      () => {
+        this.toastr.success('You removed the event with id ' + idEvento, 'Success');
+        this.router.getCurrentNavigation();
+      });
+
   }
 
   onSubmit() {
