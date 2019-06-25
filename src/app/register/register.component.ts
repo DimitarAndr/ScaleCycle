@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
     'Gender': 'No definido',
     'Avatar': ''
   };
-  createStatud: boolean;
+  createStatus: boolean;
   msgError: String;
   genders: any = ['Hombre', 'Mujer'];
 
@@ -54,7 +54,7 @@ export class RegisterComponent implements OnInit {
       if (data['error']) {
         this.toastr.warning('Error Registrar', 'Warning');
       } else {
-        this.createStatud = true;
+        this.createStatus = true;
         this.msgError = null;
         this.toastr.success('Enviado Correo Para Validacion', 'Success');
         this.htmlForm.resetForm();

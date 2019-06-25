@@ -22,17 +22,17 @@ export class EventAdminComponent implements OnInit {
   dtElement: DataTableDirective;
   dtOptions: DataTables.Settings = {};
 
-  constructor(public dialog: MatDialog, private http: HttpClient, private eventos: EventosService) {
+  constructor(public dialog: MatDialog, private eventosService: EventosService) {
   }
 
   ngOnInit() {
 
-    //Defining datatable options
+    // Defining datatable options
     this.dtOptions = {
       responsive: true
     };
 
-    this.eventos.getAllEventos().subscribe(data => {
+    this.eventosService.getAllEvents().subscribe(data => {
       this.events = data;
       this.dtTrigger.next();
 
@@ -42,18 +42,13 @@ export class EventAdminComponent implements OnInit {
   openDialog(event) {
     const dialogRef = this.dialog.open(EventDetailComponent, {
       data: {
-        event: event
+        event
       }
     });
   }
 
-  filter()
-    :
-    void {
-  }
-
   newEvent() {
-    let dialogRef = this.dialog.open(NewEventComponent, {});
+    const dialogRef = this.dialog.open(NewEventComponent, {});
   }
 
 }

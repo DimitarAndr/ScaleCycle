@@ -29,7 +29,7 @@ export class EventsComponent implements OnInit {
   ngOnInit() {
     AOS.init();
 
-    this.eventosService.getAllEventos().subscribe((data: Evento[]) => {
+    this.eventosService.getAllEvents().subscribe((data: Evento[]) => {
         this.eventos = (data);
       },
       () => {

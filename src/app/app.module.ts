@@ -24,7 +24,6 @@ import {SettingClientComponent} from './setting-client/setting-client.component'
 import {EmployeeListComponent} from './employee-list/employee-list.component';
 import {EventAdminComponent} from './event-admin/event-admin.component';
 import {EventDetailComponent} from './event-detail/event-detail.component';
-import {ParticipateDetailComponent} from './participate-detail/participate-detail.component';
 import {NewEventComponent} from './new-event/new-event.component';
 import {ClaimListComponent} from './claim-list/claim-list.component';
 import {ClaimDetailComponent} from './claim-detail/claim-detail.component';
@@ -54,7 +53,7 @@ import {ToastrModule} from 'ngx-toastr';
 import {ChartComponent} from './chart/chart.component';
 import {ChartsModule} from 'ng2-charts';
 import {NavAdminComponent} from './navbar/nav-admin/nav-admin.component';
-import {Participation} from './model/Participation';
+
 
 
 @NgModule({
@@ -86,7 +85,6 @@ import {Participation} from './model/Participation';
     ClaimDetailComponent,
     EventDetailComponent,
     NewEventComponent,
-    ParticipateDetailComponent,
     EmployeeDetailComponent,
     SubmitHistoryComponent,
     ChangeHistoryComponent,
@@ -129,7 +127,6 @@ import {Participation} from './model/Participation';
     EventDetailComponent,
     NewEventComponent,
     ClaimDetailComponent,
-    ParticipateDetailComponent,
     EmployeeDetailComponent,
     SubmitDetailComponent
   ],

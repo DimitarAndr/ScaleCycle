@@ -28,12 +28,12 @@ export class EventParticipationService {
   constructor(private http: HttpClient, private userService: UserService) {
   }
 
-  signInPersonToEvent(idEvent, idUser) {
-    return this.http.post(this.url, {idEvento: idEvent, idCliente: idUser}, this.httpOptions);
+  signInPersonToEvent(idEvento, idUser) {
+    return this.http.post(this.url, {idEvento, idCliente: idUser}, this.httpOptions);
   }
 
-  getParticipantsByEventId(idEvent): Observable<Participation[]> {
-    return this.http.get<Participation[]>(this.url + '?query={"idEvento":"' + idEvent + '"}',
+  getParticipantsByEventId(idEvento): Observable<Participation[]> {
+    return this.http.get<Participation[]>(this.url + '?query={"idEvento":"' + idEvento + '"}',
       this.httpOptions);
   }
 
