@@ -19,12 +19,16 @@ export class EventosService {
   constructor(private http: HttpClient) {
   }
 
-  getAllEventos(): Observable<Evento[]> {
+  getAllEvents(): Observable<Evento[]> {
     return this.http.get<Evento[]>(this.url, this.httpOptions);
   }
 
-  getEventoById(idEvento): Observable<Evento> {
+  getEventById(idEvento): Observable<Evento> {
     return this.http.get<Evento>(this.url + idEvento, this.httpOptions);
+  }
+
+  deleteEvent(idEvento) {
+    return this.http.delete(this.url + idEvento, this.httpOptions);
   }
 
 }
